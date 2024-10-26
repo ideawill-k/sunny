@@ -12,32 +12,15 @@
        }
 
        .image-card {
-           position: relative;
            border-radius: 0.5rem;
            overflow: hidden;
+           background: #000;
+           cursor: pointer;
        }
 
-       .image-card img {
-           transition: transform 0.3s ease;
-       }
-
-       .image-card:hover img {
-           transform: scale(1.1);
-       }
-
-       .image-overlay {
-           position: absolute;
-           bottom: 0;
-           left: 0;
-           right: 0;
-           background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
-           padding: 1.5rem;
-           transform: translateY(0);
-           transition: transform 0.3s ease;
-       }
-
-       .image-card:hover .image-overlay {
-           transform: translateY(-5px);
+       .image-card:hover {
+           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+                       0 4px 6px -2px rgba(0, 0, 0, 0.05);
        }
    </style>
 </head>
@@ -98,57 +81,46 @@
 
        <!-- Tips Section -->
        <h3 class="text-xl font-bold mb-4">Tip & Checklist</h3>
-       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-           <div class="image-card aspect-[16/9] sm:aspect-[4/3] lg:aspect-[16/9]">
-               <img src="https://ideawill-k.github.io/sunny/images/main/airport_information.png" alt="공항 안내" 
-                    class="w-full h-full object-cover">
-               <div class="image-overlay">
-                   <h4 class="text-xl font-bold text-white mb-1">공항 안내</h4>
-                   <p class="text-sm text-white/90">공항 이용, 반입규정, 각종 알아 두어야 할 것들</p>
-               </div>
+       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+           <div class="image-card">
+               <img src="https://ideawill-k.github.io/sunny/images/main/airport_information.png" 
+                    alt="공항 안내" 
+                    class="w-full h-auto transition-transform duration-300 hover:scale-105">
            </div>
-           <div class="image-card aspect-[16/9] sm:aspect-[4/3] lg:aspect-[16/9]">
-               <img src="https://ideawill-k.github.io/sunny/images/main/Dutyfree_news.png" alt="면세점소식" 
-                    class="w-full h-full object-cover">
-               <div class="image-overlay">
-                   <h4 class="text-xl font-bold text-white mb-1">면세점소식</h4>
-                   <p class="text-sm text-white/90">면세 이벤트, 프로모션, 쇼핑리스트</p>
-               </div>
+           <div class="image-card">
+               <img src="https://ideawill-k.github.io/sunny/images/main/Dutyfree_news.png" 
+                    alt="면세점소식" 
+                    class="w-full h-auto transition-transform duration-300 hover:scale-105">
            </div>
-           <div class="image-card aspect-[16/9] sm:aspect-[4/3] lg:aspect-[16/9]">
-               <img src="https://ideawill-k.github.io/sunny/images/main/good_travel_destination.png" alt="여행지추천" 
-                    class="w-full h-full object-cover">
-               <div class="image-overlay">
-                   <h4 class="text-xl font-bold text-white mb-1">여행지추천</h4>
-                   <p class="text-sm text-white/90">핫 플레이스, 환전, 날씨 이거 보고가면 더 좋지!</p>
-               </div>
+           <div class="image-card">
+               <img src="https://ideawill-k.github.io/sunny/images/main/good_travel_destination.png" 
+                    alt="여행지추천" 
+                    class="w-full h-auto transition-transform duration-300 hover:scale-105">
            </div>
-           <div class="image-card aspect-[16/9] sm:aspect-[4/3] lg:aspect-[16/9]">
-               <img src="https://ideawill-k.github.io/sunny/images/main/good_travel_supplies.png" alt="이달의 추천상품" 
-                    class="w-full h-full object-cover">
-               <div class="image-overlay">
-                   <h4 class="text-xl font-bold text-white mb-1">이달의 추천상품</h4>
-               </div>
+           <div class="image-card">
+               <img src="https://ideawill-k.github.io/sunny/images/main/good_travel_supplies.png" 
+                    alt="이달의 추천상품" 
+                    class="w-full h-auto transition-transform duration-300 hover:scale-105">
            </div>
        </div>
 
        <!-- Footer -->
-<footer class="mt-16 pb-8 text-sm text-gray-600">
-   <div class="flex space-x-4 mb-4">
-       <div class="w-8 h-8 bg-green-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-       <div class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-       <div class="w-8 h-8 bg-pink-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-       <div class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-   </div>
-   <div class="space-y-1">
-       <p class="font-bold text-base mb-2">대명인터네셔널</p>
-       <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
-       <p class="leading-relaxed">제휴문의 : sunnycoupon@naver.com</p>
-       <p class="leading-relaxed">통신판매신고 : 제2018-부산남구-2047호</p>
-       <p class="leading-relaxed">부산광역시 남구 신선로 365, 317호</p>
-       <p class="mt-2">© Copyright 2019 SunnyCoupon. All Rights Reserved.</p>
-   </div>
-</footer>
+       <footer class="mt-16 pb-8 text-sm text-gray-600">
+           <div class="flex space-x-4 mb-4">
+               <div class="w-8 h-8 bg-green-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
+               <div class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
+               <div class="w-8 h-8 bg-pink-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
+               <div class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
+           </div>
+           <div class="space-y-1">
+               <p class="font-bold text-base mb-2">대명인터네셔널</p>
+               <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
+               <p class="leading-relaxed">제휴문의 : sunnycoupon@naver.com</p>
+               <p class="leading-relaxed">통신판매신고 : 제2018-부산남구-2047호</p>
+               <p class="leading-relaxed">부산광역시 남구 신선로 365, 317호</p>
+               <p class="mt-2">© Copyright 2019 SunnyCoupon. All Rights Reserved.</p>
+           </div>
+       </footer>
    </div>
 </body>
 </html>
