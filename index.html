@@ -10,50 +10,59 @@
        body {
            font-family: 'Pretendard', sans-serif;
        }
-
-       .image-card {
-           overflow: hidden;
-           background: #000;
-           cursor: pointer;
-       }
-
-       .image-card:hover {
-           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
-                       0 4px 6px -2px rgba(0, 0, 0, 0.05);
-       }
-
-       .drop-shadow-md {
-           filter: drop-shadow(0 2px 2px rgba(185, 28, 28, 0.25));
-       }
    </style>
 </head>
 <body>
-   <div class="max-w-6xl mx-auto px-4">
-       <!-- Header -->
-       <header class="flex justify-between items-center py-4">
-           <img src="https://ideawill-k.github.io/sunny/images/sunny_coupon_logo.png" 
-                alt="SUNNY COUPON" 
-                class="h-12 w-auto object-contain">
-           <nav class="space-x-6">
-               <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md">
-                   About
-                   <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-               </a>
-               <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md">
-                   면세할인
-                   <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-               </a>
-               <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md">
-                   여행편의
-                   <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-               </a>
-               <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md">
-                   여행할인
-                   <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-               </a>
-           </nav>
-       </header>
+   <!-- Header -->
+   <header class="border-b">
+       <div class="max-w-6xl mx-auto px-4">
+           <div class="flex items-center justify-between h-16">
+               <!-- Logo -->
+               <div class="flex-shrink-0">
+                   <img src="https://ideawill-k.github.io/sunny/images/sunny_coupon_logo.png" 
+                        alt="SUNNY COUPON" 
+                        class="h-12 w-auto">
+               </div>
 
+               <!-- Desktop Navigation -->
+               <nav class="hidden md:flex flex-1 justify-center space-x-8 ml-10">
+                   <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
+                       About
+                       <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
+                   </a>
+                   <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
+                       면세점할인
+                       <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
+                   </a>
+                   <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
+                       여행편의
+                       <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
+                   </a>
+                   <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
+                       여행할인
+                       <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
+                   </a>
+               </nav>
+
+               <!-- Mobile menu button -->
+               <button type="button" id="mobile-menu-button" class="md:hidden text-gray-900 hover:text-red-600 focus:outline-none">
+                   <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                   </svg>
+               </button>
+           </div>
+
+           <!-- Mobile menu -->
+           <div id="mobile-menu" class="hidden md:hidden pb-3">
+               <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">About</a>
+               <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">면세점할인</a>
+               <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">여행편의</a>
+               <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">여행할인</a>
+           </div>
+       </div>
+   </header>
+
+   <div class="max-w-6xl mx-auto px-4">
        <!-- Coupon Section -->
        <div class="bg-amber-100 rounded-lg p-8 my-8">
            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
@@ -99,25 +108,25 @@
        <!-- Tips Section -->
        <h3 class="text-xl font-bold mb-4">Tip & Checklist</h3>
        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-           <div class="image-card rounded-2xl">
+           <div class="rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
                <img src="https://ideawill-k.github.io/sunny/images/main/airport_information.png" 
                     alt="공항 안내" 
-                    class="w-full h-auto transition-transform duration-300 hover:scale-105 rounded-2xl">
+                    class="w-full h-auto rounded-2xl">
            </div>
-           <div class="image-card rounded-2xl">
+           <div class="rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
                <img src="https://ideawill-k.github.io/sunny/images/main/Dutyfree_news.png" 
                     alt="면세점소식" 
-                    class="w-full h-auto transition-transform duration-300 hover:scale-105 rounded-2xl">
+                    class="w-full h-auto rounded-2xl">
            </div>
-           <div class="image-card rounded-2xl">
+           <div class="rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
                <img src="https://ideawill-k.github.io/sunny/images/main/good_travel_destination.png" 
                     alt="여행지추천" 
-                    class="w-full h-auto transition-transform duration-300 hover:scale-105 rounded-2xl">
+                    class="w-full h-auto rounded-2xl">
            </div>
-           <div class="image-card rounded-2xl">
+           <div class="rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
                <img src="https://ideawill-k.github.io/sunny/images/main/good_travel_supplies.png" 
                     alt="이달의 추천상품" 
-                    class="w-full h-auto transition-transform duration-300 hover:scale-105 rounded-2xl">
+                    class="w-full h-auto rounded-2xl">
            </div>
        </div>
 
@@ -139,5 +148,13 @@
            </div>
        </footer>
    </div>
+
+   <!-- JavaScript for mobile menu toggle -->
+   <script>
+       document.getElementById('mobile-menu-button').addEventListener('click', function() {
+           const mobileMenu = document.getElementById('mobile-menu');
+           mobileMenu.classList.toggle('hidden');
+       });
+   </script>
 </body>
 </html>
