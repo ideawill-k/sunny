@@ -4,151 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunny Coupon</title>
-    
-    <!-- Pretendard 폰트 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <style>
-        body {
-            font-family: 'Pretendard', sans-serif;
+        .image-card {
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
         }
-
-        .image-container:hover img {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
-
         .image-overlay {
-            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
         }
     </style>
 </head>
-<body>
-    <div class="max-w-6xl mx-auto px-4">
-        <!-- Header -->
-        <header class="flex justify-between items-center py-4">
-            <div class="h-12">
-                <img src="/images/sunny_coupon_logo.png" alt="SUNNY COUPON" class="h-full w-auto object-contain" style="max-width: 200px">
-            </div>
-            <nav class="space-x-4">
-                <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
-                <a href="#" class="text-gray-600 hover:text-gray-900">면세할인</a>
-                <a href="#" class="text-gray-600 hover:text-gray-900">여행편의</a>
-                <a href="#" class="text-gray-600 hover:text-gray-900">여행할인</a>
-            </nav>
-        </header>
+<body class="max-w-6xl mx-auto px-4">
+    <!-- Header -->
+    <header class="flex justify-between items-center py-4">
+        <img src="./images/sunny_coupon_logo.png" alt="SUNNY COUPON" class="h-12">
+        <nav class="space-x-4">
+            <a href="#" class="text-gray-600">About</a>
+            <a href="#" class="text-gray-600">면세할인</a>
+            <a href="#" class="text-gray-600">여행편의</a>
+            <a href="#" class="text-gray-600">여행할인</a>
+        </nav>
+    </header>
 
-        <!-- Coupon Slider -->
-        <div class="relative bg-amber-100 rounded-lg p-8 my-8">
-            <div class="flex justify-between items-center">
-                <div class="w-1/2">
-                    <h2 class="text-4xl font-bold mb-4 tracking-tight">신세계면세점 할인쿠폰</h2>
+    <!-- Coupon Section -->
+    <div class="bg-amber-100 rounded-lg p-8 my-8">
+        <div class="flex justify-between items-center">
+            <h2 class="text-3xl font-bold">신세계면세점 할인쿠폰</h2>
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg p-4 flex justify-between items-center">
+                    <span>SHINSEGAE</span>
+                    <span>10,000</span>
                 </div>
-                <div class="w-1/2 space-y-4">
-                    <div class="bg-white rounded-lg p-4 flex justify-between items-center">
-                        <span class="font-bold tracking-tight">SHINSEGAE</span>
-                        <span class="text-xl tracking-tight">10,000</span>
-                    </div>
-                    <div class="bg-white rounded-lg p-4 flex justify-between items-center">
-                        <span class="font-bold tracking-tight">SHINSEGAE</span>
-                        <span class="text-xl tracking-tight">20,000</span>
-                    </div>
-                    <div class="bg-white rounded-lg p-4 flex justify-between items-center">
-                        <span class="font-bold tracking-tight">SHINSEGAE</span>
-                        <span class="text-xl tracking-tight">30,000</span>
-                    </div>
+                <div class="bg-white rounded-lg p-4 flex justify-between items-center">
+                    <span>SHINSEGAE</span>
+                    <span>20,000</span>
+                </div>
+                <div class="bg-white rounded-lg p-4 flex justify-between items-center">
+                    <span>SHINSEGAE</span>
+                    <span>30,000</span>
                 </div>
             </div>
         </div>
-
-        <!-- Free / Discount Coupon section -->
-        <h3 class="text-xl font-bold mb-4 tracking-tight">Free / Discount Coupon</h3>
-        
-        <!-- Categories -->
-        <div class="grid grid-cols-4 gap-4 my-8">
-            <div class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
-                <div class="text-2xl mb-2">📋</div>
-                <div class="font-medium tracking-tight">BEST 5</div>
-            </div>
-            <div class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
-                <div class="text-2xl mb-2">🛍</div>
-                <div class="font-medium tracking-tight">면세점</div>
-            </div>
-            <div class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
-                <div class="text-2xl mb-2">📄</div>
-                <div class="font-medium tracking-tight">여행편의</div>
-            </div>
-            <div class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
-                <div class="text-2xl mb-2">🎫</div>
-                <div class="font-medium tracking-tight">여행할인</div>
-            </div>
-        </div>
-
-        <!-- Tips & Checklist -->
-        <h3 class="text-xl font-bold mb-4 tracking-tight">Tip & Checklist</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <!-- 공항 안내 -->
-            <div class="relative rounded-lg overflow-hidden image-container">
-                <div class="aspect-[4/3] relative">
-                    <img src="/images/main/airport_information.png" alt="공항 안내" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="image-overlay absolute inset-0"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <h4 class="font-bold tracking-tight text-lg">공항 안내</h4>
-                        <p class="text-sm mt-1 opacity-90">공항 이용, 반입규정, 각종 알아 두어야 할 것들</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 면세점소식 -->
-            <div class="relative rounded-lg overflow-hidden image-container">
-                <div class="aspect-[4/3] relative">
-                    <img src="/images/main/Dutyfree_news.png" alt="면세점소식" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="image-overlay absolute inset-0"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <h4 class="font-bold tracking-tight text-lg">면세점소식</h4>
-                        <p class="text-sm mt-1 opacity-90">면세 이벤트, 프로모션, 쇼핑리스트</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 여행지추천 -->
-            <div class="relative rounded-lg overflow-hidden image-container">
-                <div class="aspect-[4/3] relative">
-                    <img src="/images/main/good_travel_destination.png" alt="여행지추천" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="image-overlay absolute inset-0"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <h4 class="font-bold tracking-tight text-lg">여행지추천</h4>
-                        <p class="text-sm mt-1 opacity-90">핫 플레이스, 환전, 날씨 이거 보고가면 더 좋지!</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 이달의 추천상품 -->
-            <div class="relative rounded-lg overflow-hidden image-container">
-                <div class="aspect-[4/3] relative">
-                    <img src="/images/main/good_travel_supplies.png" alt="이달의 추천상품" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="image-overlay absolute inset-0"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <h4 class="font-bold tracking-tight text-lg">이달의 추천상품</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer class="mt-16 pb-8 text-sm text-gray-600">
-            <div class="flex space-x-4 mb-4">
-                <div class="w-8 h-8 bg-green-500 rounded-full cursor-pointer hover:opacity-80"></div>
-                <div class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:opacity-80"></div>
-                <div class="w-8 h-8 bg-pink-500 rounded-full cursor-pointer hover:opacity-80"></div>
-                <div class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer hover:opacity-80"></div>
-            </div>
-            <p class="leading-relaxed">대표자: 신혜진 | 사업자등록번호: 172-40-00048 | info@sunnycoupon.com</p>
-            <p>© Copyright 2024 SunnyCoupon. All Rights Reserved</p>
-        </footer>
     </div>
+
+    <!-- Category Section -->
+    <h3 class="text-xl font-bold mb-4">Free / Discount Coupon</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div class="p-4 text-center bg-white rounded-lg shadow">
+            <div class="text-2xl mb-2">📋</div>
+            <div>BEST 5</div>
+        </div>
+        <div class="p-4 text-center bg-white rounded-lg shadow">
+            <div class="text-2xl mb-2">🛍</div>
+            <div>면세점</div>
+        </div>
+        <div class="p-4 text-center bg-white rounded-lg shadow">
+            <div class="text-2xl mb-2">📄</div>
+            <div>여행편의</div>
+        </div>
+        <div class="p-4 text-center bg-white rounded-lg shadow">
+            <div class="text-2xl mb-2">🎫</div>
+            <div>여행할인</div>
+        </div>
+    </div>
+
+    <!-- Tips Section -->
+    <h3 class="text-xl font-bold mb-4">Tip & Checklist</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="image-card">
+            <img src="./images/main/airport_information.png" alt="공항 안내">
+            <div class="image-overlay">
+                <h4 class="font-bold">공항 안내</h4>
+                <p class="text-sm">공항 이용, 반입규정, 각종 알아 두어야 할 것들</p>
+            </div>
+        </div>
+        <div class="image-card">
+            <img src="./images/main/Dutyfree_news.png" alt="면세점소식">
+            <div class="image-overlay">
+                <h4 class="font-bold">면세점소식</h4>
+                <p class="text-sm">면세 이벤트, 프로모션, 쇼핑리스트</p>
+            </div>
+        </div>
+        <div class="image-card">
+            <img src="./images/main/good_travel_destination.png" alt="여행지추천">
+            <div class="image-overlay">
+                <h4 class="font-bold">여행지추천</h4>
+                <p class="text-sm">핫 플레이스, 환전, 날씨 이거 보고가면 더 좋지!</p>
+            </div>
+        </div>
+        <div class="image-card">
+            <img src="./images/main/good_travel_supplies.png" alt="이달의 추천상품">
+            <div class="image-overlay">
+                <h4 class="font-bold">이달의 추천상품</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 pb-8 text-sm text-gray-600">
+        <div class="flex space-x-4 mb-4">
+            <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+            <div class="w-8 h-8 bg-yellow-500 rounded-full"></div>
+            <div class="w-8 h-8 bg-pink-500 rounded-full"></div>
+            <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
+        </div>
+        <p>대표자: 신혜진 | 사업자등록번호: 172-40-00048 | info@sunnycoupon.com</p>
+        <p>© Copyright 2024 SunnyCoupon. All Rights Reserved</p>
+    </footer>
 </body>
 </html>
