@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny Coupon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f8f8f8;
+        }
+        .logo {
+            color: #ff0000;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        .main-nav, .user-nav {
+            display: flex;
+        }
+        .user-nav {
+            flex-direction: column;
+            align-items: flex-end;
+            margin-left: 20px;
+        }
+        nav a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .banner-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        .banner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #00a086;
+            color: white;
+            padding: 40px;
+            box-sizing: border-box;
+            text-align: center;
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+        .banner.active {
+            display: block;
+            opacity: 1;
+        }
+        .banner h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .banner-tag {
+            background-color: #ffd700;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .section-title {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .coupon-types, .tips {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .coupon-type, .tip {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 250px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .image-container {
+            width: 250px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            margin-bottom: 10px;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+        }
+        footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #f8f8f8;
+                width: 200px;
+                padding: 20px;
+            }
+            nav.active {
+                display: flex;
+            }
+            .main-nav, .user-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .user-nav {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            nav a {
+                margin: 10px 0;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+        @media (max-width: 480px) {
+            .coupon-type, .tip {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SUNNY COUPON</div>
+        <nav>
+            <div class="main-nav">
+                <a href="#">About</a>
+                <a href="#">면세점할인</a>
+                <a href="#">여행편의</a>
+                <a href="#">여행할인</a>
+            </div>
+            <div class="user-nav">
+                <a href="#">로그인</a>
+                <a href="#">회원가입</a>
+            </div>
+        </nav>
+        <div class="hamburger">☰</div>
+    </header>
+
+    <div class="banner-container">
+        <div class="banner">
+            <span class="banner-tag">투어리스트 • 씨니쿠폰</span>
+            <h1>이곳 저곳 비교할 필요 없이<br>해외여행사보험 간편가입</h1>
+            <p>대형3사 보험상품 비교확인!</p>
+        </div>
+        <div class="banner">
+            <span class="banner-tag">배너 2</span>
+            <h1>두 번째 배너 내용</h1>
+            <p>추가 설명</p>
+        </div>
+        <div class="banner">
+            <span class="banner-tag">배너 3</span>
+            <h1>세 번째 배너 내용</h1>
+            <p>추가 설명</p>
+        </div>
+        <div class="banner">
+            <span class="banner-tag">배너 4</span>
+            <h1>네 번째 배너 내용</h1>
+            <p>추가 설명</p>
+        </div>
+        <div class="banner">
+            <span class="banner-tag">배너 5</span>
+            <h1>다섯 번째 배너 내용</h1>
+            <p>추가 설명</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Free / Discount Coupon</h2>
+    <div class="coupon-types">
+        <div class="coupon-type">
+            <div class="image-container">
+                <div class="image-placeholder">BEST 5 이미지 (250x150)</div>
+            </div>
+            <p>BEST 5</p>
+        </div>
+        <div class="coupon-type">
+            <div class="image-container">
+                <div class="image-placeholder">면세점 이미지 (250x150)</div>
+            </div>
+            <p>면세점</p>
+        </div>
+        <div class="coupon-type">
+            <div class="image-container">
+                <div class="image-placeholder">여행편의 이미지 (250x150)</div>
+            </div>
+            <p>여행편의</p>
+        </div>
+        <div class="coupon-type">
+            <div class="image-container">
+                <div class="image-placeholder">여행할인 이미지 (250x150)</div>
+            </div>
+            <p>여행할인</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Tip & Checklist</h2>
+    <div class="tips">
+        <div class="tip">
+            <div class="image-container">
+                <div class="image-placeholder">공항 안내 이미지 (250x150)</div>
+            </div>
+            <p>공항 안내</p>
+        </div>
+        <div class="tip">
+            <div class="image-container">
+                <div class="image-placeholder">면세점 쇼핑 이미지 (250x150)</div>
+            </div>
+            <p>면세점 쇼핑</p>
+        </div>
+        <div class="tip">
+            <div class="image-container">
+                <div class="image-placeholder">여행자 추천 이미지 (250x150)</div>
+            </div>
+            <p>여행자 추천</p>
+        </div>
+        <div class="tip">
+            <div class="image-container">
+                <div class="image-placeholder">이 달의 추천상품 이미지 (250x150)</div>
+            </div>
+            <p>이 달의 추천상품</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>대표이사:홍길동 | 사업자번호: 123-45-67890 | 주소: 서울특별시 강남구 테헤란로 123, 456호</p>
+        <p>© Copyright 2023 SunnyCoupon. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // 롤링 배너 기능
+        const banners = document.querySelectorAll('.banner');
+        let currentBanner = 0;
+
+        function showNextBanner() {
+            banners[currentBanner].classList.remove('active');
+            currentBanner = (currentBanner + 1) % banners.length;
+            banners[currentBanner].classList.add('active');
+        }
+
+        // 초기 배너 표시
+        banners[currentBanner].classList.add('active');
+        setInterval(showNextBanner, 5000); // 5초마다 배너 변경
+
+        // 햄버거 메뉴 기능
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
