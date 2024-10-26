@@ -4,290 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunny Coupon</title>
+    
+    <!-- Pretendard 폰트 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Pretendard', sans-serif;
         }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #f8f8f8;
+
+        .image-container:hover img {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
         }
-        .logo {
-            color: #ff0000;
-            font-weight: bold;
-        }
-        nav {
-            display: flex;
-            align-items: center;
-        }
-        .main-nav, .user-nav {
-            display: flex;
-        }
-        .user-nav {
-            flex-direction: column;
-            align-items: flex-end;
-            margin-left: 20px;
-        }
-        nav a {
-            margin-left: 15px;
-            text-decoration: none;
-            color: #333;
-        }
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .banner-container {
-            position: relative;
-            height: 300px;
-            overflow: hidden;
-        }
-        .banner {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: #00a086;
-            color: white;
-            padding: 40px;
-            box-sizing: border-box;
-            text-align: center;
-            display: none;
-            transition: opacity 0.5s ease-in-out;
-            opacity: 0;
-        }
-        .banner.active {
-            display: block;
-            opacity: 1;
-        }
-        .banner h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .banner-tag {
-            background-color: #ffd700;
-            color: #333;
-            padding: 5px 10px;
-            border-radius: 15px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .section-title {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .coupon-types, .tips {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-        .coupon-type, .tip {
-            text-align: center;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 250px;
-            margin: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .image-container {
-            width: 250px;
-            height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-            margin-bottom: 10px;
-        }
-        .image-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 14px;
-            color: #666;
-        }
-        footer {
-            background-color: #f0f0f0;
-            padding: 20px;
-            text-align: center;
-            font-size: 12px;
-        }
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background-color: #f8f8f8;
-                width: 200px;
-                padding: 20px;
-            }
-            nav.active {
-                display: flex;
-            }
-            .main-nav, .user-nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .user-nav {
-                margin-left: 0;
-                margin-top: 20px;
-            }
-            nav a {
-                margin: 10px 0;
-            }
-            .hamburger {
-                display: block;
-            }
-        }
-        @media (max-width: 480px) {
-            .coupon-type, .tip {
-                width: 100%;
-            }
+
+        .image-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">SUNNY COUPON</div>
-        <nav>
-            <div class="main-nav">
-                <a href="#">About</a>
-                <a href="#">면세점할인</a>
-                <a href="#">여행편의</a>
-                <a href="#">여행할인</a>
+    <div class="max-w-6xl mx-auto px-4">
+        <!-- Header -->
+        <header class="flex justify-between items-center py-4">
+            <div class="h-12">
+                <img src="/images/sunny_coupon_logo.png" alt="SUNNY COUPON" class="h-full w-auto object-contain" style="max-width: 200px">
             </div>
-            <div class="user-nav">
-                <a href="#">로그인</a>
-                <a href="#">회원가입</a>
-            </div>
-        </nav>
-        <div class="hamburger">☰</div>
-    </header>
+            <nav class="space-x-4">
+                <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">면세할인</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">여행편의</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">여행할인</a>
+            </nav>
+        </header>
 
-    <div class="banner-container">
-        <div class="banner">
-            <span class="banner-tag">투어리스트 • 씨니쿠폰</span>
-            <h1>이곳 저곳 비교할 필요 없이<br>해외여행사보험 간편가입</h1>
-            <p>대형3사 보험상품 비교확인!</p>
+        <!-- Coupon Slider -->
+        <div class="relative bg-amber-100 rounded-lg p-8 my-8">
+            <div class="flex justify-between items-center">
+                <div class="w-1/2">
+                    <h2 class="text-4xl font-bold mb-4 tracking-tight">신세계면세점 할인쿠폰</h2>
+                </div>
+                <div class="w-1/2 space-y-4">
+                    <div class="bg-white rounded-lg p-4 flex justify-between items-center">
+                        <span class="font-bold tracking-tight">SHINSEGAE</span>
+                        <span class="text-xl tracking-tight">10,000</span>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 flex justify-between items-center">
+                        <span class="font-bold tracking-tight">SHINSEGAE</span>
+                        <span class="text-xl tracking-tight">20,000</span>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 flex justify-between items-center">
+                        <span class="font-bold tracking-tight">SHINSEGAE</span>
+                        <span class="text-xl tracking-tight">30,000</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="banner">
-            <span class="banner-tag">배너 2</span>
-            <h1>두 번째 배너 내용</h1>
-            <p>추가 설명</p>
+
+        <!-- Free / Discount Coupon section -->
+        <h3 class="text-xl font-bold mb-4 tracking-tight">Free / Discount Coupon</h3>
+        
+        <!-- Categories -->
+        <div class="grid grid-cols-4 gap-4 my-8">
+            <div class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-2xl mb-2">📋</div>
+                <div class="font-medium tracking-tight">BEST 5</div>
+            </div>
+            <div class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-2xl mb-2">🛍</div>
+                <div class="font-medium tracking-tight">면세점</div>
+            </div>
+            <div class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-2xl mb-2">📄</div>
+                <div class="font-medium tracking-tight">여행편의</div>
+            </div>
+            <div class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-2xl mb-2">🎫</div>
+                <div class="font-medium tracking-tight">여행할인</div>
+            </div>
         </div>
-        <div class="banner">
-            <span class="banner-tag">배너 3</span>
-            <h1>세 번째 배너 내용</h1>
-            <p>추가 설명</p>
+
+        <!-- Tips & Checklist -->
+        <h3 class="text-xl font-bold mb-4 tracking-tight">Tip & Checklist</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- 공항 안내 -->
+            <div class="relative rounded-lg overflow-hidden image-container">
+                <div class="aspect-[4/3] relative">
+                    <img src="/images/main/airport_information.png" alt="공항 안내" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="image-overlay absolute inset-0"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <h4 class="font-bold tracking-tight text-lg">공항 안내</h4>
+                        <p class="text-sm mt-1 opacity-90">공항 이용, 반입규정, 각종 알아 두어야 할 것들</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 면세점소식 -->
+            <div class="relative rounded-lg overflow-hidden image-container">
+                <div class="aspect-[4/3] relative">
+                    <img src="/images/main/Dutyfree_news.png" alt="면세점소식" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="image-overlay absolute inset-0"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <h4 class="font-bold tracking-tight text-lg">면세점소식</h4>
+                        <p class="text-sm mt-1 opacity-90">면세 이벤트, 프로모션, 쇼핑리스트</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 여행지추천 -->
+            <div class="relative rounded-lg overflow-hidden image-container">
+                <div class="aspect-[4/3] relative">
+                    <img src="/images/main/good_travel_destination.png" alt="여행지추천" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="image-overlay absolute inset-0"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <h4 class="font-bold tracking-tight text-lg">여행지추천</h4>
+                        <p class="text-sm mt-1 opacity-90">핫 플레이스, 환전, 날씨 이거 보고가면 더 좋지!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 이달의 추천상품 -->
+            <div class="relative rounded-lg overflow-hidden image-container">
+                <div class="aspect-[4/3] relative">
+                    <img src="/images/main/good_travel_supplies.png" alt="이달의 추천상품" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="image-overlay absolute inset-0"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <h4 class="font-bold tracking-tight text-lg">이달의 추천상품</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="banner">
-            <span class="banner-tag">배너 4</span>
-            <h1>네 번째 배너 내용</h1>
-            <p>추가 설명</p>
-        </div>
-        <div class="banner">
-            <span class="banner-tag">배너 5</span>
-            <h1>다섯 번째 배너 내용</h1>
-            <p>추가 설명</p>
-        </div>
+
+        <!-- Footer -->
+        <footer class="mt-16 pb-8 text-sm text-gray-600">
+            <div class="flex space-x-4 mb-4">
+                <div class="w-8 h-8 bg-green-500 rounded-full cursor-pointer hover:opacity-80"></div>
+                <div class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:opacity-80"></div>
+                <div class="w-8 h-8 bg-pink-500 rounded-full cursor-pointer hover:opacity-80"></div>
+                <div class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer hover:opacity-80"></div>
+            </div>
+            <p class="leading-relaxed">대표자: 신혜진 | 사업자등록번호: 172-40-00048 | info@sunnycoupon.com</p>
+            <p>© Copyright 2024 SunnyCoupon. All Rights Reserved</p>
+        </footer>
     </div>
-
-    <h2 class="section-title">Free / Discount Coupon</h2>
-    <div class="coupon-types">
-        <div class="coupon-type">
-            <div class="image-container">
-                <div class="image-placeholder">BEST 5 이미지 (250x150)</div>
-            </div>
-            <p>BEST 5</p>
-        </div>
-        <div class="coupon-type">
-            <div class="image-container">
-                <div class="image-placeholder">면세점 이미지 (250x150)</div>
-            </div>
-            <p>면세점</p>
-        </div>
-        <div class="coupon-type">
-            <div class="image-container">
-                <div class="image-placeholder">여행편의 이미지 (250x150)</div>
-            </div>
-            <p>여행편의</p>
-        </div>
-        <div class="coupon-type">
-            <div class="image-container">
-                <div class="image-placeholder">여행할인 이미지 (250x150)</div>
-            </div>
-            <p>여행할인</p>
-        </div>
-    </div>
-
-    <h2 class="section-title">Tip & Checklist</h2>
-    <div class="tips">
-        <div class="tip">
-            <div class="image-container">
-                <div class="image-placeholder">공항 안내 이미지 (250x150)</div>
-            </div>
-            <p>공항 안내</p>
-        </div>
-        <div class="tip">
-            <div class="image-container">
-                <div class="image-placeholder">면세점 쇼핑 이미지 (250x150)</div>
-            </div>
-            <p>면세점 쇼핑</p>
-        </div>
-        <div class="tip">
-            <div class="image-container">
-                <div class="image-placeholder">여행자 추천 이미지 (250x150)</div>
-            </div>
-            <p>여행자 추천</p>
-        </div>
-        <div class="tip">
-            <div class="image-container">
-                <div class="image-placeholder">이 달의 추천상품 이미지 (250x150)</div>
-            </div>
-            <p>이 달의 추천상품</p>
-        </div>
-    </div>
-
-    <footer>
-        <p>대표이사:홍길동 | 사업자번호: 123-45-67890 | 주소: 서울특별시 강남구 테헤란로 123, 456호</p>
-        <p>© Copyright 2023 SunnyCoupon. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        // 롤링 배너 기능
-        const banners = document.querySelectorAll('.banner');
-        let currentBanner = 0;
-
-        function showNextBanner() {
-            banners[currentBanner].classList.remove('active');
-            currentBanner = (currentBanner + 1) % banners.length;
-            banners[currentBanner].classList.add('active');
-        }
-
-        // 초기 배너 표시
-        banners[currentBanner].classList.add('active');
-        setInterval(showNextBanner, 5000); // 5초마다 배너 변경
-
-        // 햄버거 메뉴 기능
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('nav');
-
-        hamburger.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-    </script>
 </body>
 </html>
