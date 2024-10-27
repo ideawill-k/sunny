@@ -14,15 +14,37 @@
         }
 
         .container-wrapper {
+            width: 100%;
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 1rem;
         }
 
-        .banner-wrapper {
-            max-width: 1280px;
+        @media (max-width: 768px) {
+            .container-wrapper {
+                padding: 0 0.75rem;
+            }
+        }
+
+        .section-container {
+            width: 100%;
             margin: 0 auto;
+        }
+
+        .banner-wrapper {
+            width: 100%;
+            max-width: 1280px;
+            margin: 1rem auto;
+            padding: 0;
             overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .banner-wrapper {
+                margin: 0.5rem auto;
+                border-radius: 0.5rem;
+            }
         }
 
         #banner-container {
@@ -45,16 +67,16 @@
             border-radius: 1rem;
         }
 
+        @media (max-width: 768px) {
+            .banner-slide img {
+                border-radius: 0.5rem;
+            }
+        }
+
         .banner-slide:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
                        0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
-        @media (min-width: 1280px) {
-            .banner-slide {
-                max-height: calc((1280px * 540) / 1140);
-            }
         }
 
         .banner-nav-btn {
@@ -80,6 +102,17 @@
             transform: scale(1.1);
         }
 
+        .section-title {
+            padding: 0 0.5rem;
+            margin: 2rem 0 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                margin: 1.5rem 0 0.75rem;
+            }
+        }
+
         .content-card {
             aspect-ratio: 562 / 374;
             max-height: 280px;
@@ -92,13 +125,18 @@
             }
         }
 
-        .dot.active {
-            background-color: white;
+        .grid-container {
+            gap: 1rem;
         }
 
-        #banner-container a {
-            position: relative;
-            z-index: 1;
+        @media (max-width: 768px) {
+            .grid-container {
+                gap: 0.75rem;
+            }
+        }
+
+        .dot.active {
+            background-color: white;
         }
     </style>
 </head>
@@ -156,9 +194,8 @@
         </header>
 
 <!-- Banner Section -->
-<div class="banner-wrapper relative bg-white overflow-hidden my-8">
+<div class="banner-wrapper">
     <div class="relative">
-        <!-- Banner Container -->
         <div id="banner-container" class="flex transition-transform duration-500 ease-in-out">
             <a href="/citydutyfree" class="banner-slide cursor-pointer shadow-md">
                 <img src="https://ideawill-k.github.io/sunny/images/main/banner/01.jpg" 
@@ -206,53 +243,57 @@
 </div>
 
 <!-- Coupon Section -->
-<h3 class="text-xl font-bold mb-4">Free / Discount Coupon</h3>
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <img src="https://ideawill-k.github.io/sunny/images/main/coupon/01.png" 
-             alt="BEST 5" 
-             class="w-full h-full object-cover rounded-2xl">
-    </a>
-    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <img src="https://ideawill-k.github.io/sunny/images/main/coupon/02.png" 
-             alt="면세점" 
-             class="w-full h-full object-cover rounded-2xl">
-    </a>
-    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <img src="https://ideawill-k.github.io/sunny/images/main/coupon/03.png" 
-             alt="여행편의" 
-             class="w-full h-full object-cover rounded-2xl">
-    </a>
-    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <img src="https://ideawill-k.github.io/sunny/images/main/coupon/04.png" 
-             alt="여행할인" 
-             class="w-full h-full object-cover rounded-2xl">
-    </a>
+<div class="section-container">
+    <h3 class="section-title text-xl font-bold">Free / Discount Coupon</h3>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 grid-container">
+        <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://ideawill-k.github.io/sunny/images/main/coupon/01.png" 
+                 alt="BEST 5" 
+                 class="w-full h-full object-cover rounded-2xl">
+        </a>
+        <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://ideawill-k.github.io/sunny/images/main/coupon/02.png" 
+                 alt="면세점" 
+                 class="w-full h-full object-cover rounded-2xl">
+        </a>
+        <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://ideawill-k.github.io/sunny/images/main/coupon/03.png" 
+                 alt="여행편의" 
+                 class="w-full h-full object-cover rounded-2xl">
+        </a>
+        <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://ideawill-k.github.io/sunny/images/main/coupon/04.png" 
+                 alt="여행할인" 
+                 class="w-full h-full object-cover rounded-2xl">
+        </a>
+    </div>
 </div>
 
 <!-- Tips Section -->
-<h3 class="text-xl font-bold mb-4 mt-16">Tip & Checklist</h3>
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <img src="https://ideawill-k.github.io/sunny/images/main/tip/01.png" 
-             alt="공항 안내" 
-             class="w-full h-full object-cover rounded-2xl">
-    </a>
-    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <img src="https://ideawill-k.github.io/sunny/images/main/tip/02.png" 
-             alt="면세점소식" 
-             class="w-full h-full object-cover rounded-2xl">
-    </a>
-    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <img src="https://ideawill-k.github.io/sunny/images/main/tip/03.png" 
-             alt="여행지추천" 
-             class="w-full h-full object-cover rounded-2xl">
-    </a>
-    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <img src="https://ideawill-k.github.io/sunny/images/main/tip/04.png" 
-             alt="이달의 추천상품" 
-             class="w-full h-full object-cover rounded-2xl">
-    </a>
+<div class="section-container">
+    <h3 class="section-title text-xl font-bold mt-12 md:mt-16">Tip & Checklist</h3>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 grid-container">
+        <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://ideawill-k.github.io/sunny/images/main/tip/01.png" 
+                 alt="공항 안내" 
+                 class="w-full h-full object-cover rounded-2xl">
+        </a>
+        <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://ideawill-k.github.io/sunny/images/main/tip/02.png" 
+                 alt="면세점소식" 
+                 class="w-full h-full object-cover rounded-2xl">
+        </a>
+        <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://ideawill-k.github.io/sunny/images/main/tip/03.png" 
+                 alt="여행지추천" 
+                 class="w-full h-full object-cover rounded-2xl">
+        </a>
+        <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://ideawill-k.github.io/sunny/images/main/tip/04.png" 
+                 alt="이달의 추천상품" 
+                 class="w-full h-full object-cover rounded-2xl">
+        </a>
+    </div>
 </div>
 
 <!-- Footer -->
