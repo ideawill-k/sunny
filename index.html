@@ -1,104 +1,136 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Sunny Coupon</title>
-   <script src="https://cdn.tailwindcss.com"></script>
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-   <style>
-       body {
-           font-family: 'Pretendard', sans-serif;
-       }
-   </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny Coupon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        .container-wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .banner-wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        #banner-container {
+            width: 500%;
+            display: flex;
+        }
+
+        #banner-container img {
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .content-card img {
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        .dot.active {
+            background-color: white;
+        }
+
+        #banner-container a {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
-   <!-- Header -->
-   <header class="border-b">
-    <div class="max-w-6xl mx-auto px-4">
-        <div class="flex items-center justify-between h-16">
-            <!-- Logo -->
-            <div class="flex-shrink-0">
-                <img src="https://ideawill-k.github.io/sunny/images/sunny_coupon_logo.png" 
-                     alt="SUNNY COUPON" 
-                     class="h-12 w-auto">
+    <div class="container-wrapper">
+        <!-- Header -->
+        <header class="border-b">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="flex items-center justify-between h-16">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <img src="https://ideawill-k.github.io/sunny/images/sunny_coupon_logo.png" 
+                             alt="SUNNY COUPON" 
+                             class="h-12 w-auto">
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center justify-end space-x-8">
+                        <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
+                            About
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
+                        </a>
+                        <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
+                            면세점할인
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
+                        </a>
+                        <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
+                            여행편의
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
+                        </a>
+                        <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
+                            여행할인
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
+                        </a>
+                    </nav>
+
+                    <!-- Mobile menu button -->
+                    <button type="button" id="mobile-menu-button" class="md:hidden text-gray-900 hover:text-red-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden pb-3">
+                    <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">About</a>
+                    <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">면세점할인</a>
+                    <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">여행편의</a>
+                    <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">여행할인</a>
+                </div>
             </div>
-
-               <!-- Desktop Navigation -->
-               <nav class="hidden md:flex items-center justify-end space-x-8">
-                <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
-                    About
-                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-                </a>
-                <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
-                    면세점할인
-                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-                </a>
-                <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
-                    여행편의
-                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-                </a>
-                <a href="#" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
-                    여행할인
-                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-                </a>
-            </nav>
-
-               <!-- Mobile menu button -->
-               <button type="button" id="mobile-menu-button" class="md:hidden text-gray-900 hover:text-red-600 focus:outline-none">
-                   <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                   </svg>
-               </button>
-           </div>
-
-           <!-- Mobile menu -->
-           <div id="mobile-menu" class="hidden md:hidden pb-3">
-               <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">About</a>
-               <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">면세점할인</a>
-               <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">여행편의</a>
-               <a href="#" class="block px-4 py-2 text-base font-medium text-gray-900 hover:text-red-600 hover:bg-gray-50">여행할인</a>
-           </div>
-       </div>
-   </header>
+        </header>
 
 <!-- Banner Section -->
-<div class="relative bg-white overflow-hidden my-8">
+<div class="banner-wrapper relative bg-white overflow-hidden my-8">
     <div class="relative">
         <!-- Banner Container -->
         <div id="banner-container" class="flex transition-transform duration-500 ease-in-out">
-            <!-- 01.png -->
             <a href="/citydutyfree" class="w-1/5 cursor-pointer">
-                <img src="https://ideawill-k.github.io/sunny/images/main/banner/01.png" 
+                <img src="https://ideawill-k.github.io/sunny/images/main/banner/01.jpg" 
                      alt="시티면세점 할인쿠폰" 
                      class="w-full object-cover">
             </a>
-            <!-- 02.png -->
             <a href="/kyungbokdutyfree" class="w-1/5 cursor-pointer">
                 <img src="https://ideawill-k.github.io/sunny/images/main/banner/02.png" 
                      alt="경복궁면세점 할인쿠폰" 
                      class="w-full object-cover">
             </a>
-            <!-- 03.png -->
             <a href="/autumntrip" class="w-1/5 cursor-pointer">
                 <img src="https://ideawill-k.github.io/sunny/images/main/banner/03.png" 
                      alt="10월 가을여행" 
                      class="w-full object-cover">
             </a>
-            <!-- 04.png -->
             <a href="/usimesim" class="w-1/5 cursor-pointer">
-                <img src="https://ideawill-k.github.io/sunny/images/main/banner/04.png" 
+                <img src="https://ideawill-k.github.io/sunny/images/main/banner/04.jpg" 
                      alt="해외USIM&ESIM" 
                      class="w-full object-cover">
             </a>
-            <!-- 05.png -->
             <a href="/insurance" class="w-1/5 cursor-pointer">
-                <img src="https://ideawill-k.github.io/sunny/images/main/banner/05.png" 
+                <img src="https://ideawill-k.github.io/sunny/images/main/banner/05.jpg" 
                      alt="해외여행자보험" 
                      class="w-full object-cover">
             </a>
         </div>
- 
+
         <!-- Navigation Buttons -->
         <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors z-10" onclick="moveSlide(-1)">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,7 +142,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
         </button>
- 
+
         <!-- Dots Navigation -->
         <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
             <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors dot active" onclick="goToSlide(0)"></button>
@@ -120,143 +152,127 @@
             <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors dot" onclick="goToSlide(4)"></button>
         </div>
     </div>
- </div>
- 
- <style>
-    #banner-container {
-        width: 500%;
-        display: flex;
-    }
- 
-    .dot.active {
-        background-color: white;
-    }
- 
-    #banner-container a {
-        position: relative;
-        z-index: 1;
-    }
- </style>
- 
- <script>
-    let currentSlide = 0;
-    const totalSlides = 5;
-    const container = document.getElementById('banner-container');
-    const dots = document.querySelectorAll('.dot');
- 
-    function updateDots() {
-        dots.forEach((dot, idx) => {
-            dot.classList.toggle('active', idx === currentSlide);
-        });
-    }
- 
-    function moveSlide(direction, event) {
-        if (event) {
-            event.stopPropagation();
-        }
-        
-        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-        container.style.transform = `translateX(-${currentSlide * 20}%)`;
-        updateDots();
-    }
- 
-    function goToSlide(index, event) {
-        if (event) {
-            event.stopPropagation();
-        }
- 
-        currentSlide = index;
-        container.style.transform = `translateX(-${currentSlide * 20}%)`;
-        updateDots();
-    }
- 
-    // Auto slide
-    let slideInterval = setInterval(() => moveSlide(1), 5000);
- 
-    container.addEventListener('mouseenter', () => {
-        clearInterval(slideInterval);
-    });
- 
-    container.addEventListener('mouseleave', () => {
-        slideInterval = setInterval(() => moveSlide(1), 5000);
-    });
- </script>
+</div>
 
 <!-- Coupon Section -->
 <h3 class="text-xl font-bold mb-4">Free / Discount Coupon</h3>
 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-   <a href="#" class="rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-       <img src="https://ideawill-k.github.io/sunny/images/main/coupon/01.png" 
-            alt="BEST 5" 
-            class="w-full h-auto rounded-2xl">
-   </a>
-   <a href="#" class="rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-       <img src="https://ideawill-k.github.io/sunny/images/main/coupon/02.png" 
-            alt="면세점" 
-            class="w-full h-auto rounded-2xl">
-   </a>
-   <a href="#" class="rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-       <img src="https://ideawill-k.github.io/sunny/images/main/coupon/03.png" 
-            alt="여행편의" 
-            class="w-full h-auto rounded-2xl">
-   </a>
-   <a href="#" class="rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-       <img src="https://ideawill-k.github.io/sunny/images/main/coupon/04.png" 
-            alt="여행할인" 
-            class="w-full h-auto rounded-2xl">
-   </a>
+    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <img src="https://ideawill-k.github.io/sunny/images/main/coupon/01.png" 
+             alt="BEST 5" 
+             class="w-full h-auto rounded-2xl">
+    </a>
+    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <img src="https://ideawill-k.github.io/sunny/images/main/coupon/02.png" 
+             alt="면세점" 
+             class="w-full h-auto rounded-2xl">
+    </a>
+    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <img src="https://ideawill-k.github.io/sunny/images/main/coupon/03.png" 
+             alt="여행편의" 
+             class="w-full h-auto rounded-2xl">
+    </a>
+    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <img src="https://ideawill-k.github.io/sunny/images/main/coupon/04.png" 
+             alt="여행할인" 
+             class="w-full h-auto rounded-2xl">
+    </a>
 </div>
 
 <!-- Tips Section -->
-<h3 class="text-xl font-bold mb-4">Tip & Checklist</h3>
+<h3 class="text-xl font-bold mb-4 mt-8">Tip & Checklist</h3>
 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-    <a href="#" class="rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/tip/01.png" 
              alt="공항 안내" 
              class="w-full h-auto rounded-2xl">
     </a>
-    <a href="#" class="rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/tip/02.png" 
              alt="면세점소식" 
              class="w-full h-auto rounded-2xl">
     </a>
-    <a href="#" class="rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/tip/03.png" 
              alt="여행지추천" 
              class="w-full h-auto rounded-2xl">
     </a>
-    <a href="#" class="rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/tip/04.png" 
              alt="이달의 추천상품" 
              class="w-full h-auto rounded-2xl">
     </a>
 </div>
 
-       <!-- Footer -->
-       <footer class="mt-16 pb-8 text-sm text-gray-600">
-           <div class="flex space-x-4 mb-4">
-               <div class="w-8 h-8 bg-green-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-               <div class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-               <div class="w-8 h-8 bg-pink-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-               <div class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-           </div>
-           <div class="space-y-1">
-               <p class="font-bold text-base mb-2">대명인터네셔널</p>
-               <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
-               <p class="leading-relaxed">제휴문의 : sunnycoupon@naver.com</p>
-               <p class="leading-relaxed">통신판매신고 : 제2018-부산남구-2047호</p>
-               <p class="leading-relaxed">부산광역시 남구 신선로 365, 317호</p>
-               <p class="mt-2">© Copyright 2019 SunnyCoupon. All Rights Reserved.</p>
-           </div>
-       </footer>
-   </div>
+<!-- Footer -->
+<footer class="mt-16 pb-8 text-sm text-gray-600">
+    <div class="flex space-x-4 mb-4">
+        <div class="w-8 h-8 bg-green-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
+        <div class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
+        <div class="w-8 h-8 bg-pink-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
+        <div class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
+    </div>
+    <div class="space-y-1">
+        <p class="font-bold text-base mb-2">대명인터네셔널</p>
+        <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
+        <p class="leading-relaxed">제휴문의 : sunnycoupon@naver.com</p>
+        <p class="leading-relaxed">통신판매신고 : 제2018-부산남구-2047호</p>
+        <p class="leading-relaxed">부산광역시 남구 신선로 365, 317호</p>
+        <p class="mt-2">© Copyright 2019 SunnyCoupon. All Rights Reserved.</p>
+    </div>
+</footer>
+</div>
 
-   <!-- JavaScript for mobile menu toggle -->
-   <script>
-       document.getElementById('mobile-menu-button').addEventListener('click', function() {
-           const mobileMenu = document.getElementById('mobile-menu');
-           mobileMenu.classList.toggle('hidden');
-       });
-   </script>
+<!-- JavaScript for mobile menu toggle and banner slider -->
+<script>
+// Mobile menu toggle
+document.getElementById('mobile-menu-button').addEventListener('click', function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('hidden');
+});
+
+// Banner slider
+let currentSlide = 0;
+const totalSlides = 5;
+const container = document.getElementById('banner-container');
+const dots = document.querySelectorAll('.dot');
+
+function updateDots() {
+    dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
+    });
+}
+
+function moveSlide(direction, event) {
+    if (event) {
+        event.stopPropagation();
+    }
+    
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    container.style.transform = `translateX(-${currentSlide * 20}%)`;
+    updateDots();
+}
+
+function goToSlide(index, event) {
+    if (event) {
+        event.stopPropagation();
+    }
+
+    currentSlide = index;
+    container.style.transform = `translateX(-${currentSlide * 20}%)`;
+    updateDots();
+}
+
+// Auto slide
+let slideInterval = setInterval(() => moveSlide(1), 5000);
+
+container.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+});
+
+container.addEventListener('mouseleave', () => {
+    slideInterval = setInterval(() => moveSlide(1), 5000);
+});
+</script>
 </body>
 </html>
