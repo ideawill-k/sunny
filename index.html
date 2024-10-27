@@ -11,31 +11,25 @@
     <style>
         body {
             font-family: 'Pretendard', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        .container-wrapper {
+        .page-container {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .content-container {
             width: 100%;
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 1rem;
         }
 
-        @media (max-width: 768px) {
-            .container-wrapper {
-                padding: 0 0.75rem;
-            }
-        }
-
-        .section-container {
+        .banner-section {
             width: 100%;
-            padding: 0 1rem;
             margin: 0 auto;
-        }
-
-        @media (max-width: 768px) {
-            .section-container {
-                padding: 0 0.75rem;
-            }
         }
 
         .banner-wrapper {
@@ -44,13 +38,6 @@
             margin: 1rem auto;
             padding: 0 1rem;
             overflow: hidden;
-        }
-
-        @media (max-width: 768px) {
-            .banner-wrapper {
-                padding: 0 0.75rem;
-                margin: 0.5rem auto;
-            }
         }
 
         #banner-container {
@@ -73,12 +60,6 @@
             border-radius: 0.5rem;
         }
 
-        .banner-slide:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
-                       0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
         .banner-nav-btn {
             background: rgba(255, 255, 255, 0.5);
             border-radius: 50%;
@@ -99,6 +80,11 @@
         }
 
         @media (max-width: 768px) {
+            .content-container,
+            .banner-wrapper {
+                padding: 0 1rem;
+            }
+
             .banner-nav-btn {
                 padding: 0.375rem;
             }
@@ -109,15 +95,16 @@
             }
         }
 
-        .section-title {
-            padding: 0 0.5rem;
-            margin: 2rem 0 1rem;
+        .section-container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        @media (max-width: 768px) {
-            .section-title {
-                margin: 1.5rem 0 0.75rem;
-            }
+        .section-title {
+            padding: 0;
+            margin: 2rem 0 1rem;
         }
 
         .content-card {
@@ -128,15 +115,8 @@
         }
 
         .grid-container {
-            max-width: 100%;
+            width: 100%;
             margin: 0 auto;
-            gap: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .grid-container {
-                gap: 0.75rem;
-            }
         }
 
         .dot.active {
@@ -145,10 +125,10 @@
     </style>
 </head>
 <body>
-    <div class="container-wrapper">
+    <div class="page-container">
         <!-- Header -->
         <header class="border-b">
-            <div class="max-w-6xl mx-auto px-4">
+            <div class="content-container">
                 <div class="flex items-center justify-between h-16">
                     <!-- Logo -->
                     <div class="flex-shrink-0">
@@ -198,8 +178,8 @@
         </header>
 
 <!-- Banner Section -->
-<div class="banner-wrapper">
-    <div class="relative">
+<div class="banner-section">
+    <div class="banner-wrapper">
         <div id="banner-container" class="flex transition-transform duration-500 ease-in-out">
             <a href="/citydutyfree" class="banner-slide cursor-pointer shadow-md">
                 <img src="https://ideawill-k.github.io/sunny/images/main/banner/01.jpg" 
@@ -302,7 +282,7 @@
 
 <!-- Footer -->
 <footer class="mt-16 pb-8 text-sm text-gray-600 border-t pt-8">
-    <div class="max-w-6xl mx-auto">
+    <div class="content-container">
         <div class="flex space-x-4 mb-4">
             <a href="#" class="w-8 h-8 bg-green-500 rounded-full cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"></a>
             <a href="#" class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"></a>
