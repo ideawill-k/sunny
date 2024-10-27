@@ -30,6 +30,7 @@
         .banner-section {
             width: 100%;
             margin: 0 auto;
+            position: relative;
         }
 
         .banner-wrapper {
@@ -38,11 +39,13 @@
             margin: 1rem auto;
             padding: 0 1rem;
             overflow: hidden;
+            position: relative;
         }
 
         #banner-container {
             width: 500%;
             display: flex;
+            position: relative;
         }
 
         .banner-slide {
@@ -66,12 +69,24 @@
             padding: 0.75rem;
             transition: all 0.3s ease;
             opacity: 0.7;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .banner-nav-btn.prev {
+            left: 2rem;
+        }
+
+        .banner-nav-btn.next {
+            right: 2rem;
         }
 
         .banner-nav-btn:hover {
             background: rgba(255, 255, 255, 0.8);
             opacity: 1;
-            transform: scale(1.05);
+            transform: translateY(-50%) scale(1.05);
         }
 
         .banner-nav-btn svg {
@@ -92,6 +107,14 @@
             .banner-nav-btn svg {
                 width: 0.875rem;
                 height: 0.875rem;
+            }
+
+            .banner-nav-btn.prev {
+                left: 1rem;
+            }
+
+            .banner-nav-btn.next {
+                right: 1rem;
             }
         }
 
@@ -204,12 +227,12 @@
         </div>
 
         <!-- Navigation Buttons -->
-        <button class="banner-nav-btn absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 shadow-sm z-10" onclick="moveSlide(-1)">
+        <button class="banner-nav-btn prev" onclick="moveSlide(-1)">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
         </button>
-        <button class="banner-nav-btn absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 shadow-sm z-10" onclick="moveSlide(1)">
+        <button class="banner-nav-btn next" onclick="moveSlide(1)">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
