@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunny Coupon</title>
+    <title>여행할인은 써니쿠폰</title>
+    <meta name="description" content="여행 할인, 면세점 쿠폰, 항공권, 해외여행 필수품을 한곳에서! 써니쿠폰과 함께하세요.">
+    <meta name="keywords" content="여행할인, 면세점, 쿠폰, 해외여행, 써니쿠폰">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <style>
@@ -28,14 +30,43 @@
             display: flex;
         }
 
-        #banner-container img {
-            max-height: 400px;
-            object-fit: cover;
+        .banner-slide {
+            width: 20%;
+            position: relative;
+            aspect-ratio: 1140 / 540;
+            transition: all 0.3s ease;
         }
 
-        .content-card img {
-            max-height: 300px;
+        .banner-slide img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            object-position: center;
+            border-radius: 1rem;
+        }
+
+        .banner-slide:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+                       0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (min-width: 1280px) {
+            .banner-slide {
+                max-height: calc((1280px * 540) / 1140);
+            }
+        }
+
+        .banner-nav-btn {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .banner-nav-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
         }
 
         .dot.active {
@@ -56,9 +87,11 @@
                 <div class="flex items-center justify-between h-16">
                     <!-- Logo -->
                     <div class="flex-shrink-0">
-                        <img src="https://ideawill-k.github.io/sunny/images/sunny_coupon_logo.png" 
-                             alt="SUNNY COUPON" 
-                             class="h-12 w-auto">
+                        <a href="/" class="block transition-transform duration-300 hover:-translate-y-1 hover:drop-shadow-md">
+                            <img src="https://ideawill-k.github.io/sunny/images/sunny_coupon_logo.png" 
+                                 alt="SUNNY COUPON" 
+                                 class="h-12 w-auto">
+                        </a>
                     </div>
 
                     <!-- Desktop Navigation -->
@@ -104,52 +137,47 @@
     <div class="relative">
         <!-- Banner Container -->
         <div id="banner-container" class="flex transition-transform duration-500 ease-in-out">
-            <a href="/citydutyfree" class="w-1/5 cursor-pointer">
+            <a href="/citydutyfree" class="banner-slide cursor-pointer shadow-md">
                 <img src="https://ideawill-k.github.io/sunny/images/main/banner/01.jpg" 
-                     alt="시티면세점 할인쿠폰" 
-                     class="w-full object-cover">
+                     alt="시티면세점 할인쿠폰">
             </a>
-            <a href="/kyungbokdutyfree" class="w-1/5 cursor-pointer">
+            <a href="/kyungbokdutyfree" class="banner-slide cursor-pointer shadow-md">
                 <img src="https://ideawill-k.github.io/sunny/images/main/banner/02.png" 
-                     alt="경복궁면세점 할인쿠폰" 
-                     class="w-full object-cover">
+                     alt="경복궁면세점 할인쿠폰">
             </a>
-            <a href="/autumntrip" class="w-1/5 cursor-pointer">
+            <a href="/autumntrip" class="banner-slide cursor-pointer shadow-md">
                 <img src="https://ideawill-k.github.io/sunny/images/main/banner/03.png" 
-                     alt="10월 가을여행" 
-                     class="w-full object-cover">
+                     alt="10월 가을여행">
             </a>
-            <a href="/usimesim" class="w-1/5 cursor-pointer">
+            <a href="/usimesim" class="banner-slide cursor-pointer shadow-md">
                 <img src="https://ideawill-k.github.io/sunny/images/main/banner/04.jpg" 
-                     alt="해외USIM&ESIM" 
-                     class="w-full object-cover">
+                     alt="해외USIM&ESIM">
             </a>
-            <a href="/insurance" class="w-1/5 cursor-pointer">
+            <a href="/insurance" class="banner-slide cursor-pointer shadow-md">
                 <img src="https://ideawill-k.github.io/sunny/images/main/banner/05.jpg" 
-                     alt="해외여행자보험" 
-                     class="w-full object-cover">
+                     alt="해외여행자보험">
             </a>
         </div>
 
         <!-- Navigation Buttons -->
-        <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors z-10" onclick="moveSlide(-1)">
+        <button class="banner-nav-btn absolute left-4 top-1/2 transform -translate-y-1/2 shadow-lg z-10" onclick="moveSlide(-1)">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
         </button>
-        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors z-10" onclick="moveSlide(1)">
+        <button class="banner-nav-btn absolute right-4 top-1/2 transform -translate-y-1/2 shadow-lg z-10" onclick="moveSlide(1)">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
         </button>
 
         <!-- Dots Navigation -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors dot active" onclick="goToSlide(0)"></button>
-            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors dot" onclick="goToSlide(1)"></button>
-            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors dot" onclick="goToSlide(2)"></button>
-            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors dot" onclick="goToSlide(3)"></button>
-            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors dot" onclick="goToSlide(4)"></button>
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+            <button class="w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-colors dot active" onclick="goToSlide(0)"></button>
+            <button class="w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(1)"></button>
+            <button class="w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(2)"></button>
+            <button class="w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(3)"></button>
+            <button class="w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(4)"></button>
         </div>
     </div>
 </div>
@@ -180,7 +208,7 @@
 </div>
 
 <!-- Tips Section -->
-<h3 class="text-xl font-bold mb-4 mt-8">Tip & Checklist</h3>
+<h3 class="text-xl font-bold mb-4 mt-16">Tip & Checklist</h3>
 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
     <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/tip/01.png" 
@@ -205,20 +233,22 @@
 </div>
 
 <!-- Footer -->
-<footer class="mt-16 pb-8 text-sm text-gray-600">
-    <div class="flex space-x-4 mb-4">
-        <div class="w-8 h-8 bg-green-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-        <div class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-        <div class="w-8 h-8 bg-pink-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-        <div class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-    </div>
-    <div class="space-y-1">
-        <p class="font-bold text-base mb-2">대명인터네셔널</p>
-        <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
-        <p class="leading-relaxed">제휴문의 : sunnycoupon@naver.com</p>
-        <p class="leading-relaxed">통신판매신고 : 제2018-부산남구-2047호</p>
-        <p class="leading-relaxed">부산광역시 남구 신선로 365, 317호</p>
-        <p class="mt-2">© Copyright 2019 SunnyCoupon. All Rights Reserved.</p>
+<footer class="mt-16 pb-8 text-sm text-gray-600 border-t pt-8">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex space-x-4 mb-4">
+            <a href="#" class="w-8 h-8 bg-green-500 rounded-full cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"></a>
+            <a href="#" class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"></a>
+            <a href="#" class="w-8 h-8 bg-pink-500 rounded-full cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"></a>
+            <a href="#" class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"></a>
+        </div>
+        <div class="space-y-1">
+            <p class="font-bold text-base mb-2">대명인터네셔널</p>
+            <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
+            <p class="leading-relaxed">제휴문의 : sunnycoupon@naver.com</p>
+            <p class="leading-relaxed">통신판매신고 : 제2018-부산남구-2047호</p>
+            <p class="leading-relaxed">부산광역시 남구 신선로 365, 317호</p>
+            <p class="mt-2">© Copyright 2019 SunnyCoupon. All Rights Reserved.</p>
+        </div>
     </div>
 </footer>
 </div>
