@@ -64,9 +64,32 @@
             transition: all 0.3s ease;
         }
 
+        @media (max-width: 768px) {
+            .banner-nav-btn {
+                padding: 0.5rem;
+            }
+            
+            .banner-nav-btn svg {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+
         .banner-nav-btn:hover {
             background: rgba(255, 255, 255, 1);
             transform: scale(1.1);
+        }
+
+        .content-card {
+            aspect-ratio: 562 / 374;
+            max-height: 280px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .content-card {
+                max-height: 160px;
+            }
         }
 
         .dot.active {
@@ -160,13 +183,13 @@
         </div>
 
         <!-- Navigation Buttons -->
-        <button class="banner-nav-btn absolute left-4 top-1/2 transform -translate-y-1/2 shadow-lg z-10" onclick="moveSlide(-1)">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button class="banner-nav-btn absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 shadow-lg z-10" onclick="moveSlide(-1)">
+            <svg class="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
         </button>
-        <button class="banner-nav-btn absolute right-4 top-1/2 transform -translate-y-1/2 shadow-lg z-10" onclick="moveSlide(1)">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button class="banner-nav-btn absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 shadow-lg z-10" onclick="moveSlide(1)">
+            <svg class="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
         </button>
@@ -188,22 +211,22 @@
     <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/coupon/01.png" 
              alt="BEST 5" 
-             class="w-full h-auto rounded-2xl">
+             class="w-full h-full object-cover rounded-2xl">
     </a>
     <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/coupon/02.png" 
              alt="면세점" 
-             class="w-full h-auto rounded-2xl">
+             class="w-full h-full object-cover rounded-2xl">
     </a>
     <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/coupon/03.png" 
              alt="여행편의" 
-             class="w-full h-auto rounded-2xl">
+             class="w-full h-full object-cover rounded-2xl">
     </a>
     <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/coupon/04.png" 
              alt="여행할인" 
-             class="w-full h-auto rounded-2xl">
+             class="w-full h-full object-cover rounded-2xl">
     </a>
 </div>
 
@@ -213,22 +236,22 @@
     <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/tip/01.png" 
              alt="공항 안내" 
-             class="w-full h-auto rounded-2xl">
+             class="w-full h-full object-cover rounded-2xl">
     </a>
     <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/tip/02.png" 
              alt="면세점소식" 
-             class="w-full h-auto rounded-2xl">
+             class="w-full h-full object-cover rounded-2xl">
     </a>
     <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/tip/03.png" 
              alt="여행지추천" 
-             class="w-full h-auto rounded-2xl">
+             class="w-full h-full object-cover rounded-2xl">
     </a>
     <a href="#" class="content-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <img src="https://ideawill-k.github.io/sunny/images/main/tip/04.png" 
              alt="이달의 추천상품" 
-             class="w-full h-auto rounded-2xl">
+             class="w-full h-full object-cover rounded-2xl">
     </a>
 </div>
 
