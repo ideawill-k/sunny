@@ -125,33 +125,38 @@
 
     /* 활성 상태일 때의 스타일 */
     #mobile-menu a:active span {
-        color: #dc2626; /* text-red-600과 동일 */
-    }
-
-    /* 부드러운 터치 피드백 */
-    #mobile-menu a:active {
-        background-color: #f8fafc; /* 매우 연한 회색 배경 */
-    }
-
-    /* 밑줄 애니메이션 부드럽게 */
-    #mobile-menu .group div {
-        transition: transform 0.2s ease-out;
+        color: #dc2626;
     }
 }
 
 /* 모바일 메뉴 전체 영역 스타일링 */
 #mobile-menu {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
-}
-
-/* 모바일 메뉴 열고 닫힐 때의 부드러운 전환 */
-#mobile-menu.hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
     opacity: 0;
-    transform: translateY(-10px);
 }
 
 #mobile-menu:not(.hidden) {
+    max-height: 300px; /* 충분한 높이 */
+    opacity: 1;
+}
+
+/* 메뉴 아이템 컨테이너 */
+#mobile-menu > div {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#mobile-menu:not(.hidden) > div {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* 각 메뉴 아이템 순차적 애니메이션 */
+#mobile-menu > div:nth-child(1) { transition-delay: 0.1s; }
+#mobile-menu > div:nth-child(2) { transition-delay: 0.15s; }
+#mobile-menu > div:nth-child(3) { transition-delay: 0.2s; }
+#mobile-menu > div:nth-child(4) { transition-delay: 0.25s; }
