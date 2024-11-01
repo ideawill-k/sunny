@@ -1,0 +1,31 @@
+<div class="content-container py-8">
+    <!-- 카테고리 네비게이션 -->
+    <div class="flex flex-wrap gap-2 mb-8">
+        <button class="px-4 py-2 bg-black text-white rounded-full">전체</button>
+        <button class="px-4 py-2 bg-gray-100 text-gray-800 rounded-full">항공권</button>
+        <button class="px-4 py-2 bg-gray-100 text-gray-800 rounded-full">숙박</button>
+        <button class="px-4 py-2 bg-gray-100 text-gray-800 rounded-full">액티비티</button>
+        <button class="px-4 py-2 bg-gray-100 text-gray-800 rounded-full">입장권</button>
+    </div>
+
+    <!-- 할인 상품 그리드 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 할인 상품 카드 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class="relative aspect-video">
+                <img src="images/discount/flight-ticket.jpg" alt="항공권 할인" class="w-full h-full object-cover">
+                <div class="absolute top-0 right-0 bg-red-500 text-white px-3 py-1 rounded-bl-lg">
+                    30% 할인
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-lg font-bold mb-2">방콕 왕복 항공권</h3>
+                <p class="text-gray-600 text-sm mb-4">유효기간: 2024.12.31까지</p>
+                <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                    할인받기
+                </button>
+            </div>
+        </div>
+        <!-- 추가 할인 상품 카드들... -->
+    </div>
+</div>

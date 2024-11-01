@@ -6,9 +6,13 @@
     <title>여행할인은 써니쿠폰</title>
     <meta name="description" content="여행 할인, 면세점 쿠폰, 항공권, 해외여행 필수품을 한곳에서! 써니쿠폰과 함께하세요.">
     <meta name="keywords" content="여행할인, 면세점, 쿠폰, 해외여행, 써니쿠폰">
+    
+    <!-- External CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Internal CSS -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -27,25 +31,21 @@
                         </a>
                     </div>
 
-<!-- Desktop Navigation -->
-<nav class="hidden md:flex items-center justify-end space-x-8">
-    <a href="about.html" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
-        About
-        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-    </a>
-    <a href="dutyfree.html" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
-        면세점할인
-        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-    </a>
-    <a href="discount.html" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
-        여행할인
-        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-    </a>
-    <a href="info.html" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2">
-        여행정보
-        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
-    </a>
-</nav>
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center justify-end space-x-8">
+                        <a href="about.html" class="nav-link">
+                            About
+                        </a>
+                        <a href="dutyfree.html" class="nav-link">
+                            면세점할인
+                        </a>
+                        <a href="discount.html" class="nav-link">
+                            여행할인
+                        </a>
+                        <a href="info.html" class="nav-link">
+                            여행정보
+                        </a>
+                    </nav>
 
                     <!-- Mobile menu button -->
                     <button type="button" id="mobile-menu-button" class="md:hidden text-gray-900 hover:text-red-600 focus:outline-none">
@@ -55,35 +55,26 @@
                     </button>
                 </div>
 
-<!-- Mobile menu -->
-<div id="mobile-menu" class="hidden md:hidden pb-3">
-    <div class="px-4 py-1">  <!-- py-2를 py-1로 변경하여 간격 축소 -->
-        <a href="about.html" class="relative group">
-            <span class="inline-block text-base font-medium text-gray-900 group-hover:text-red-600 transition-colors duration-200">About</span>
-            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-red-500 transform scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></div>
-        </a>
-    </div>
-    <div class="px-4 py-1">
-        <a href="dutyfree.html" class="relative group">
-            <span class="inline-block text-base font-medium text-gray-900 group-hover:text-red-600 transition-colors duration-200">면세점할인</span>
-            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-red-500 transform scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></div>
-        </a>
-    </div>
-    <div class="px-4 py-1">
-        <a href="discount.html" class="relative group">
-            <span class="inline-block text-base font-medium text-gray-900 group-hover:text-red-600 transition-colors duration-200">여행할인</span>
-            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-red-500 transform scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></div>
-        </a>
-    </div>
-    <div class="px-4 py-1">
-        <a href="info.html" class="relative group">
-            <span class="inline-block text-base font-medium text-gray-900 group-hover:text-red-600 transition-colors duration-200">여행정보</span>
-            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-red-500 transform scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></div>
-        </a>
-    </div>
-</div>
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden pb-3">
+                    <div class="px-4 py-1">
+                        <a href="about.html" class="mobile-nav-link">About</a>
+                    </div>
+                    <div class="px-4 py-1">
+                        <a href="dutyfree.html" class="mobile-nav-link">면세점할인</a>
+                    </div>
+                    <div class="px-4 py-1">
+                        <a href="discount.html" class="mobile-nav-link">여행할인</a>
+                    </div>
+                    <div class="px-4 py-1">
+                        <a href="info.html" class="mobile-nav-link">여행정보</a>
+                    </div>
+                </div>
             </div>
         </header>
+
+        <!-- Main Content Area -->
+        <main id="content">
 
         <!-- Banner Section -->
         <div class="banner-section">
@@ -347,28 +338,70 @@
     </div>
 </div>
 
-        <!-- Footer -->
-        <footer class="mt-16 pb-8 text-sm text-gray-600 border-t pt-8">
-            <div class="content-container">
-                <div class="flex space-x-4 mb-4">
-                    <a href="#" class="w-8 h-8 bg-green-500 rounded-full cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"></a>
-                    <a href="#" class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"></a>
-                    <a href="#" class="w-8 h-8 bg-pink-500 rounded-full cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"></a>
-                    <a href="#" class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"></a>
-                </div>
-                <div class="space-y-1">
-                    <p class="font-bold text-base mb-2">대명인터네셔널</p>
-                    <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
-                    <p class="leading-relaxed">제휴문의 : sunnycoupon@naver.com</p>
-                    <p class="leading-relaxed">통신판매신고 : 제2018-부산남구-2047호</p>
-                    <p class="leading-relaxed">부산광역시 남구 신선로 365, 317호</p>
-                    <p class="mt-2">© Copyright 2019 SunnyCoupon. All Rights Reserved.</p>
-                </div>
-            </div>
-        </footer>
-    </div>
+</main>
 
-    <script src="js/common.js"></script>
-    <script src="js/main.js"></script>
+<!-- Footer -->
+<footer class="mt-16 pb-8 text-sm text-gray-600 border-t pt-8">
+    <div class="content-container">
+        <div class="flex space-x-4 mb-4">
+            <a href="#" class="social-link bg-green-500"></a>
+            <a href="#" class="social-link bg-yellow-500"></a>
+            <a href="#" class="social-link bg-pink-500"></a>
+            <a href="#" class="social-link bg-blue-500"></a>
+        </div>
+        <div class="space-y-1">
+            <p class="font-bold text-base mb-2">대명인터네셔널</p>
+            <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
+            <p class="leading-relaxed">제휴문의 : sunnycoupon@naver.com</p>
+            <p class="leading-relaxed">통신판매신고 : 제2018-부산남구-2047호</p>
+            <p class="leading-relaxed">부산광역시 남구 신선로 365, 317호</p>
+            <p class="mt-2">© Copyright 2019 SunnyCoupon. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+</div>
+
+<!-- Scripts -->
+<script src="js/common.js"></script>
+<script src="js/main.js"></script>
+<script>
+// 페이지 로드 관리
+document.addEventListener('DOMContentLoaded', function() {
+    // 현재 URL에서 페이지 식별
+    const path = window.location.pathname;
+    const page = path.split('/').pop().split('.')[0] || 'home';
+
+    // 해당 페이지 콘텐츠 로드
+    if (page !== 'index' && page !== '') {
+        loadPage(page);
+    }
+});
+
+// 페이지 콘텐츠 로드 함수
+async function loadPage(pageName) {
+    try {
+        const response = await fetch(`pages/${pageName}.html`);
+        if (!response.ok) throw new Error('Page not found');
+        
+        const content = await response.text();
+        document.getElementById('content').innerHTML = content;
+
+        // URL 업데이트 (옵션)
+        history.pushState({}, '', `/${pageName}.html`);
+    } catch (error) {
+        console.error('Page load error:', error);
+        // 에러 처리 (예: 404 페이지 표시)
+    }
+}
+
+// 브라우저 뒤로가기/앞으로가기 처리
+window.addEventListener('popstate', function() {
+    const path = window.location.pathname;
+    const page = path.split('/').pop().split('.')[0] || 'home';
+    if (page !== 'index') {
+        loadPage(page);
+    }
+});
+</script>
 </body>
 </html>
