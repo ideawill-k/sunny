@@ -38,7 +38,6 @@ let slideInterval = setInterval(() => moveSlide(1), 5000);
 
 // 페이지 로드 완료 후 초기화
 document.addEventListener('DOMContentLoaded', () => {
-    // 초기 도트 상태 설정
     updateDots();
     
     // 배너 마우스 이벤트
@@ -52,24 +51,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-// 모바일 메뉴 관련 코드
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-
-if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    // 메뉴 외부 클릭시 닫기
-    document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) && 
-            !mobileMenuButton.contains(e.target) && 
-            !mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-        }
-    });
-}
