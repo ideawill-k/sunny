@@ -1,0 +1,46 @@
+/* 기본 스타일 */
+body {
+    font-family: 'Pretendard', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 공통 레이아웃 */
+.page-container {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 섹션 컨테이너 */
+.section-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    padding: 0;
+    margin: 2rem 0 1rem;
+}
+
+/* 그리드 컨테이너 */
+.grid-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 반응형 미디어 쿼리 */
+@media (max-width: 768px) {
+    .content-container,
+    .section-container {
+        padding: 0 1rem;
+    }
+}
