@@ -126,7 +126,6 @@ body {
     background-color: white;
     border-radius: 0 0 0.5rem 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    z-index: 50;
 }
 
 #mobile-menu.hidden {
@@ -135,66 +134,43 @@ body {
 
 /* 모바일 메뉴 아이템 스타일 */
 #mobile-menu a {
-    display: block;
-    padding: 0.75rem 1rem;
-    transition: all 0.2s ease-in-out;
     position: relative;
+    display: inline-block;
 }
 
-#mobile-menu a:hover {
+#mobile-menu span {
+    position: relative;
+    z-index: 1;
+}
+
+#mobile-menu .group:hover span {
     color: #dc2626;
 }
 
-#mobile-menu a::after {
-    content: '';
-    position: absolute;
-    left: 1rem;
-    right: 1rem;
-    bottom: 0;
-    height: 2px;
-    background-color: #dc2626;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-#mobile-menu a:hover::after {
-    transform: scaleX(1);
-}
-
-/* 그리드 컨테이너 */
-.grid-container {
+#mobile-menu a div {
+    /* 밑줄은 span의 너비만큼만 적용 */
     width: 100%;
-    margin: 0 auto;
+    bottom: -2px;
+    left: 0;
 }
 
 /* 반응형 스타일 */
 @media (max-width: 768px) {
-    .content-container,
-    .banner-wrapper {
-        padding: 0 1rem;
+    #mobile-menu a {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 
-    .banner-nav-btn {
-        padding: 0.375rem;
-    }
-    
-    .banner-nav-btn svg {
-        width: 0.875rem;
-        height: 0.875rem;
+    #mobile-menu a:active {
+        background-color: transparent;
     }
 
-    .banner-nav-btn.prev {
-        left: 1rem;
+    /* 패딩 조정 */
+    #mobile-menu > div {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
     }
-
-    .banner-nav-btn.next {
-        right: 1rem;
-    }
-
-    .content-card {
-        max-height: 160px;
-    }
+}
 
     /* 모바일 메뉴 터치 최적화 */
     #mobile-menu a {
