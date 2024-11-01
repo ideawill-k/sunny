@@ -220,3 +220,28 @@
 .slide-in {
     animation: slideIn 0.3s ease forwards;
 }
+
+/* 소셜 링크 효과 */
+.social-link {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.social-link:hover {
+    opacity: 0.8;
+}
+
+.social-link i {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .social-link {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .social-link i {
+        font-size: 1rem;
+    }
+}

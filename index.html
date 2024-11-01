@@ -31,21 +31,25 @@
                         </a>
                     </div>
 
-                    <!-- Desktop Navigation -->
-                    <nav class="hidden md:flex items-center justify-end space-x-8">
-                        <a href="about.html" class="nav-link">
-                            About
-                        </a>
-                        <a href="dutyfree.html" class="nav-link">
-                            면세점할인
-                        </a>
-                        <a href="discount.html" class="nav-link">
-                            여행할인
-                        </a>
-                        <a href="info.html" class="nav-link">
-                            여행정보
-                        </a>
-                    </nav>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center justify-end space-x-8">
+    <a href="pages/about.html" class="nav-link">
+        About
+        <span class="underline"></span>
+    </a>
+    <a href="pages/dutyfree.html" class="nav-link">
+        면세점할인
+        <span class="underline"></span>
+    </a>
+    <a href="pages/discount.html" class="nav-link">
+        여행할인
+        <span class="underline"></span>
+    </a>
+    <a href="pages/info.html" class="nav-link">
+        여행정보
+        <span class="underline"></span>
+    </a>
+</nav>
 
                     <!-- Mobile menu button -->
                     <button type="button" id="mobile-menu-button" class="md:hidden text-gray-900 hover:text-red-600 focus:outline-none">
@@ -58,16 +62,16 @@
                 <!-- Mobile menu -->
                 <div id="mobile-menu" class="hidden md:hidden pb-3">
                     <div class="px-4 py-1">
-                        <a href="about.html" class="mobile-nav-link">About</a>
+                        <a href="pages/about.html" class="mobile-nav-link">About</a>
                     </div>
                     <div class="px-4 py-1">
-                        <a href="dutyfree.html" class="mobile-nav-link">면세점할인</a>
+                        <a href="pages/dutyfree.html" class="mobile-nav-link">면세점할인</a>
                     </div>
                     <div class="px-4 py-1">
-                        <a href="discount.html" class="mobile-nav-link">여행할인</a>
+                        <a href="pages/discount.html" class="mobile-nav-link">여행할인</a>
                     </div>
                     <div class="px-4 py-1">
-                        <a href="info.html" class="mobile-nav-link">여행정보</a>
+                        <a href="pages/info.html" class="mobile-nav-link">여행정보</a>
                     </div>
                 </div>
             </div>
@@ -343,12 +347,23 @@
 <!-- Footer -->
 <footer class="mt-16 pb-8 text-sm text-gray-600 border-t pt-8">
     <div class="content-container">
-        <div class="flex space-x-4 mb-4">
-            <a href="#" class="social-link bg-green-500"></a>
-            <a href="#" class="social-link bg-yellow-500"></a>
-            <a href="#" class="social-link bg-pink-500"></a>
-            <a href="#" class="social-link bg-blue-500"></a>
+        <!-- 소셜 링크 -->
+        <div class="social-links">
+            <a href="#" class="social-link bg-green-500 hover:bg-green-600">
+                <i class="fab fa-line text-white"></i>
+            </a>
+            <a href="#" class="social-link bg-yellow-500 hover:bg-yellow-600">
+                <i class="fab fa-kakao text-white"></i>
+            </a>
+            <a href="#" class="social-link bg-pink-500 hover:bg-pink-600">
+                <i class="fab fa-instagram text-white"></i>
+            </a>
+            <a href="#" class="social-link bg-blue-500 hover:bg-blue-600">
+                <i class="fab fa-facebook text-white"></i>
+            </a>
         </div>
+        
+        <!-- 회사 정보 -->
         <div class="space-y-1">
             <p class="font-bold text-base mb-2">대명인터네셔널</p>
             <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
