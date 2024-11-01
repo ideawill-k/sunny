@@ -40,7 +40,7 @@ let slideInterval = setInterval(() => moveSlide(1), 5000);
 document.addEventListener('DOMContentLoaded', () => {
     // 초기 도트 상태 설정
     updateDots();
-
+    
     // 배너 마우스 이벤트
     if (container) {
         container.addEventListener('mouseenter', () => {
@@ -51,26 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
             slideInterval = setInterval(() => moveSlide(1), 5000);
         });
     }
-
-    // 모바일 메뉴 토글
-    const mobileMenuBtn = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.remove('hidden');
-            } else {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-
-        // 모바일 메뉴 외부 클릭시 닫기
-        document.addEventListener('click', function(e) {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-    }
 });
+
+// 모바일 메뉴 관련 코드
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // 메뉴 외부 클릭시 닫기
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && 
+            !mobileMenuButton.contains(e.target) && 
+            !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+}
