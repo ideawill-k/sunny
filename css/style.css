@@ -1,3 +1,23 @@
+/* 공통 스타일 */
+body {
+    font-family: 'Pretendard', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 레이아웃 */
+.page-container {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
 /* 배너 섹션 스타일 */
 .banner-section {
     width: 100%;
@@ -73,7 +93,20 @@
     height: 1.25rem;
 }
 
-/* 콘텐츠 카드 스타일 */
+/* 섹션 컨테이너 */
+.section-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    padding: 0;
+    margin: 2rem 0 1rem;
+}
+
+/* 컨텐츠 카드 */
 .content-card {
     aspect-ratio: 562 / 374;
     max-height: 240px;
@@ -87,8 +120,57 @@
     background-color: white;
 }
 
+/* 모바일 메뉴 스타일링 */
+#mobile-menu {
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+    border-radius: 0 0 0.5rem 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+}
+
+#mobile-menu.hidden {
+    display: none;
+}
+
+/* 모바일 메뉴 아이템 스타일 */
+#mobile-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+#mobile-menu a:hover {
+    color: #dc2626;
+}
+
+#mobile-menu a::after {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0;
+    height: 2px;
+    background-color: #dc2626;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+#mobile-menu a:hover::after {
+    transform: scaleX(1);
+}
+
+/* 그리드 컨테이너 */
+.grid-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
 /* 반응형 스타일 */
 @media (max-width: 768px) {
+    .content-container,
     .banner-wrapper {
         padding: 0 1rem;
     }
@@ -113,50 +195,21 @@
     .content-card {
         max-height: 160px;
     }
-}
 
-/* 모바일 메뉴 개선을 위한 스타일 */
-@media (max-width: 768px) {
-    /* 터치 디바이스에서의 hover 효과 개선 */
+    /* 모바일 메뉴 터치 최적화 */
     #mobile-menu a {
         -webkit-tap-highlight-color: transparent;
         touch-action: manipulation;
     }
 
-    /* 활성 상태일 때의 스타일 */
-    #mobile-menu a:active span {
-        color: #dc2626;
+    /* 모바일 메뉴 아이템 액티브 상태 */
+    #mobile-menu a:active {
+        background-color: #f8fafc;
+    }
+
+    /* 모바일 메뉴 밑줄 효과 조정 */
+    #mobile-menu a::after {
+        left: 1rem;
+        right: 1rem;
     }
 }
-
-/* 모바일 메뉴 전체 영역 스타일링 */
-#mobile-menu {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    opacity: 0;
-}
-
-#mobile-menu:not(.hidden) {
-    max-height: 300px; /* 충분한 높이 */
-    opacity: 1;
-}
-
-/* 메뉴 아이템 컨테이너 */
-#mobile-menu > div {
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-}
-
-#mobile-menu:not(.hidden) > div {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* 각 메뉴 아이템 순차적 애니메이션 */
-#mobile-menu > div:nth-child(1) { transition-delay: 0.1s; }
-#mobile-menu > div:nth-child(2) { transition-delay: 0.15s; }
-#mobile-menu > div:nth-child(3) { transition-delay: 0.2s; }
-#mobile-menu > div:nth-child(4) { transition-delay: 0.25s; }
