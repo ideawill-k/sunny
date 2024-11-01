@@ -33,21 +33,17 @@
 
 <!-- Desktop Navigation -->
 <nav class="hidden md:flex items-center justify-end space-x-8">
-    <a href="pages/about.html" class="nav-link">
+    <a href="pages/about.html" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2 nav-link">
         About
-        <span class="underline"></span>
     </a>
-    <a href="pages/dutyfree.html" class="nav-link">
+    <a href="pages/dutyfree.html" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2 nav-link">
         면세점할인
-        <span class="underline"></span>
     </a>
-    <a href="pages/discount.html" class="nav-link">
+    <a href="pages/discount.html" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2 nav-link">
         여행할인
-        <span class="underline"></span>
     </a>
-    <a href="pages/info.html" class="nav-link">
+    <a href="pages/info.html" class="text-gray-900 text-lg font-medium transition-all duration-200 relative group hover:text-red-600 hover:drop-shadow-md px-3 py-2 nav-link">
         여행정보
-        <span class="underline"></span>
     </a>
 </nav>
 
@@ -59,21 +55,33 @@
                     </button>
                 </div>
 
-                <!-- Mobile menu -->
-                <div id="mobile-menu" class="hidden md:hidden pb-3">
-                    <div class="px-4 py-1">
-                        <a href="pages/about.html" class="mobile-nav-link">About</a>
-                    </div>
-                    <div class="px-4 py-1">
-                        <a href="pages/dutyfree.html" class="mobile-nav-link">면세점할인</a>
-                    </div>
-                    <div class="px-4 py-1">
-                        <a href="pages/discount.html" class="mobile-nav-link">여행할인</a>
-                    </div>
-                    <div class="px-4 py-1">
-                        <a href="pages/info.html" class="mobile-nav-link">여행정보</a>
-                    </div>
-                </div>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="hidden md:hidden pb-3">
+    <div class="px-4 py-1">
+        <a href="pages/about.html" class="inline-block text-base font-medium text-gray-900 relative group">
+            <span class="relative z-10 group-hover:text-red-600 transition-colors duration-200">About</span>
+            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-red-500 transform scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></div>
+        </a>
+    </div>
+    <div class="px-4 py-1">
+        <a href="pages/dutyfree.html" class="inline-block text-base font-medium text-gray-900 relative group">
+            <span class="relative z-10 group-hover:text-red-600 transition-colors duration-200">면세점할인</span>
+            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-red-500 transform scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></div>
+        </a>
+    </div>
+    <div class="px-4 py-1">
+        <a href="pages/discount.html" class="inline-block text-base font-medium text-gray-900 relative group">
+            <span class="relative z-10 group-hover:text-red-600 transition-colors duration-200">여행할인</span>
+            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-red-500 transform scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></div>
+        </a>
+    </div>
+    <div class="px-4 py-1">
+        <a href="pages/info.html" class="inline-block text-base font-medium text-gray-900 relative group">
+            <span class="relative z-10 group-hover:text-red-600 transition-colors duration-200">여행정보</span>
+            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-red-500 transform scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></div>
+        </a>
+    </div>
+</div>
             </div>
         </header>
 
