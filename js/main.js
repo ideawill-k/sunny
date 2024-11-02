@@ -65,7 +65,9 @@ const pageInitializers = {
             width: 1.5,
             height: 40,
             displayValue: false,
-            margin: 5
+            margin: 5,
+            background: "#ffffff",
+            lineColor: "#000000"
         };
 
         const barcodes = [
@@ -76,24 +78,27 @@ const pageInitializers = {
             { id: "barcode5", code: "3240300080" }
         ];
 
-        barcodes.forEach(({ id, code }) => {
-            const element = document.getElementById(id);
-            if (element) {
-                JsBarcode(`#${id}`, code, barcodeConfig);
-            }
-        });
+        requestAnimationFrame(() => {
+            barcodes.forEach(({ id, code }) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    try {
+                        JsBarcode(`#${id}`, code, barcodeConfig);
+                    } catch (err) {
+                        console.error(`Error generating barcode for ${id}:`, err);
+                    }
+                }
+            });
 
-        // 필터 버튼 이벤트 설정
-        const filterButtons = document.querySelectorAll('.flex.flex-wrap.gap-2 button');
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('bg-black', 'text-white');
-                    btn.classList.add('bg-gray-100', 'text-gray-800');
+            // 필터 버튼 이벤트 다시 바인딩
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
                 });
-                
-                this.classList.remove('bg-gray-100', 'text-gray-800');
-                this.classList.add('bg-black', 'text-white');
             });
         });
     },
