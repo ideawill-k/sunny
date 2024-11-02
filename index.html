@@ -20,9 +20,12 @@
         <header class="border-b">
             <div class="content-container">
                 <div class="flex items-center justify-between h-16">
-                    <a href="/" class="flex-shrink-0">
-                        <img src="images/common/sunny_coupon_logo.png" alt="SUNNY COUPON" class="h-12 w-auto">
-                    </a>
+                    <!-- Logo -->
+<a href="/" class="flex-shrink-0 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg" onclick="loadPage('index'); return false;">
+    <img src="images/common/sunny_coupon_logo.png" 
+         alt="SUNNY COUPON" 
+         class="h-12 w-auto">
+</a>
 
                     <nav class="flex-1 flex items-center justify-end">
                         <div class="hidden md:flex space-x-8">
@@ -195,101 +198,102 @@
             </div>
 
             <!-- Travel Section -->
-            <div class="section-container">
-                <h3 class="section-title mt-12 md:mt-16">여행할인 & 여행정보</h3>
-                <!-- 여행 할인 Card -->
-                <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="flex flex-col h-full">
-                        <div class="flex items-center space-x-2 text-blue-500 mb-3">
-                            <i class="fas fa-plane text-3xl"></i>
-                            <i class="fas fa-hotel text-2xl"></i>
-                            <i class="fas fa-mobile-alt text-2xl"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-gray-800 mb-2">여행 할인</h4>
-                        <p class="text-gray-600">항공, 숙박, USIM, 보험</p>
-                        <div class="mt-4 flex items-center text-blue-500">
-                            <span class="text-sm font-medium">자세히 보기</span>
-                            <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
-                        </div>
-                    </div>
+<div class="section-container">
+    <h3 class="section-title mt-12 md:mt-16">여행할인 & 여행정보</h3>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <!-- 여행 할인 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="flex items-center space-x-2 text-blue-500 mb-3">
+                    <i class="fas fa-plane text-3xl"></i>
+                    <i class="fas fa-hotel text-2xl"></i>
+                    <i class="fas fa-mobile-alt text-2xl"></i>
                 </div>
-
-                <!-- 공항안내 Card -->
-                <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="flex flex-col h-full">
-                        <div class="text-3xl text-emerald-500 mb-3">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-gray-800 mb-2">공항안내</h4>
-                        <p class="text-gray-600">체크인부터 탑승까지</p>
-                        <div class="mt-4 flex items-center text-emerald-500">
-                            <span class="text-sm font-medium">자세히 보기</span>
-                            <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 면세점소식 Card -->
-                <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="flex flex-col h-full">
-                        <div class="text-3xl text-rose-500 mb-3">
-                            <i class="fas fa-shopping-bag"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-gray-800 mb-2">면세점소식</h4>
-                        <p class="text-gray-600">최신 할인 정보</p>
-                        <div class="mt-4 flex items-center text-rose-500">
-                            <span class="text-sm font-medium">자세히 보기</span>
-                            <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 여행지추천 Card -->
-                <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="flex flex-col h-full">
-                        <div class="text-3xl text-amber-500 mb-3">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-gray-800 mb-2">여행지추천</h4>
-                        <p class="text-gray-600">인기 여행지 정보</p>
-                        <div class="mt-4 flex items-center text-amber-500">
-                            <span class="text-sm font-medium">자세히 보기</span>
-                            <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 여행용품추천 Card -->
-                <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="flex flex-col h-full">
-                        <div class="text-3xl text-indigo-500 mb-3">
-                            <i class="fas fa-suitcase"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-gray-800 mb-2">여행용품추천</h4>
-                        <p class="text-gray-600">필수 여행용품 가이드</p>
-                        <div class="mt-4 flex items-center text-indigo-500">
-                            <span class="text-sm font-medium">자세히 보기</span>
-                            <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 자주하는 질문 Card -->
-                <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="flex flex-col h-full">
-                        <div class="text-3xl text-purple-500 mb-3">
-                            <i class="fas fa-question-circle"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-gray-800 mb-2">자주하는 질문</h4>
-                        <p class="text-gray-600">FAQ & 고객센터</p>
-                        <div class="mt-4 flex items-center text-purple-500">
-                            <span class="text-sm font-medium">자세히 보기</span>
-                            <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
-                        </div>
-                    </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">여행 할인</h4>
+                <p class="text-gray-600">항공, 숙박, USIM, 보험</p>
+                <div class="mt-4 flex items-center text-blue-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
                 </div>
             </div>
         </div>
+
+        <!-- 공항안내 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-emerald-500 mb-3">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">공항안내</h4>
+                <p class="text-gray-600">체크인부터 탑승까지</p>
+                <div class="mt-4 flex items-center text-emerald-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 면세점소식 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-rose-500 mb-3">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">면세점소식</h4>
+                <p class="text-gray-600">최신 할인 정보</p>
+                <div class="mt-4 flex items-center text-rose-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 여행지추천 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-amber-500 mb-3">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">여행지추천</h4>
+                <p class="text-gray-600">인기 여행지 정보</p>
+                <div class="mt-4 flex items-center text-amber-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 여행용품추천 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-indigo-500 mb-3">
+                    <i class="fas fa-suitcase"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">여행용품추천</h4>
+                <p class="text-gray-600">필수 여행용품 가이드</p>
+                <div class="mt-4 flex items-center text-indigo-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 자주하는 질문 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-purple-500 mb-3">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">자주하는 질문</h4>
+                <p class="text-gray-600">FAQ & 고객센터</p>
+                <div class="mt-4 flex items-center text-purple-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     </main>
 
     <!-- Footer -->
@@ -343,13 +347,20 @@
     // 페이지 콘텐츠 로드 함수
     async function loadPage(pageName) {
         try {
+            // index나 home인 경우 메인 페이지로 처리
+            if (pageName === 'index' || pageName === 'home' || pageName === '') {
+                // 메인 페이지 컨텐츠를 표시
+                location.href = '/';
+                return;
+            }
+
             const response = await fetch(`pages/${pageName}.html`);
             if (!response.ok) throw new Error('Page not found');
             
             const content = await response.text();
             document.getElementById('content').innerHTML = content;
 
-            // URL 업데이트 (옵션)
+            // URL 업데이트
             history.pushState({}, '', `/${pageName}.html`);
         } catch (error) {
             console.error('Page load error:', error);
