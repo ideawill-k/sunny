@@ -1,0 +1,231 @@
+/* Banner Section */
+.banner-section {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.banner-wrapper {
+    width: 100%;
+    max-width: 1024px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: 1rem;
+}
+
+#banner-container {
+    width: 500%;
+    display: flex;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.banner-slide {
+    width: 20%;
+    position: relative;
+    aspect-ratio: 1140 / 540;
+    transition: all 0.3s ease;
+    will-change: transform;
+}
+
+.banner-slide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.banner-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+/* Banner Navigation */
+.banner-nav-btn {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    backface-visibility: hidden;
+}
+
+.banner-nav-btn.prev {
+    left: 2rem;
+}
+
+.banner-nav-btn.next {
+    right: 2rem;
+}
+
+.banner-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* Banner Dots */
+.dots-container {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+/* Section Cards */
+.section-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.section-container.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Best Card */
+.best-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.best-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.best-card:hover::before {
+    transform: translateX(100%);
+}
+
+/* Info Cards */
+.info-card {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.info-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover::after {
+    transform: scaleX(1);
+}
+
+/* Arrow Animation */
+.arrow-icon {
+    transition: transform 0.3s ease;
+}
+
+.group:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .banner-wrapper {
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-wrapper {
+        margin: 0.5rem auto;
+    }
+
+    .banner-nav-btn {
+        padding: 0.5rem;
+    }
+
+    .banner-nav-btn.prev {
+        left: 0.5rem;
+    }
+
+    .banner-nav-btn.next {
+        right: 0.5rem;
+    }
+
+    .dot {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .banner-wrapper {
+        padding: 0 1rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .info-card {
+        padding: 1rem;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .banner-nav-btn {
+        display: none;
+    }
+
+    .banner-slide:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .info-card::after {
+        display: none;
+    }
+}

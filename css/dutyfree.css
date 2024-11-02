@@ -1,0 +1,258 @@
+/* Filter Section */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: #f3f4f6;
+    color: #374151;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.filter-btn.active {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Coupon Grid */
+.coupon-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+    .coupon-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .coupon-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Coupon Card */
+.duty-coupon {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    will-change: transform;
+}
+
+.duty-coupon:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+}
+
+.coupon-inner {
+    position: relative;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Best Tag */
+.best-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: white;
+    z-index: 1;
+}
+
+.city-coupon .best-tag { 
+    background-color: #2563eb; 
+}
+
+.kyungbok-coupon .best-tag { 
+    background-color: #dc2626; 
+}
+
+/* Coupon Header */
+.coupon-header {
+    margin-bottom: 1.5rem;
+}
+
+.brand-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.city-coupon .brand-name { 
+    color: #2563eb; 
+}
+
+.kyungbok-coupon .brand-name { 
+    color: #dc2626; 
+}
+
+.discount-wrap {
+    margin-bottom: 0.5rem;
+}
+
+.discount-amount {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.city-coupon .discount-amount { 
+    color: #2563eb; 
+}
+
+.kyungbok-coupon .discount-amount { 
+    color: #dc2626; 
+}
+
+.discount-text {
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+.city-coupon .discount-text { 
+    color: #3b82f6; 
+}
+
+.kyungbok-coupon .discount-text { 
+    color: #ef4444; 
+}
+
+/* Coupon Body */
+.coupon-body {
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.location-tag {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.city-coupon .location-tag {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+.kyungbok-coupon .location-tag {
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.condition-text {
+    color: #4b5563;
+    font-size: 0.875rem;
+}
+
+/* Barcode Section */
+.barcode-wrapper {
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    margin-top: auto;
+}
+
+.barcode-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    height: 50px;
+    background-color: white;
+}
+
+.barcode-container svg {
+    max-width: 100%;
+    height: 100%;
+}
+
+.barcode-number {
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.75rem;
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.duty-coupon {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .coupon-inner {
+        padding: 1rem;
+    }
+
+    .best-tag {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .brand-name {
+        font-size: 1.125rem;
+    }
+
+    .discount-amount {
+        font-size: 1.75rem;
+    }
+
+    .location-tag {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .barcode-container {
+        height: 40px;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .duty-coupon:hover {
+        transform: none;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .filter-btn:hover {
+        background-color: #f3f4f6;
+    }
+
+    .filter-btn.active {
+        background-color: #000;
+    }
+}
