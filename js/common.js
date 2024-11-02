@@ -1,3 +1,14 @@
+// 기본 URL 설정
+const BASE_URL = '/sunny';
+
+// 로고 클릭 설정
+function setupLogoClick() {
+    document.querySelector('a[href="index.html"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = BASE_URL + '/';
+    });
+}
+
 // 공통 유틸리티 함수
 const utils = {
     // 모바일 체크
