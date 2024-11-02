@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUNNY COUPON - 면세점 할인쿠폰</title>
+    <title>여행할인은 써니쿠폰</title>
+    <meta name="description" content="여행 할인, 면세점 쿠폰, 항공권, 해외여행 필수품을 한곳에서! 써니쿠폰과 함께하세요.">
+    <meta name="keywords" content="여행할인, 면세점, 쿠폰, 해외여행, 써니쿠폰">
+    
+    <!-- External CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Internal CSS -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -11,40 +20,53 @@
     <div class="page-container">
         <!-- Header -->
 <<<<<<< HEAD
+<<<<<<< HEAD
         <header class="border-b header">
             <div class="content-container">
                 <div class="flex items-center justify-between h-16">
                     <a href="/" class="flex-shrink-0">
                         <img src="images/common/sunny_coupon_logo.png" alt="SUNNY COUPON" class="h-12 w-auto">
                     </a>
+=======
+<header class="border-b">
+    <div class="content-container">
+        <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a href="/" class="flex-shrink-0">
+                <img src="images/common/sunny_coupon_logo.png" 
+                     alt="SUNNY COUPON" 
+                     class="h-12 w-auto">
+            </a>
+>>>>>>> parent of c85e286 (코드 정리, 중복 제거)
 
-                    <nav class="flex-1 flex items-center justify-end">
-                        <button class="md:hidden p-2" id="mobile-menu-button">
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-
-                        <div class="hidden md:flex space-x-8">
-                            <a href="pages/about.html" class="nav-link text-gray-900 text-lg font-medium px-3 py-2">About</a>
-                            <a href="pages/dutyfree.html" class="nav-link text-gray-900 text-lg font-medium px-3 py-2">면세점할인</a>
-                            <a href="pages/discount.html" class="nav-link text-gray-900 text-lg font-medium px-3 py-2">여행할인</a>
-                            <a href="pages/info.html" class="nav-link text-gray-900 text-lg font-medium px-3 py-2">여행정보</a>
-                        </div>
-                    </nav>
+            <!-- Desktop Menu -->
+            <div class="flex-1 flex items-center justify-end">
+                <div class="hidden md:flex space-x-8">
+                    <a href="pages/about.html" class="text-gray-900 text-lg font-medium px-3 py-2">About</a>
+                    <a href="pages/dutyfree.html" class="text-gray-900 text-lg font-medium px-3 py-2">면세점할인</a>
+                    <a href="pages/discount.html" class="text-gray-900 text-lg font-medium px-3 py-2">여행할인</a>
+                    <a href="pages/info.html" class="text-gray-900 text-lg font-medium px-3 py-2">여행정보</a>
                 </div>
             </div>
-        </header>
 
-        <!-- Mobile Menu -->
+            <!-- Mobile menu button -->
+            <button type="button" id="mobile-menu-button" class="md:hidden ml-4">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1">
+            <div class="pt-2 pb-4 space-y-1">
                 <a href="pages/about.html" class="block px-4 py-2 text-base font-medium text-gray-900">About</a>
                 <a href="pages/dutyfree.html" class="block px-4 py-2 text-base font-medium text-gray-900">면세점할인</a>
                 <a href="pages/discount.html" class="block px-4 py-2 text-base font-medium text-gray-900">여행할인</a>
                 <a href="pages/info.html" class="block px-4 py-2 text-base font-medium text-gray-900">여행정보</a>
             </div>
         </div>
+<<<<<<< HEAD
 =======
         <header class="border-b">
             <div class="content-container">
@@ -115,190 +137,304 @@
 
         </header>
 >>>>>>> parent of 9c7913a (동일 디버깅5)
+=======
+    </div>
+</header>
+>>>>>>> parent of c85e286 (코드 정리, 중복 제거)
 
-        <!-- Main Content -->
-        <main id="content" role="main">
-            <!-- Banner Section -->
-            <section class="banner-section">
-                <div class="banner-wrapper">
-                    <div id="banner-container" class="flex transition-transform duration-500 ease-in-out">
-                        <a href="/citydutyfree" class="banner-slide cursor-pointer">
-                            <img src="images/main/banner/01.jpg" alt="시티면세점 할인쿠폰">
-                        </a>
-                        <a href="/kyungbokdutyfree" class="banner-slide cursor-pointer">
-                            <img src="images/main/banner/02.png" alt="경복궁면세점 할인쿠폰">
-                        </a>
-                        <a href="/autumntrip" class="banner-slide cursor-pointer">
-                            <img src="images/main/banner/03.png" alt="10월 가을여행">
-                        </a>
-                        <a href="/usimesim" class="banner-slide cursor-pointer">
-                            <img src="images/main/banner/04.jpg" alt="해외USIM&ESIM">
-                        </a>
-                        <a href="/insurance" class="banner-slide cursor-pointer">
-                            <img src="images/main/banner/05.jpg" alt="해외여행자보험">
-                        </a>
-                    </div>
+        <!-- Main Content Area -->
+        <main id="content">
 
-                    <!-- Banner Navigation -->
-                    <button onclick="moveSlide(-1)" class="banner-nav-btn prev">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <button onclick="moveSlide(1)" class="banner-nav-btn next">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-
-                    <!-- Banner Dots -->
-                    <div class="dots-container">
-                        <!-- Dots will be inserted by JavaScript -->
-                    </div>
+        <!-- Banner Section -->
+        <div class="banner-section">
+            <div class="banner-wrapper">
+                <div id="banner-container" class="flex transition-transform duration-500 ease-in-out">
+                    <a href="/citydutyfree" class="banner-slide cursor-pointer">
+                        <img src="images/main/banner/01.jpg" alt="시티면세점 할인쿠폰">
+                    </a>
+                    <a href="/kyungbokdutyfree" class="banner-slide cursor-pointer">
+                        <img src="images/main/banner/02.png" alt="경복궁면세점 할인쿠폰">
+                    </a>
+                    <a href="/autumntrip" class="banner-slide cursor-pointer">
+                        <img src="images/main/banner/03.png" alt="10월 가을여행">
+                    </a>
+                    <a href="/usimesim" class="banner-slide cursor-pointer">
+                        <img src="images/main/banner/04.jpg" alt="해외USIM&ESIM">
+                    </a>
+                    <a href="/insurance" class="banner-slide cursor-pointer">
+                        <img src="images/main/banner/05.jpg" alt="해외여행자보험">
+                    </a>
                 </div>
-            </section>
 
-            <!-- Duty Free Section -->
-            <section class="section-container">
-                <h2 class="section-title">면세점 무료 할인쿠폰</h2>
-                <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                    <!-- Best Item -->
-                    <div class="image-box relative bg-gradient-to-br from-rose-500 to-orange-400 p-4 md:p-6">
-                        <span class="absolute top-0 right-0 bg-white/20 p-2 rounded-bl-2xl text-white font-bold">BEST</span>
-                        <div class="flex flex-col h-full justify-between">
-                            <div>
-                                <p class="text-4xl font-bold text-white">5</p>
-                                <p class="text-white">가장 인기있는 할인쿠폰</p>
-                            </div>
-                            <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm mt-4">
-                                최대 70% 할인
-                            </span>
-                        </div>
-                    </div>
+                <!-- Navigation Buttons -->
+                <button class="banner-nav-btn prev" onclick="moveSlide(-1)">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="banner-nav-btn next" onclick="moveSlide(1)">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
 
-                    <!-- Regular Items -->
-                    <div class="image-box bg-gradient-to-br from-blue-500 to-cyan-400 p-4 md:p-6">
-                        <div class="flex flex-col h-full">
-                            <h3 class="text-lg font-bold text-white mb-2">인천공항 1터미널</h3>
-                            <p class="text-white">터미널 전용 특별 할인</p>
-                            <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm mt-auto">
-                                할인쿠폰 받기
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="image-box bg-gradient-to-br from-indigo-500 to-blue-400 p-4 md:p-6">
-                        <div class="flex flex-col h-full">
-                            <h3 class="text-lg font-bold text-white mb-2">인천공항 2터미널</h3>
-                            <p class="text-white">터미널 전용 특별 할인</p>
-                            <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm mt-auto">
-                                할인쿠폰 받기
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="image-box bg-gradient-to-br from-purple-500 to-pink-400 p-4 md:p-6">
-                        <div class="flex flex-col h-full">
-                            <h3 class="text-lg font-bold text-white mb-2">김포 & 김해공항</h3>
-                            <p class="text-white">공항 면세점 할인</p>
-                            <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm mt-auto">
-                                할인쿠폰 받기
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="image-box bg-gradient-to-br from-emerald-500 to-teal-400 p-4 md:p-6">
-                        <div class="flex flex-col h-full">
-                            <h3 class="text-lg font-bold text-white mb-2">시내면세점</h3>
-                            <p class="text-white">시내면세점 특별 할인</p>
-                            <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm mt-auto">
-                                할인쿠폰 받기
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="image-box bg-gradient-to-br from-amber-500 to-orange-400 p-4 md:p-6">
-                        <div class="flex flex-col h-full">
-                            <h3 class="text-lg font-bold text-white mb-2">담배 & 주류</h3>
-                            <p class="text-white">특별 할인 상품</p>
-                            <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm mt-auto">
-                                할인쿠폰 받기
-                            </span>
-                        </div>
-                    </div>
+                <!-- Dots Navigation -->
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+                    <button class="w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-colors dot active" onclick="goToSlide(0)"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(1)"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(2)"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(3)"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(4)"></button>
                 </div>
-            </section>
+            </div>
+        </div>
 
-            <!-- Travel Info Section -->
-            <section class="section-container">
-                <h2 class="section-title mt-12 md:mt-16">여행할인 & 여행정보</h2>
-                <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                    <div class="image-box bg-white p-4 md:p-6 border-2 border-gray-100">
-                        <div class="flex flex-col h-full">
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">여행 할인</h3>
-                            <p class="text-gray-600">항공, 숙박, USIM, 보험</p>
-                            <span class="mt-4 text-blue-500 text-sm font-medium">자세히 보기</span>
-                        </div>
-                    </div>
-
-                    <div class="image-box bg-white p-4 md:p-6 border-2 border-gray-100">
-                        <div class="flex flex-col h-full">
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">공항안내</h3>
-                            <p class="text-gray-600">체크인부터 탑승까지</p>
-                            <span class="mt-4 text-emerald-500 text-sm font-medium">자세히 보기</span>
-                        </div>
-                    </div>
-
-                    <div class="image-box bg-white p-4 md:p-6 border-2 border-gray-100">
-                        <div class="flex flex-col h-full">
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">면세점소식</h3>
-                            <p class="text-gray-600">최신 할인 정보</p>
-                            <span class="mt-4 text-rose-500 text-sm font-medium">자세히 보기</span>
-                        </div>
-                    </div>
-
-                    <div class="image-box bg-white p-4 md:p-6 border-2 border-gray-100">
-                        <div class="flex flex-col h-full">
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">여행지추천</h3>
-                            <p class="text-gray-600">인기 여행지 정보</p>
-                            <span class="mt-4 text-amber-500 text-sm font-medium">자세히 보기</span>
-                        </div>
-                    </div>
-
-                    <div class="image-box bg-white p-4 md:p-6 border-2 border-gray-100">
-                        <div class="flex flex-col h-full">
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">여행용품추천</h3>
-                            <p class="text-gray-600">필수 여행용품 가이드</p>
-                            <span class="mt-4 text-indigo-500 text-sm font-medium">자세히 보기</span>
-                        </div>
-                    </div>
-
-                    <div class="image-box bg-white p-4 md:p-6 border-2 border-gray-100">
-                        <div class="flex flex-col h-full">
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">자주하는 질문</h3>
-                            <p class="text-gray-600">FAQ & 고객센터</p>
-                            <span class="mt-4 text-purple-500 text-sm font-medium">자세히 보기</span>
-                        </div>
-                    </div>
+<!-- Coupon Section -->
+<div class="section-container">
+    <h3 class="section-title text-xl font-bold">면세점 무료 할인쿠폰</h3>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <!-- BEST 5 Card -->
+        <div class="group relative bg-gradient-to-br from-rose-500 to-orange-400 p-4 md:p-6 rounded-2xl shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+            <div class="absolute top-0 right-0 bg-white/20 p-2 rounded-bl-2xl">
+                <span class="text-white font-bold">BEST</span>
+            </div>
+            <div class="flex flex-col h-full justify-between">
+                <div>
+                    <span class="text-4xl font-bold text-white">5</span>
+                    <p class="mt-2 text-white/90 text-sm">가장 인기있는 할인쿠폰</p>
                 </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer mt-12">
-            <div class="content-container py-8">
-                <div class="social-links">
-                    <a href="#" class="social-link bg-green-500 hover:bg-green-600"></a>
-                    <a href="#" class="social-link bg-yellow-500 hover:bg-yellow-600"></a>
-                    <a href="#" class="social-link bg-pink-500 hover:bg-pink-600"></a>
-                    <a href="#" class="social-link bg-blue-500 hover:bg-blue-600"></a>
+                <div class="mt-4">
+                    <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm">
+                        최대 70% 할인
+                    </span>
                 </div>
-                <div class="space-y-1 text-sm text-gray-600">
-                    <p>대명인터네셔널</p>
-                    <p>대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
-                    <p>제휴문의 : sunnycoupon@naver.com</p>
-                    <p>통신판매신고 : 제2018-부산남구-2047호</p>
-                    <p>부산광역시 남구 신선로 365, 317
+            </div>
+            <div class="absolute bottom-0 right-0 w-24 h-24 bg-white/10 rounded-tl-full transform translate-x-8 translate-y-8"></div>
+        </div>
+
+        <!-- 인천공항 1터미널 Card -->
+        <div class="group bg-gradient-to-br from-blue-500 to-cyan-400 p-4 md:p-6 rounded-2xl shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-white mb-3">
+                    <i class="fas fa-plane-departure"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2">인천공항 1터미널</h4>
+                <p class="text-white/80 text-sm mb-4">터미널 전용 특별 할인</p>
+                <div class="mt-auto">
+                    <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm">
+                        할인쿠폰 받기
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 인천공항 2터미널 Card -->
+        <div class="group bg-gradient-to-br from-indigo-500 to-blue-400 p-4 md:p-6 rounded-2xl shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-white mb-3">
+                    <i class="fas fa-plane-arrival"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2">인천공항 2터미널</h4>
+                <p class="text-white/80 text-sm mb-4">터미널 전용 특별 할인</p>
+                <div class="mt-auto">
+                    <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm">
+                        할인쿠폰 받기
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 김포 & 김해공항 Card -->
+        <div class="group bg-gradient-to-br from-purple-500 to-pink-400 p-4 md:p-6 rounded-2xl shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="flex items-center space-x-2 text-white mb-3">
+                    <i class="fas fa-plane text-3xl"></i>
+                    <i class="fas fa-plus text-lg"></i>
+                    <i class="fas fa-plane text-3xl"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2">김포 & 김해공항</h4>
+                <p class="text-white/80 text-sm mb-4">공항 면세점 할인</p>
+                <div class="mt-auto">
+                    <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm">
+                        할인쿠폰 받기
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 시내면세점 Card -->
+        <div class="group bg-gradient-to-br from-emerald-500 to-teal-400 p-4 md:p-6 rounded-2xl shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-white mb-3">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2">시내면세점</h4>
+                <p class="text-white/80 text-sm mb-4">시내면세점 특별 할인</p>
+                <div class="mt-auto">
+                    <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm">
+                        할인쿠폰 받기
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 담배 & 주류 Card -->
+        <div class="group bg-gradient-to-br from-amber-500 to-orange-400 p-4 md:p-6 rounded-2xl shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="flex items-center space-x-2 text-white mb-3">
+                    <i class="fas fa-smoking text-3xl"></i>
+                    <i class="fas fa-wine-bottle text-3xl"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2">담배 & 주류</h4>
+                <p class="text-white/80 text-sm mb-4">특별 할인 상품</p>
+                <div class="mt-auto">
+                    <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm">
+                        할인쿠폰 받기
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tips Section -->
+<div class="section-container">
+    <h3 class="section-title text-xl font-bold mt-12 md:mt-16">여행할인 & 여행정보</h3>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <!-- 여행 할인 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="flex items-center space-x-2 text-blue-500 mb-3">
+                    <i class="fas fa-plane text-3xl"></i>
+                    <i class="fas fa-hotel text-2xl"></i>
+                    <i class="fas fa-mobile-alt text-2xl"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">여행 할인</h4>
+                <p class="text-gray-600 text-sm">항공, 숙박, USIM, 보험</p>
+                <div class="mt-4 flex items-center text-blue-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 공항안내 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-emerald-500 mb-3">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">공항안내</h4>
+                <p class="text-gray-600 text-sm">체크인부터 탑승까지</p>
+                <div class="mt-4 flex items-center text-emerald-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 면세점소식 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-rose-500 mb-3">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">면세점소식</h4>
+                <p class="text-gray-600 text-sm">최신 할인 정보</p>
+                <div class="mt-4 flex items-center text-rose-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 여행지추천 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-amber-500 mb-3">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">여행지추천</h4>
+                <p class="text-gray-600 text-sm">인기 여행지 정보</p>
+                <div class="mt-4 flex items-center text-amber-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 여행용품추천 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-indigo-500 mb-3">
+                    <i class="fas fa-suitcase"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">여행용품추천</h4>
+                <p class="text-gray-600 text-sm">필수 여행용품 가이드</p>
+                <div class="mt-4 flex items-center text-indigo-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 자주하는 질문 Card -->
+        <div class="group bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 shadow-md 
+                    hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex flex-col h-full">
+                <div class="text-3xl text-purple-500 mb-3">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">자주하는 질문</h4>
+                <p class="text-gray-600 text-sm">FAQ & 고객센터</p>
+                <div class="mt-4 flex items-center text-purple-500">
+                    <span class="text-sm font-medium">자세히 보기</span>
+                    <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<!-- Footer -->
+<footer class="mt-16 pb-8 text-sm text-gray-600 border-t pt-8">
+    <div class="content-container">
+        <!-- 소셜 링크 -->
+        <div class="social-links">
+            <a href="#" class="social-link bg-green-500 hover:bg-green-600">
+                <i class="fab fa-line text-white"></i>
+            </a>
+            <a href="#" class="social-link bg-yellow-500 hover:bg-yellow-600">
+                <i class="fab fa-kakao text-white"></i>
+            </a>
+            <a href="#" class="social-link bg-pink-500 hover:bg-pink-600">
+                <i class="fab fa-instagram text-white"></i>
+            </a>
+            <a href="#" class="social-link bg-blue-500 hover:bg-blue-600">
+                <i class="fab fa-facebook text-white"></i>
+            </a>
+        </div>
+        
+        <!-- 회사 정보 -->
+        <div class="space-y-1">
+            <p class="font-bold text-base mb-2">대명인터네셔널</p>
+            <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
+            <p class="leading-relaxed">제휴문의 : sunnycoupon@naver.com</p>
+            <p class="leading-relaxed">통신판매신고 : 제2018-부산남구-2047호</p>
+            <p class="leading-relaxed">부산광역시 남구 신선로 365, 317호</p>
             <p class="mt-2">© Copyright 2019 SunnyCoupon. All Rights Reserved.</p>
         </div>
     </div>
