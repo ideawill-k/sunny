@@ -12,7 +12,7 @@
     
     <!-- Internal CSS -->
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <div class="page-container">
@@ -80,48 +80,58 @@
         <!-- Main Content Area -->
         <main id="content" role="main">
             <!-- Banner Section -->
-            <div class="banner-section mt-6 mb-12">
-                <div class="banner-wrapper">
-                    <div id="banner-container" class="flex transition-transform duration-500 ease-in-out">
-                        <a href="/citydutyfree" class="banner-slide cursor-pointer rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <img src="images/main/banner/01.jpg" alt="시티면세점 할인쿠폰" class="rounded-2xl">
-                        </a>
-                        <a href="/kyungbokdutyfree" class="banner-slide cursor-pointer rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <img src="images/main/banner/02.png" alt="경복궁면세점 할인쿠폰" class="rounded-2xl">
-                        </a>
-                        <a href="/autumntrip" class="banner-slide cursor-pointer rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <img src="images/main/banner/03.png" alt="10월 가을여행" class="rounded-2xl">
-                        </a>
-                        <a href="/usimesim" class="banner-slide cursor-pointer rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <img src="images/main/banner/04.jpg" alt="해외USIM&ESIM" class="rounded-2xl">
-                        </a>
-                        <a href="/insurance" class="banner-slide cursor-pointer rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <img src="images/main/banner/05.jpg" alt="해외여행자보험" class="rounded-2xl">
-                        </a>
-                    </div>
+<div class="banner-section mt-6 mb-12">
+    <div class="banner-wrapper max-w-screen-lg mx-auto px-4">  <!-- 최대 너비 제한 추가 -->
+        <div id="banner-container" class="flex transition-transform duration-500 ease-in-out">
+            <a href="/citydutyfree" class="banner-slide">
+                <img src="images/main/banner/01.jpg" 
+                     alt="시티면세점 할인쿠폰" 
+                     class="w-full h-full object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            </a>
+            <a href="/kyungbokdutyfree" class="banner-slide">
+                <img src="images/main/banner/02.png" 
+                     alt="경복궁면세점 할인쿠폰" 
+                     class="w-full h-full object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            </a>
+            <a href="/autumntrip" class="banner-slide">
+                <img src="images/main/banner/03.png" 
+                     alt="10월 가을여행" 
+                     class="w-full h-full object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            </a>
+            <a href="/usimesim" class="banner-slide">
+                <img src="images/main/banner/04.jpg" 
+                     alt="해외USIM&ESIM" 
+                     class="w-full h-full object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            </a>
+            <a href="/insurance" class="banner-slide">
+                <img src="images/main/banner/05.jpg" 
+                     alt="해외여행자보험" 
+                     class="w-full h-full object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            </a>
+        </div>
 
-                    <!-- Navigation Buttons -->
-                    <button class="banner-nav-btn prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 p-2 rounded-full shadow-md transition-all duration-300" onclick="moveSlide(-1)">
-                        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                    </button>
-                    <button class="banner-nav-btn next absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 p-2 rounded-full shadow-md transition-all duration-300" onclick="moveSlide(1)">
-                        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </button>
+        <!-- Navigation Buttons -->
+        <button class="banner-nav-btn prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 p-2 rounded-full shadow-md transition-all duration-300 z-10" onclick="moveSlide(-1)">
+            <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <button class="banner-nav-btn next absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 p-2 rounded-full shadow-md transition-all duration-300 z-10" onclick="moveSlide(1)">
+            <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
 
-                    <!-- Dots Navigation -->
-                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-                        <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot active" onclick="goToSlide(0)"></button>
-                        <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(1)"></button>
-                        <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(2)"></button>
-                        <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(3)"></button>
-                        <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(4)"></button>
-                    </div>
-                </div>
-            </div>
+        <!-- Dots Navigation -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+            <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot active" onclick="goToSlide(0)"></button>
+            <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(1)"></button>
+            <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(2)"></button>
+            <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(3)"></button>
+            <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(4)"></button>
+        </div>
+    </div>
+</div>
 
 <!-- 면세점 무료 할인쿠폰 Section -->
 <div class="section-container mb-12">
