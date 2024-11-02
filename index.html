@@ -81,52 +81,52 @@
 
         <!-- Main Content Area -->
         <main id="content">
-            <!-- Banner Section -->
-            <div class="banner-section">
-                <div class="banner-wrapper">
-                    <div id="banner-container" class="flex transition-transform duration-500 ease-in-out">
-                        <a href="/citydutyfree" class="banner-slide cursor-pointer">
-                            <img src="images/main/banner/01.jpg" alt="시티면세점 할인쿠폰">
-                        </a>
-                        <a href="/kyungbokdutyfree" class="banner-slide cursor-pointer">
-                            <img src="images/main/banner/02.png" alt="경복궁면세점 할인쿠폰">
-                        </a>
-                        <a href="/autumntrip" class="banner-slide cursor-pointer">
-                            <img src="images/main/banner/03.png" alt="10월 가을여행">
-                        </a>
-                        <a href="/usimesim" class="banner-slide cursor-pointer">
-                            <img src="images/main/banner/04.jpg" alt="해외USIM&ESIM">
-                        </a>
-                        <a href="/insurance" class="banner-slide cursor-pointer">
-                            <img src="images/main/banner/05.jpg" alt="해외여행자보험">
-                        </a>
-                    </div>
+<!-- Banner Section -->
+<div class="banner-section mt-6 mb-12">  <!-- 상단 여백 추가 -->
+    <div class="banner-wrapper">
+        <div id="banner-container" class="flex transition-transform duration-500 ease-in-out">
+            <a href="/citydutyfree" class="banner-slide cursor-pointer rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <img src="images/main/banner/01.jpg" alt="시티면세점 할인쿠폰" class="rounded-2xl">
+            </a>
+            <a href="/kyungbokdutyfree" class="banner-slide cursor-pointer rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <img src="images/main/banner/02.png" alt="경복궁면세점 할인쿠폰" class="rounded-2xl">
+            </a>
+            <a href="/autumntrip" class="banner-slide cursor-pointer rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <img src="images/main/banner/03.png" alt="10월 가을여행" class="rounded-2xl">
+            </a>
+            <a href="/usimesim" class="banner-slide cursor-pointer rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <img src="images/main/banner/04.jpg" alt="해외USIM&ESIM" class="rounded-2xl">
+            </a>
+            <a href="/insurance" class="banner-slide cursor-pointer rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <img src="images/main/banner/05.jpg" alt="해외여행자보험" class="rounded-2xl">
+            </a>
+        </div>
 
-                    <!-- Banner Navigation -->
-                    <button class="banner-nav-btn prev" onclick="moveSlide(-1)">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                    </button>
-                    <button class="banner-nav-btn next" onclick="moveSlide(1)">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </button>
+        <!-- Navigation Buttons -->
+        <button class="banner-nav-btn prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 p-2 rounded-full shadow-md transition-all duration-300" onclick="moveSlide(-1)">
+            <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <button class="banner-nav-btn next absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 p-2 rounded-full shadow-md transition-all duration-300" onclick="moveSlide(1)">
+            <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
 
-                    <!-- Dots Navigation -->
-                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-                        <button class="dot active" onclick="goToSlide(0)"></button>
-                        <button class="dot" onclick="goToSlide(1)"></button>
-                        <button class="dot" onclick="goToSlide(2)"></button>
-                        <button class="dot" onclick="goToSlide(3)"></button>
-                        <button class="dot" onclick="goToSlide(4)"></button>
-                    </div>
-                </div>
-            </div>
+        <!-- Dots Navigation -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+            <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot active" onclick="goToSlide(0)"></button>
+            <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(1)"></button>
+            <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(2)"></button>
+            <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(3)"></button>
+            <button class="w-2.5 h-2.5 rounded-full bg-white/70 hover:bg-white transition-colors dot" onclick="goToSlide(4)"></button>
+        </div>
+    </div>
+</div>
 
-            <!-- Coupon Section -->
-<div class="section-container">
+<!-- Coupon Section -->
+<div class="section-container mb-12">  <!-- 하단 여백 통일 -->
     <h3 class="section-title text-2xl font-bold mb-6">면세점 무료 할인쿠폰</h3>
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         <!-- BEST 5 Card -->
@@ -227,8 +227,8 @@
 </div>
 
 <!-- Travel Section -->
-<div class="section-container">
-    <h3 class="section-title text-2xl font-bold mt-12 md:mt-16 mb-6">여행할인 & 여행정보</h3>
+<div class="section-container mb-12">  <!-- 하단 여백 통일 -->
+    <h3 class="section-title text-2xl font-bold mb-6">여행할인 & 여행정보</h3>
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         <!-- 여행 할인 Card -->
         <div class="group bg-white p-5 md:p-7 rounded-2xl border-2 border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
