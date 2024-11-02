@@ -1,153 +1,114 @@
 <!-- 면세점 할인 페이지 -->
 <div class="dutyfree-container px-4 py-6 md:py-8">
+
     <!-- 상단 필터 -->
-    <div class="flex flex-wrap gap-2 mb-8">
+    <div class="flex flex-wrap gap-2 mt-6 mb-8">
         <button class="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">BEST 5</button>
         <button class="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200">인천공항제1터미널</button>
         <button class="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200">인천공항제2터미널</button>
-        <button class="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200">김포공항</button>
-        <button class="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200">김해공항</button>
-        <button class="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200">시내면세점</button>
+        <button class="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200">입국장면세점</button>
     </div>
 
     <!-- 쿠폰 그리드 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-<!-- BEST 1 -->
-<div class="relative bg-white rounded-xl shadow-md overflow-hidden p-8">
-    <!-- Best 1 Tag -->
-    <div class="absolute top-3 right-3 bg-black text-white px-4 py-1.5 rounded-lg text-sm font-bold">
-        BEST 1
-    </div>
- 
-    <!-- Price Section -->
-    <div class="text-center mb-8">
-        <div class="text-[48px] leading-tight font-bold text-blue-500 tracking-tight">
-            12,000원
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <!-- BEST 1 -->
+        <div class="duty-coupon city-coupon">
+            <div class="relative p-6">
+                <div class="best-tag">BEST 1</div>
+                <div class="coupon-content">
+                    <div class="brand-name">시티면세점</div>
+                    <div class="discount-amount">12,000원</div>
+                    <div class="discount-text">할인</div>
+                </div>
+                <div class="coupon-info">
+                    <div class="location-tag">인천공항 1,2터미널</div>
+                    <div class="condition-text">담배 2보루 구매시</div>
+                </div>
+                <div class="barcode-section">
+                    <svg id="barcode1"></svg>
+                    <div class="barcode-number">00622034000001</div>
+                </div>
+            </div>
         </div>
-        <div class="text-lg text-blue-400 font-medium mt-1">
-            할인
-        </div>
-    </div>
- 
-    <!-- Info Section -->
-    <div class="space-y-4 text-center">
-        <div class="inline-block bg-blue-50 rounded-full px-5 py-2 text-blue-600 font-medium">
-            인천공항 1터미널
-        </div>
-        <div class="text-gray-700 text-lg font-medium">
-            담배 2보루 구매시
-        </div>
-    </div>
- 
-    <!-- Barcode Section -->
-<div class="mt-10 pt-6 border-t border-gray-100 text-center">
-    <div class="flex justify-center items-center h-16 mb-2">
-        <svg id="barcode1" class="w-full"></svg>
-    </div>
-    <div class="text-gray-500 font-medium tracking-wider">
-        00622034000001
-    </div>
-</div>
-
-<!-- Barcode Script - HTTPS CDN으로 변경 -->
-<script src="https://unpkg.com/jsbarcode@latest/dist/JsBarcode.all.min.js"></script>
-<script>
-    window.addEventListener('load', function() {
-        try {
-            JsBarcode("#barcode1", "00622034000001", {
-                format: "CODE128",
-                width: 1.5,
-                height: 40,
-                displayValue: false,
-                margin: 5,
-                background: "#ffffff",
-                lineColor: "#000000"
-            });
-            console.log('Barcode generated successfully');
-        } catch (error) {
-            console.error('Barcode generation error:', error);
-        }
-    });
-</script>
 
         <!-- BEST 2 -->
-        <div class="relative bg-white rounded-lg shadow-md overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
-            <div class="absolute top-0 left-0 bg-black text-white px-3 py-1 rounded-br-lg z-10">
-                <span class="font-bold">BEST 2</span>
-            </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start mb-4">
-                    <img src="/images/duty/kyungbok-logo.png" alt="KYUNG BOK KUNG" class="h-8">
+        <div class="duty-coupon kyungbok-coupon">
+            <div class="relative p-6">
+                <div class="best-tag">BEST 2</div>
+                <div class="coupon-content">
+                    <div class="brand-name">경복궁면세점</div>
+                    <div class="discount-amount">12,000원</div>
+                    <div class="discount-text">할인</div>
                 </div>
-                <div class="text-4xl font-bold text-red-800 mb-2">12,000원</div>
-                <div class="flex items-center bg-gray-100 rounded px-2 py-1 text-sm w-fit">
-                    <span class="text-gray-600">인천공항점</span>
+                <div class="coupon-info">
+                    <div class="location-tag">인천공항 1,2터미널</div>
+                    <div class="condition-text">담배 2보루 구매시</div>
                 </div>
-                <div class="mt-2 text-gray-600">담배 2보루 구매시</div>
+                <div class="barcode-section">
+                    <svg id="barcode2"></svg>
+                    <div class="barcode-number">3230700008</div>
+                </div>
             </div>
-            <button class="w-full bg-red-800 text-white py-3 text-center font-medium hover:bg-red-900 transition-colors">
-                쿠폰받기
-            </button>
         </div>
 
         <!-- BEST 3 -->
-        <div class="relative bg-white rounded-lg shadow-md overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
-            <div class="absolute top-0 left-0 bg-black text-white px-3 py-1 rounded-br-lg z-10">
-                <span class="font-bold">BEST 3</span>
-            </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start mb-4">
-                    <img src="/images/duty/kyungbok-logo.png" alt="KYUNG BOK KUNG" class="h-8">
+        <div class="duty-coupon kyungbok-coupon">
+            <div class="relative p-6">
+                <div class="best-tag">BEST 3</div>
+                <div class="coupon-content">
+                    <div class="brand-name">경복궁면세점</div>
+                    <div class="discount-amount">11,000원</div>
+                    <div class="discount-text">할인</div>
                 </div>
-                <div class="text-4xl font-bold text-red-800 mb-2">11,000원</div>
-                <div class="flex items-center bg-gray-100 rounded px-2 py-1 text-sm w-fit">
-                    <span class="text-gray-600">인천공항점</span>
+                <div class="coupon-info">
+                    <div class="location-tag">인천공항 1,2터미널</div>
+                    <div class="condition-text">$100 이상 구매시</div>
                 </div>
-                <div class="mt-2 text-gray-600">$100이상 구매시</div>
+                <div class="barcode-section">
+                    <svg id="barcode3"></svg>
+                    <div class="barcode-number">3240300013</div>
+                </div>
             </div>
-            <button class="w-full bg-red-800 text-white py-3 text-center font-medium hover:bg-red-900 transition-colors">
-                쿠폰받기
-            </button>
         </div>
 
         <!-- BEST 4 -->
-        <div class="relative bg-white rounded-lg shadow-md overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
-            <div class="absolute top-0 left-0 bg-black text-white px-3 py-1 rounded-br-lg z-10">
-                <span class="font-bold">BEST 4</span>
-            </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start mb-4">
-                    <img src="/images/duty/city-logo.png" alt="CITY DUTY FREE" class="h-8">
+        <div class="duty-coupon city-coupon">
+            <div class="relative p-6">
+                <div class="best-tag">BEST 4</div>
+                <div class="coupon-content">
+                    <div class="brand-name">시티면세점</div>
+                    <div class="discount-amount">10,000원</div>
+                    <div class="discount-text">할인</div>
                 </div>
-                <div class="text-4xl font-bold text-blue-500 mb-2">10,000원</div>
-                <div class="flex items-center bg-gray-100 rounded px-2 py-1 text-sm w-fit">
-                    <span class="text-gray-600">인천공항점</span>
+                <div class="coupon-info">
+                    <div class="location-tag">인천공항 1,2터미널</div>
+                    <div class="condition-text">$80 이상 구매시</div>
                 </div>
-                <div class="mt-2 text-gray-600">$80이상 구매시</div>
+                <div class="barcode-section">
+                    <svg id="barcode4"></svg>
+                    <div class="barcode-number">00622019000001</div>
+                </div>
             </div>
-            <button class="w-full bg-blue-500 text-white py-3 text-center font-medium hover:bg-blue-600 transition-colors">
-                쿠폰받기
-            </button>
         </div>
 
         <!-- BEST 5 -->
-        <div class="relative bg-white rounded-lg shadow-md overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
-            <div class="absolute top-0 left-0 bg-black text-white px-3 py-1 rounded-br-lg z-10">
-                <span class="font-bold">BEST 5</span>
-            </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start mb-4">
-                    <img src="/images/duty/kyungbok-logo.png" alt="KYUNG BOK KUNG" class="h-8">
+        <div class="duty-coupon kyungbok-coupon">
+            <div class="relative p-6">
+                <div class="best-tag">BEST 5</div>
+                <div class="coupon-content">
+                    <div class="brand-name">경복궁면세점</div>
+                    <div class="discount-amount">5,000원</div>
+                    <div class="discount-text">할인</div>
                 </div>
-                <div class="text-4xl font-bold text-red-800 mb-2">5,000원</div>
-                <div class="flex items-center bg-gray-100 rounded px-2 py-1 text-sm w-fit">
-                    <span class="text-gray-600">인천공항점</span>
+                <div class="coupon-info">
+                    <div class="location-tag">인천공항 1,2 입국장</div>
+                    <div class="condition-text">담배 1보루 구매시</div>
                 </div>
-                <div class="mt-2 text-gray-600">담배 1보루 구매시</div>
+                <div class="barcode-section">
+                    <svg id="barcode5"></svg>
+                    <div class="barcode-number">3240300080</div>
+                </div>
             </div>
-            <button class="w-full bg-red-800 text-white py-3 text-center font-medium hover:bg-red-900 transition-colors">
-                쿠폰받기
-            </button>
         </div>
     </div>
-</div>
+</main>
