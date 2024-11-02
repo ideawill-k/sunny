@@ -360,10 +360,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // 페이지 콘텐츠 로드 함수
 async function loadPage(pageName) {
     try {
-        // index나 home인 경우 메인 페이지로 처리
+        // index나 home인 경우 아무 동작하지 않음
         if (pageName === 'index' || pageName === 'home' || pageName === '') {
-            window.location.href = `${BASE_URL}/index.html`;  // 명시적으로 index.html로 이동
-            return;
+            return; // 그냥 현재 페이지 유지
         }
 
         const response = await fetch(`${BASE_URL}/pages/${pageName}.html`);
@@ -376,8 +375,6 @@ async function loadPage(pageName) {
         history.pushState({}, '', `${BASE_URL}/${pageName}.html`);
     } catch (error) {
         console.error('Page load error:', error);
-        // 에러 발생시 홈으로 리다이렉트
-        window.location.href = `${BASE_URL}/index.html`;
     }
 }
 
