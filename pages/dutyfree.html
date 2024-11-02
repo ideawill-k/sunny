@@ -1,114 +1,135 @@
-<!-- Main Content Area -->
-<main id="content" role="main">
-    <div class="content-container">
-    <!-- 상단 필터 -->
-    <div class="flex flex-wrap gap-2 mt-6 mb-8">
-        <button class="bg-black text-white px-4 py-2 rounded-full text-sm font-medium">BEST 5</button>
-        <button class="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200">인천공항제1터미널</button>
-        <button class="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200">인천공항제2터미널</button>
-        <button class="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200">입국장면세점</button>
+<div class="content-container">
+    <!-- 상단 여백 추가 -->
+    <div class="py-4">
+        <!-- 상단 필터 -->
+        <div class="filter-container mb-6">
+            <button class="filter-btn active">BEST 5</button>
+            <button class="filter-btn">인천공항제1터미널</button>
+            <button class="filter-btn">인천공항제2터미널</button>
+            <button class="filter-btn">입국장면세점</button>
+        </div>
+
+        <!-- 쿠폰 그리드 -->
+        <div class="coupon-grid">
+            <!-- BEST 1 -->
+            <div class="duty-coupon city-coupon">
+                <div class="coupon-inner">
+                    <div class="best-tag">BEST 1</div>
+                    <div class="coupon-header">
+                        <div class="brand-name">시티면세점</div>
+                        <div class="discount-wrap">
+                            <div class="discount-amount">12,000원</div>
+                            <div class="discount-text">할인</div>
+                        </div>
+                    </div>
+                    <div class="coupon-body">
+                        <div class="location-tag">인천공항 1,2터미널</div>
+                        <div class="condition-text">담배 2보루 구매시</div>
+                    </div>
+                    <div class="barcode-wrapper">
+                        <div class="barcode-container">
+                            <svg id="barcode1"></svg>
+                        </div>
+                        <div class="barcode-number">00622034000001</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BEST 2 -->
+            <div class="duty-coupon kyungbok-coupon">
+                <div class="coupon-inner">
+                    <div class="best-tag">BEST 2</div>
+                    <div class="coupon-header">
+                        <div class="brand-name">경복궁면세점</div>
+                        <div class="discount-wrap">
+                            <div class="discount-amount">12,000원</div>
+                            <div class="discount-text">할인</div>
+                        </div>
+                    </div>
+                    <div class="coupon-body">
+                        <div class="location-tag">인천공항 1,2터미널</div>
+                        <div class="condition-text">담배 2보루 구매시</div>
+                    </div>
+                    <div class="barcode-wrapper">
+                        <div class="barcode-container">
+                            <svg id="barcode2"></svg>
+                        </div>
+                        <div class="barcode-number">3230700008</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BEST 3 -->
+            <div class="duty-coupon kyungbok-coupon">
+                <div class="coupon-inner">
+                    <div class="best-tag">BEST 3</div>
+                    <div class="coupon-header">
+                        <div class="brand-name">경복궁면세점</div>
+                        <div class="discount-wrap">
+                            <div class="discount-amount">11,000원</div>
+                            <div class="discount-text">할인</div>
+                        </div>
+                    </div>
+                    <div class="coupon-body">
+                        <div class="location-tag">인천공항 1,2터미널</div>
+                        <div class="condition-text">$100 이상 구매시</div>
+                    </div>
+                    <div class="barcode-wrapper">
+                        <div class="barcode-container">
+                            <svg id="barcode3"></svg>
+                        </div>
+                        <div class="barcode-number">3240300013</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BEST 4 -->
+            <div class="duty-coupon city-coupon">
+                <div class="coupon-inner">
+                    <div class="best-tag">BEST 4</div>
+                    <div class="coupon-header">
+                        <div class="brand-name">시티면세점</div>
+                        <div class="discount-wrap">
+                            <div class="discount-amount">10,000원</div>
+                            <div class="discount-text">할인</div>
+                        </div>
+                    </div>
+                    <div class="coupon-body">
+                        <div class="location-tag">인천공항 1,2터미널</div>
+                        <div class="condition-text">$80 이상 구매시</div>
+                    </div>
+                    <div class="barcode-wrapper">
+                        <div class="barcode-container">
+                            <svg id="barcode4"></svg>
+                        </div>
+                        <div class="barcode-number">00622019000001</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BEST 5 -->
+            <div class="duty-coupon kyungbok-coupon">
+                <div class="coupon-inner">
+                    <div class="best-tag">BEST 5</div>
+                    <div class="coupon-header">
+                        <div class="brand-name">경복궁면세점</div>
+                        <div class="discount-wrap">
+                            <div class="discount-amount">5,000원</div>
+                            <div class="discount-text">할인</div>
+                        </div>
+                    </div>
+                    <div class="coupon-body">
+                        <div class="location-tag">인천공항 1,2 입국장</div>
+                        <div class="condition-text">담배 1보루 구매시</div>
+                    </div>
+                    <div class="barcode-wrapper">
+                        <div class="barcode-container">
+                            <svg id="barcode5"></svg>
+                        </div>
+                        <div class="barcode-number">3240300080</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- 쿠폰 그리드 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        <!-- BEST 1 -->
-        <div class="duty-coupon city-coupon">
-            <div class="relative p-6">
-                <div class="best-tag">BEST 1</div>
-                <div class="coupon-content">
-                    <div class="brand-name">시티면세점</div>
-                    <div class="discount-amount">12,000원</div>
-                    <div class="discount-text">할인</div>
-                </div>
-                <div class="coupon-info">
-                    <div class="location-tag">인천공항 1,2터미널</div>
-                    <div class="condition-text">담배 2보루 구매시</div>
-                </div>
-                <div class="barcode-section">
-                    <svg id="barcode1"></svg>
-                    <div class="barcode-number">00622034000001</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- BEST 2 -->
-        <div class="duty-coupon kyungbok-coupon">
-            <div class="relative p-6">
-                <div class="best-tag">BEST 2</div>
-                <div class="coupon-content">
-                    <div class="brand-name">경복궁면세점</div>
-                    <div class="discount-amount">12,000원</div>
-                    <div class="discount-text">할인</div>
-                </div>
-                <div class="coupon-info">
-                    <div class="location-tag">인천공항 1,2터미널</div>
-                    <div class="condition-text">담배 2보루 구매시</div>
-                </div>
-                <div class="barcode-section">
-                    <svg id="barcode2"></svg>
-                    <div class="barcode-number">3230700008</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- BEST 3 -->
-        <div class="duty-coupon kyungbok-coupon">
-            <div class="relative p-6">
-                <div class="best-tag">BEST 3</div>
-                <div class="coupon-content">
-                    <div class="brand-name">경복궁면세점</div>
-                    <div class="discount-amount">11,000원</div>
-                    <div class="discount-text">할인</div>
-                </div>
-                <div class="coupon-info">
-                    <div class="location-tag">인천공항 1,2터미널</div>
-                    <div class="condition-text">$100 이상 구매시</div>
-                </div>
-                <div class="barcode-section">
-                    <svg id="barcode3"></svg>
-                    <div class="barcode-number">3240300013</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- BEST 4 -->
-        <div class="duty-coupon city-coupon">
-            <div class="relative p-6">
-                <div class="best-tag">BEST 4</div>
-                <div class="coupon-content">
-                    <div class="brand-name">시티면세점</div>
-                    <div class="discount-amount">10,000원</div>
-                    <div class="discount-text">할인</div>
-                </div>
-                <div class="coupon-info">
-                    <div class="location-tag">인천공항 1,2터미널</div>
-                    <div class="condition-text">$80 이상 구매시</div>
-                </div>
-                <div class="barcode-section">
-                    <svg id="barcode4"></svg>
-                    <div class="barcode-number">00622019000001</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- BEST 5 -->
-        <div class="duty-coupon kyungbok-coupon">
-            <div class="relative p-6">
-                <div class="best-tag">BEST 5</div>
-                <div class="coupon-content">
-                    <div class="brand-name">경복궁면세점</div>
-                    <div class="discount-amount">5,000원</div>
-                    <div class="discount-text">할인</div>
-                </div>
-                <div class="coupon-info">
-                    <div class="location-tag">인천공항 1,2 입국장</div>
-                    <div class="condition-text">담배 1보루 구매시</div>
-                </div>
-                <div class="barcode-section">
-                    <svg id="barcode5"></svg>
-                    <div class="barcode-number">3240300080</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+</div>
