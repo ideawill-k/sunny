@@ -21,7 +21,7 @@
             <div class="content-container">
                 <div class="flex items-center justify-between h-16">
 <!-- Logo -->
-<a href="/suuny/index.html" class="flex-shrink-0 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+<a href="index.html" class="flex-shrink-0 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
     <img src="images/common/sunny_coupon_logo.png" 
          alt="SUNNY COUPON" 
          class="h-12 w-auto">
@@ -80,7 +80,7 @@
         </div>
 
         <!-- Main Content Area -->
-        <main id="content">
+        <main id="content" role="main">
 <!-- Banner Section -->
 <div class="banner-section mt-6 mb-12">  <!-- 상단 여백 추가 -->
     <div class="banner-wrapper">
@@ -361,71 +361,69 @@
 <script src="js/common.js"></script>
 <script src="js/main.js"></script>
 <script>
-    // 기본 URL 설정
-    const BASE_URL = '/suuny';
-    
-    // 페이지 로드 관리
-    document.addEventListener('DOMContentLoaded', function() {
-        setupNavigation();
-    });
-    
-    // 네비게이션 설정
-    function setupNavigation() {
-        document.querySelectorAll('a[href^="pages/"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const page = this.getAttribute('href').replace('pages/', '').replace('.html', '');
-                loadPage(page);
-            });
+// 기본 URL 설정
+const BASE_URL = '/suuny';
+
+// 페이지 로드 관리
+document.addEventListener('DOMContentLoaded', function() {
+    setupNavigation();
+});
+
+// 네비게이션 설정
+function setupNavigation() {
+    document.querySelectorAll('a[href^="pages/"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const page = this.getAttribute('href').replace('pages/', '').replace('.html', '');
+            loadPage(page);
         });
-    }
-    
-    // 페이지 콘텐츠 로드 함수
-    async function loadPage(pageName) {
-        try {
-            // 홈으로 가는 경우 페이지 새로고침
-            if (pageName === 'index' || pageName === '') {
-                window.location.href = BASE_URL + '/';
-                return;
-            }
-    
-            // 페이지 로드 시작
-            const contentArea = document.getElementById('content');
-            
-            // 페이지 로드
-            const response = await fetch(`${BASE_URL}/pages/${pageName}.html`);
-            if (!response.ok) throw new Error('Page not found');
-            
-            const content = await response.text();
-            
-            // 콘텐츠 영역만 업데이트
-            contentArea.innerHTML = content;
-    
-            // URL 업데이트
-            history.pushState({page: pageName}, '', `${BASE_URL}/${pageName}.html`);
-        } catch (error) {
-            console.error('Page load error:', error);
-        }
-    }
-    
-    // 브라우저 뒤로가기/앞으로가기 처리
-    window.addEventListener('popstate', function(event) {
-        if (event.state && event.state.page) {
-            loadPage(event.state.page);
-        } else {
-            // 홈으로 돌아가는 경우
-            if (window.location.pathname === BASE_URL + '/' || 
-                window.location.pathname === BASE_URL + '/index.html') {
-                window.location.reload();
-            }
-        }
     });
+}
+
+// 페이지 콘텐츠 로드 함수
+async function loadPage(pageName) {
+    try {
+        // 메인 콘텐츠 영역 선택
+        const contentArea = document.getElementById('content');
+        
+        // 페이지 로드
+        const response = await fetch(`${BASE_URL}/pages/${pageName}.html`);
+        if (!response.ok) {
+            console.error('Page not found');
+            return;
+        }
+        
+        const content = await response.text();
+        contentArea.innerHTML = content;
+
+        // URL 업데이트
+        history.pushState({page: pageName}, '', `${BASE_URL}/pages/${pageName}.html`);
+
+    } catch (error) {
+        console.error('Page load error:', error);
+    }
+}
+
+// 브라우저 뒤로가기/앞으로가기 처리
+window.addEventListener('popstate', function(event) {
+    // URL에서 현재 페이지 이름 추출
+    const path = window.location.pathname;
+    const match = path.match(/pages\/([^/]+)\.html$/);
     
-    // 로고 클릭 처리
-    document.querySelector('a[href="/"]').addEventListener('click', function(e) {
-        e.preventDefault();
+    if (match) {
+        // pages/something.html 형식이면 해당 페이지 로드
+        loadPage(match[1]);
+    } else {
+        // 메인 페이지로 돌아가는 경우
         window.location.href = BASE_URL + '/';
-    });
+    }
+});
+
+// 로고 클릭 처리
+document.querySelector('a[href="/"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = BASE_URL + '/';
+});
     </script>
 </body>
 </html>
