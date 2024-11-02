@@ -362,11 +362,12 @@
 <script src="js/main.js"></script>
 <script>
 // 기본 URL 설정
-const BASE_URL = '/suuny';
+const BASE_URL = '/sunny';  // suuny -> sunny로 수정
 
 // 페이지 로드 관리
 document.addEventListener('DOMContentLoaded', function() {
     setupNavigation();
+    setupLogoClick();
 });
 
 // 네비게이션 설정
@@ -374,22 +375,31 @@ function setupNavigation() {
     document.querySelectorAll('a[href^="pages/"]').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            const page = this.getAttribute('href').replace('pages/', '').replace('.html', '');
-            loadPage(page);
+            const href = this.getAttribute('href');
+            console.log('Clicked link:', href); // 디버깅용
+            const pageName = href.replace('pages/', '').replace('.html', '');
+            loadPage(pageName);
         });
+    });
+}
+
+// 로고 클릭 설정
+function setupLogoClick() {
+    document.querySelector('a[href="index.html"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = BASE_URL + '/';
     });
 }
 
 // 페이지 콘텐츠 로드 함수
 async function loadPage(pageName) {
     try {
-        // 메인 콘텐츠 영역 선택
         const contentArea = document.getElementById('content');
+        console.log('Attempting to load:', `${BASE_URL}/pages/${pageName}.html`); // 디버깅용
         
-        // 페이지 로드
         const response = await fetch(`${BASE_URL}/pages/${pageName}.html`);
         if (!response.ok) {
-            console.error('Page not found');
+            console.error('Page not found:', response.status);
             return;
         }
         
@@ -406,23 +416,14 @@ async function loadPage(pageName) {
 
 // 브라우저 뒤로가기/앞으로가기 처리
 window.addEventListener('popstate', function(event) {
-    // URL에서 현재 페이지 이름 추출
     const path = window.location.pathname;
     const match = path.match(/pages\/([^/]+)\.html$/);
     
     if (match) {
-        // pages/something.html 형식이면 해당 페이지 로드
         loadPage(match[1]);
-    } else {
-        // 메인 페이지로 돌아가는 경우
-        window.location.href = BASE_URL + '/';
+    } else if (path === BASE_URL + '/' || path === BASE_URL + '/index.html') {
+        window.location.reload();
     }
-});
-
-// 로고 클릭 처리
-document.querySelector('a[href="/"]').addEventListener('click', function(e) {
-    e.preventDefault();
-    window.location.href = BASE_URL + '/';
 });
     </script>
 </body>
