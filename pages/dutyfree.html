@@ -40,34 +40,42 @@
     </div>
  
     <!-- Barcode Section -->
-    <div class="mt-10 pt-6 border-t border-gray-100 text-center">
-        <div class="flex justify-center items-center h-16 mb-2">
-            <svg id="barcode"></svg>
-        </div>
-        <div class="text-gray-500 font-medium tracking-wider">
-            00622034000001
-        </div>
+<div class="mt-10 pt-6 border-t border-gray-100 text-center">
+    <!-- 바코드가 없을 때를 대비한 기본 스타일 추가 -->
+    <div class="flex justify-center items-center h-16 mb-2 bg-gray-50">
+        <!-- 바코드용 svg에 ID와 class 추가 -->
+        <svg id="barcode1" class="w-full"></svg>
     </div>
- </div>
- 
- <!-- Barcode Script -->
- <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
- <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <div class="text-gray-500 font-medium tracking-wider">
+        00622034000001
+    </div>
+</div>
+
+<!-- Barcode Script -->
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+<script>
+    // 페이지 로드 완료 후 실행
+    window.addEventListener('load', function() {
         try {
-            JsBarcode("#barcode", "00622034000001", {
+            // 바코드 생성
+            JsBarcode("#barcode1", "00622034000001", {
                 format: "CODE128",
                 width: 1.5,
                 height: 40,
                 displayValue: false,
                 margin: 5,
-                background: "#ffffff"
+                background: "#ffffff",
+                lineColor: "#000000"
             });
+            console.log('Barcode generated successfully'); // 디버깅용
         } catch (error) {
             console.error('Barcode generation error:', error);
+            // 에러 발생 시 사용자에게 표시
+            document.querySelector('#barcode1').insertAdjacentHTML('afterend', 
+                '<div class="text-red-500">바코드 생성에 실패했습니다.</div>');
         }
     });
- </script>
+</script>
 
         <!-- BEST 2 -->
         <div class="relative bg-white rounded-lg shadow-md overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
