@@ -21,7 +21,7 @@
             <div class="content-container">
                 <div class="flex items-center justify-between h-16">
 <!-- Logo -->
-<a href="/suuny/" class="flex-shrink-0 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg" onclick="loadPage('index'); return false;">
+<a href="/suuny/index.html" class="flex-shrink-0 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
     <img src="images/common/sunny_coupon_logo.png" 
          alt="SUNNY COUPON" 
          class="h-12 w-auto">
@@ -340,11 +340,16 @@
 <script src="js/common.js"></script>
 <script src="js/main.js"></script>
 <script>
+// 기본 URL 설정
+const BASE_URL = '/suuny';
+
 // 페이지 로드 관리
 document.addEventListener('DOMContentLoaded', function() {
     // 현재 URL에서 페이지 식별
     const path = window.location.pathname;
-    const page = path.split('/').pop().split('.')[0] || 'home';
+    // suuny를 제외한 실제 페이지 경로 추출
+    const relativePath = path.replace(BASE_URL, '');
+    const page = relativePath.split('/').pop().split('.')[0] || 'home';
 
     // 해당 페이지 콘텐츠 로드
     if (page !== 'index' && page !== '') {
@@ -357,28 +362,30 @@ async function loadPage(pageName) {
     try {
         // index나 home인 경우 메인 페이지로 처리
         if (pageName === 'index' || pageName === 'home' || pageName === '') {
-            window.location.href = '/suuny/';  // GitHub Pages 경로로 수정
+            window.location.href = `${BASE_URL}/index.html`;  // 명시적으로 index.html로 이동
             return;
         }
 
-        const response = await fetch(`/suuny/pages/${pageName}.html`);
+        const response = await fetch(`${BASE_URL}/pages/${pageName}.html`);
         if (!response.ok) throw new Error('Page not found');
         
         const content = await response.text();
         document.getElementById('content').innerHTML = content;
 
         // URL 업데이트
-        history.pushState({}, '', `/suuny/${pageName}.html`);
+        history.pushState({}, '', `${BASE_URL}/${pageName}.html`);
     } catch (error) {
         console.error('Page load error:', error);
-        // 에러 처리 (예: 404 페이지 표시)
+        // 에러 발생시 홈으로 리다이렉트
+        window.location.href = `${BASE_URL}/index.html`;
     }
 }
 
 // 브라우저 뒤로가기/앞으로가기 처리
 window.addEventListener('popstate', function() {
     const path = window.location.pathname;
-    const page = path.split('/').pop().split('.')[0] || 'home';
+    const relativePath = path.replace(BASE_URL, '');
+    const page = relativePath.split('/').pop().split('.')[0] || 'home';
     if (page !== 'index') {
         loadPage(page);
     }
