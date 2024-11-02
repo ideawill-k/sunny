@@ -13,24 +13,65 @@
     <!-- 쿠폰 그리드 -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <!-- BEST 1 -->
-        <div class="relative bg-white rounded-lg shadow-md overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
-            <div class="absolute top-0 left-0 bg-black text-white px-3 py-1 rounded-br-lg z-10">
-                <span class="font-bold">BEST 1</span>
-            </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start mb-4">
-                    <img src="/images/duty/city-logo.png" alt="CITY DUTY FREE" class="h-8">
-                </div>
-                <div class="text-4xl font-bold text-blue-500 mb-2">12,000원</div>
-                <div class="flex items-center bg-gray-100 rounded px-2 py-1 text-sm w-fit">
-                    <span class="text-gray-600">인천공항점</span>
-                </div>
-                <div class="mt-2 text-gray-600">담배 2보루 구매시</div>
-            </div>
-            <button class="w-full bg-blue-500 text-white py-3 text-center font-medium hover:bg-blue-600 transition-colors">
-                쿠폰받기
-            </button>
+<div class="relative bg-white rounded-xl shadow-md overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+    <!-- Best 1 Tag -->
+    <div class="absolute top-3 right-3 bg-black text-white px-4 py-1.5 rounded-lg z-10 text-sm font-bold">
+        BEST 1
+    </div>
+ 
+    <div class="p-6">
+        <!-- Logo -->
+        <div class="mb-6">
+            <img src="images/duty/city-logo.png" alt="CITY DUTY FREE" class="h-10">
         </div>
+ 
+        <!-- Price -->
+        <div class="mb-5">
+            <div class="text-5xl font-bold text-blue-500">
+                12,000원
+            </div>
+            <div class="text-lg font-medium text-blue-400 mt-1">
+                할인
+            </div>
+        </div>
+ 
+        <!-- Location Badge -->
+        <div class="mb-3">
+            <div class="inline-block bg-gray-100 rounded-full px-4 py-1.5 text-base font-medium text-gray-700">
+                인천공항 1터미널
+            </div>
+        </div>
+ 
+        <!-- Condition -->
+        <div class="text-gray-600 text-lg font-medium mb-6">
+            담배 2보루 구매시
+        </div>
+ 
+        <!-- Barcode Section -->
+        <div class="text-center border-t pt-6">
+            <svg id="barcode" class="mx-auto mb-2"></svg>
+            <div class="text-base text-gray-600">00622034000001</div>
+        </div>
+    </div>
+ 
+    <!-- CTA Button -->
+    <button class="w-full bg-blue-500 text-white py-4 text-lg font-medium hover:bg-blue-600 transition-colors group-hover:bg-blue-600">
+        쿠폰받기
+    </button>
+ </div>
+ 
+ <!-- Add JsBarcode Library -->
+ <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+ <script>
+    // Generate barcode
+    JsBarcode("#barcode", "00622034000001", {
+        format: "CODE128",
+        width: 2,
+        height: 60,
+        displayValue: false,
+        margin: 10
+    });
+ </script>
 
         <!-- BEST 2 -->
         <div class="relative bg-white rounded-lg shadow-md overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
