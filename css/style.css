@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* Navigation Styles */
 .nav-link::after {
 =======
@@ -28,6 +29,28 @@
 <<<<<<< HEAD
 /* Banner Section */
 =======
+=======
+/* 공통 스타일 */
+body {
+    font-family: 'Pretendard', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 레이아웃 */
+.page-container {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+>>>>>>> parent of 26867ce (인덱스페이지 내 하부페이지 추가)
 /* 배너 섹션 스타일 */
 >>>>>>> parent of 9c7913a (동일 디버깅5)
 =======
@@ -58,7 +81,6 @@
     width: 500%;
     display: flex;
     position: relative;
-    transition: transform 0.5s ease-in-out;
 }
 
 .banner-slide {
@@ -81,7 +103,7 @@
     border-radius: 1rem;
 }
 
-/* 배너 네비게이션 */
+/* 배너 네비게이션 버튼 */
 .banner-nav-btn {
     background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
@@ -92,7 +114,6 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    cursor: pointer;
 }
 
 .banner-nav-btn.prev {
@@ -114,33 +135,17 @@
     height: 1.25rem;
 }
 
-/* 도트 네비게이션 */
-.dots-container {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.5rem;
-    z-index: 10;
+/* 섹션 컨테이너 */
+.section-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-.dot {
-    width: 0.75rem;
-    height: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dot:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.dot.active {
-    background-color: white;
-    transform: scale(1.2);
+.section-title {
+    padding: 0;
+    margin: 2rem 0 1rem;
 }
 
 /* 컨텐츠 카드 */
@@ -150,112 +155,72 @@
     width: 100%;
     height: auto;
     overflow: hidden;
-    border-radius: 1rem;
+}
+
+/* 도트 네비게이션 */
+.dot.active {
+    background-color: white;
+}
+
+/* 모바일 메뉴 스타일링 */
+#mobile-menu {
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+    border-radius: 0 0 0.5rem 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+#mobile-menu.hidden {
+    display: none;
+}
+
+/* 모바일 메뉴 아이템 스타일 */
+#mobile-menu a {
     position: relative;
+    display: inline-block;
 }
 
-.content-card img {
+#mobile-menu span {
+    position: relative;
+    z-index: 1;
+}
+
+#mobile-menu .group:hover span {
+    color: #dc2626;
+}
+
+#mobile-menu a div {
+    /* 밑줄은 span의 너비만큼만 적용 */
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.content-card:hover img {
-    transform: scale(1.05);
-}
-
-/* 면세점 할인 페이지 스타일 */
-.discount-category {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-}
-
-.category-button {
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.category-button.active {
-    background-color: #000;
-    color: white;
-}
-
-.discount-card {
-    background: white;
-    border-radius: 1rem;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.discount-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-/* 여행 정보 페이지 스타일 */
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.info-card {
-    background: white;
-    border-radius: 1rem;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
+    bottom: -2px;
+    left: 0;
 }
 
 /* 반응형 스타일 */
 @media (max-width: 768px) {
-    .banner-wrapper {
-        margin: 0.5rem auto;
+    #mobile-menu a {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 
-    .banner-nav-btn {
-        padding: 0.5rem;
+    #mobile-menu a:active {
+        background-color: transparent;
     }
 
-    .banner-nav-btn.prev {
-        left: 0.5rem;
-    }
-
-    .banner-nav-btn.next {
-        right: 0.5rem;
-    }
-
-    .content-card {
-        max-height: 160px;
-    }
-
-    .dot {
-        width: 0.5rem;
-        height: 0.5rem;
-    }
-
-    .info-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* 패딩 조정 */
+    #mobile-menu > div {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
     }
 }
 
-/* 애니메이션 */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
+    /* 모바일 메뉴 터치 최적화 */
+    #mobile-menu a {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
 
+<<<<<<< HEAD
 .slide-in {
     animation: slideIn 0.3s ease forwards;
 }
@@ -284,3 +249,15 @@
         font-size: 1rem;
     }
 }
+=======
+    /* 모바일 메뉴 아이템 액티브 상태 */
+    #mobile-menu a:active {
+        background-color: #f8fafc;
+    }
+
+    /* 모바일 메뉴 밑줄 효과 조정 */
+    #mobile-menu a::after {
+        left: 1rem;
+        right: 1rem;
+    }
+>>>>>>> parent of 26867ce (인덱스페이지 내 하부페이지 추가)
