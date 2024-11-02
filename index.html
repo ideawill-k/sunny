@@ -332,50 +332,50 @@
 <script src="js/common.js"></script>
 <script src="js/main.js"></script>
 <script>
-    // 페이지 로드 관리
-    document.addEventListener('DOMContentLoaded', function() {
-        // 현재 URL에서 페이지 식별
-        const path = window.location.pathname;
-        const page = path.split('/').pop().split('.')[0] || 'home';
+// 페이지 로드 관리
+document.addEventListener('DOMContentLoaded', function() {
+    // 현재 URL에서 페이지 식별
+    const path = window.location.pathname;
+    const page = path.split('/').pop().split('.')[0] || 'home';
 
-        // 해당 페이지 콘텐츠 로드
-        if (page !== 'index' && page !== '') {
-            loadPage(page);
-        }
-    });
-
-    // 페이지 콘텐츠 로드 함수
-    async function loadPage(pageName) {
-        try {
-            // index나 home인 경우 메인 페이지로 처리
-            if (pageName === 'index' || pageName === 'home' || pageName === '') {
-                // 메인 페이지 컨텐츠를 표시
-                location.href = '/';
-                return;
-            }
-
-            const response = await fetch(`pages/${pageName}.html`);
-            if (!response.ok) throw new Error('Page not found');
-            
-            const content = await response.text();
-            document.getElementById('content').innerHTML = content;
-
-            // URL 업데이트
-            history.pushState({}, '', `/${pageName}.html`);
-        } catch (error) {
-            console.error('Page load error:', error);
-            // 에러 처리 (예: 404 페이지 표시)
-        }
+    // 해당 페이지 콘텐츠 로드
+    if (page !== 'index' && page !== '') {
+        loadPage(page);
     }
+});
 
-    // 브라우저 뒤로가기/앞으로가기 처리
-    window.addEventListener('popstate', function() {
-        const path = window.location.pathname;
-        const page = path.split('/').pop().split('.')[0] || 'home';
-        if (page !== 'index') {
-            loadPage(page);
+// 페이지 콘텐츠 로드 함수
+async function loadPage(pageName) {
+    try {
+        // index나 home인 경우 메인 페이지로 처리
+        if (pageName === 'index' || pageName === 'home' || pageName === '') {
+            // GitHub Pages의 베이스 URL로 이동
+            location.href = '/suuny/';
+            return;
         }
-    });
+
+        const response = await fetch(`/suuny/pages/${pageName}.html`);
+        if (!response.ok) throw new Error('Page not found');
+        
+        const content = await response.text();
+        document.getElementById('content').innerHTML = content;
+
+        // URL 업데이트
+        history.pushState({}, '', `/suuny/${pageName}.html`);
+    } catch (error) {
+        console.error('Page load error:', error);
+        // 에러 처리 (예: 404 페이지 표시)
+    }
+});
+
+// 브라우저 뒤로가기/앞으로가기 처리
+window.addEventListener('popstate', function() {
+    const path = window.location.pathname;
+    const page = path.split('/').pop().split('.')[0] || 'home';
+    if (page !== 'index') {
+        loadPage(page);
+    }
+});
 </script>
 </body>
 </html>
