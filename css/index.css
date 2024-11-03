@@ -1,71 +1,74 @@
-/* Common Container - 모든 섹션에 적용될 공통 스타일 */
+/* Common Container */
 .content-container {
     max-width: 1024px;
     margin: 0 auto;
     padding: 0 1rem;
     width: 100%;
-}
-
-/* Font styles */
-.font-heading {
-    font-family: 'GmarketSans', sans-serif;
-    font-weight: 700;
-}
-
-.font-body {
-    font-family: 'Pretendard', sans-serif;
-}
-
-/* Section Container */
-.section-container {
+ }
+ 
+ .section-container {
     max-width: 1024px;
     margin: 0 auto 3rem;
     padding: 0 1rem;
     width: 100%;
-}
-
-/* Banner Section */
-.banner-section {
+ }
+ 
+ /* Section Title */
+ .section-title {
+    font-family: 'GmarketSans', sans-serif;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+ }
+ 
+ /* Banner Section */
+ .banner-section {
     width: 100%;
     position: relative;
     overflow: hidden;
     padding: 0 1rem;
-}
-
-.banner-wrapper {
+ }
+ 
+ .banner-wrapper {
     position: relative;
     width: 100%;
     max-width: 1024px;
     margin: 0 auto;
-    overflow: hidden;
     border-radius: 1rem;
-}
-
-#banner-container {
-    width: 500%;
-    display: flex;
-    position: relative;
-    transition: transform 0.5s ease-in-out;
-    will-change: transform;
-}
-
-.banner-slide {
-    width: 20%;
-    position: relative;
-    aspect-ratio: 1140 / 540;
     overflow: hidden;
-}
-
-.banner-slide img {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+ }
+ 
+ .banner-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+ }
+ 
+ #banner-container {
+    width: 700%;  /* 7개의 슬라이드 (5개 + 앞뒤 복제) */
+    display: flex;
+    transform: translateX(-14.285714%);  /* 초기 위치 (100/7)% */
+    transition: transform 0.5s ease-in-out;
+ }
+ 
+ .banner-slide {
+    width: 14.285714%;  /* 100/7 */
+    flex-shrink: 0;
+    position: relative;
+    aspect-ratio: 16/7;
+ }
+ 
+ .banner-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     border-radius: 1rem;
-}
-
-/* Banner Navigation */
-.banner-nav-btn {
+ }
+ 
+ /* Banner Navigation */
+ .banner-nav-btn {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
     padding: 0.75rem;
@@ -76,23 +79,22 @@
     z-index: 10;
     cursor: pointer;
     backface-visibility: hidden;
-}
-
-.banner-nav-btn:hover {
+ }
+ 
+ .banner-nav-btn:hover {
     background: rgba(255, 255, 255, 0.9);
-    transform: translateY(-50%) scale(1.05);
-}
-
-.banner-nav-btn.prev {
+ }
+ 
+ .banner-nav-btn.prev {
     left: 1rem;
-}
-
-.banner-nav-btn.next {
+ }
+ 
+ .banner-nav-btn.next {
     right: 1rem;
-}
-
-/* Dots Navigation */
-.dots-container {
+ }
+ 
+ /* Dots Navigation */
+ .dots-container {
     position: absolute;
     bottom: 1rem;
     left: 50%;
@@ -100,9 +102,9 @@
     display: flex;
     gap: 0.5rem;
     z-index: 10;
-}
-
-.dot {
+ }
+ 
+ .dot {
     width: 0.75rem;
     height: 0.75rem;
     background-color: rgba(255, 255, 255, 0.7);
@@ -110,150 +112,53 @@
     cursor: pointer;
     transition: all 0.3s ease;
     border: none;
-}
-
-.dot:hover {
+ }
+ 
+ .dot:hover {
     background-color: rgba(255, 255, 255, 0.9);
-}
-
-.dot.active {
+ }
+ 
+ .dot.active {
     background-color: white;
     transform: scale(1.2);
-}
-
-/* Card Grid Layout */
-.grid {
+ }
+ 
+ /* Grid Layout for Cards */
+ .grid-cols-2 {
     display: grid;
-    gap: 1.5rem;
-    width: 100%;
-}
-
-.grid-cols-2 {
     grid-template-columns: repeat(2, 1fr);
-}
-
-@media (min-width: 1024px) {
+    gap: 1rem;
+ }
+ 
+ @media (min-width: 1024px) {
     .lg\:grid-cols-3 {
         grid-template-columns: repeat(3, 1fr);
     }
-}
-
-/* Card Styles - 면세점 할인쿠폰 */
-.duty-free-card {
-    position: relative;
-    padding: 1.25rem;
-    border-radius: 1rem;
-    overflow: hidden;
+ }
+ 
+ /* Card Styles */
+ .group {
+    height: auto;
+    min-height: 180px;
     transition: all 0.3s ease;
-}
-
-.duty-free-card:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-/* BEST Card */
-.best-card {
-    background: linear-gradient(135deg, #f87171, #f97316);
-}
-
-.best-tag {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    padding: 0.25rem 0.75rem;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 9999px;
-    color: white;
-    font-weight: bold;
-    font-size: 0.875rem;
-}
-
-/* Terminal Cards */
-.terminal-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.terminal-icon {
-    font-size: 1.875rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1rem;
-}
-
-.terminal-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 0.75rem;
-}
-
-.terminal-desc {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1rem;
-    margin-bottom: 1.25rem;
-}
-
-/* Travel Info Cards */
-.info-card {
-    background: white;
-    border: 2px solid #f3f4f6;
-    border-radius: 1rem;
-    padding: 1.25rem;
-    height: 100%;
-    transition: all 0.3s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-.info-icon {
-    font-size: 2.25rem;
-    margin-bottom: 1rem;
-}
-
-.info-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #1f2937;
-    margin-bottom: 0.5rem;
-}
-
-.info-desc {
-    color: #6b7280;
-    font-size: 1rem;
-}
-
-.info-link {
-    margin-top: auto;
-    padding-top: 1.25rem;
-    display: flex;
-    align-items: center;
-}
-
-.info-link span {
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin-right: 0.5rem;
-}
-
-.info-link i {
-    transition: transform 0.2s ease;
-}
-
-.info-card:hover .info-link i {
-    transform: translateX(0.25rem);
-}
-
-/* Animation Classes */
-.fade-in {
+ }
+ 
+ /* Font Classes */
+ .font-heading {
+    font-family: 'GmarketSans', sans-serif;
+    font-weight: 700;
+ }
+ 
+ .font-body {
+    font-family: 'Pretendard', sans-serif;
+ }
+ 
+ /* Animation Classes */
+ .fade-in {
     animation: fadeIn 0.3s ease-out forwards;
-}
-
-@keyframes fadeIn {
+ }
+ 
+ @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(10px);
@@ -262,74 +167,105 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-    .banner-section,
-    .section-container {
+ }
+ 
+ /* Card Hover Effects */
+ .group:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+ }
+ 
+ /* Gradient Effects */
+ .bg-gradient-to-br {
+    background-size: 200% 200%;
+    transition: all 0.3s ease;
+ }
+ 
+ /* Responsive Styles */
+ @media (max-width: 1024px) {
+    .section-container, 
+    .banner-section {
         padding: 0 0.75rem;
     }
-}
-
-@media (max-width: 768px) {
+ }
+ 
+ @media (max-width: 768px) {
+    .group {
+        min-height: 160px;
+    }
+    
+    .grid-cols-2 {
+        gap: 0.75rem;
+    }
+ 
     .banner-nav-btn {
         padding: 0.5rem;
     }
-
+ 
     .banner-nav-btn.prev {
         left: 0.5rem;
     }
-
+ 
     .banner-nav-btn.next {
         right: 0.5rem;
     }
-
+ 
     .dot {
         width: 0.5rem;
         height: 0.5rem;
     }
-
-    .grid {
-        gap: 1rem;
+ 
+    .section-title {
+        font-size: 1.25rem;
     }
-
-    .duty-free-card,
-    .info-card {
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .banner-section,
-    .section-container {
+ }
+ 
+ @media (max-width: 640px) {
+    .section-container,
+    .banner-section {
         padding: 0 0.5rem;
     }
-
+    
     .grid-cols-2 {
-        grid-template-columns: repeat(1, 1fr);
+        gap: 0.5rem;
     }
-
-    .terminal-title {
-        font-size: 1.125rem;
+ 
+    .group {
+        min-height: 140px;
     }
-
-    .terminal-desc,
-    .info-desc {
-        font-size: 0.875rem;
-    }
-}
-
-/* Touch Device Optimizations */
-@media (hover: none) {
+ }
+ 
+ /* Touch Device Optimizations */
+ @media (hover: none) {
     .banner-nav-btn {
-        opacity: 0.8;
-        background: rgba(255, 255, 255, 0.8);
+        display: none;
     }
-
-    .duty-free-card:hover,
-    .info-card:hover {
+ 
+    .banner-slide:hover {
         transform: none;
         box-shadow: none;
     }
-}
+ 
+    .group:hover {
+        transform: none;
+        box-shadow: none;
+    }
+ }
+ 
+ /* Custom Scrollbar */
+ ::-webkit-scrollbar {
+    width: 10px;
+ }
+ 
+ ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+ }
+ 
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+ }
+ 
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+ }
