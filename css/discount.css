@@ -1,6 +1,6 @@
 /* Content Container */
 .content-container {
-    max-width: 1200px;
+    max-width: 1024px;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -17,18 +17,18 @@
 /* Grid Layout */
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* 모바일 기본 2칸 */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
 @media (min-width: 1024px) {
     .grid {
-        grid-template-columns: repeat(4, 1fr);  /* 데스크탑 4칸 */
+        grid-template-columns: repeat(4, 1fr);
         gap: 1.5rem;
     }
 }
 
-/* Discount Card Styles */
+/* Base Card Styles */
 .discount-card {
     position: relative;
     background: white;
@@ -38,18 +38,151 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     height: 100%;
     cursor: pointer;
-    will-change: transform, box-shadow;
-    -webkit-tap-highlight-color: transparent;
-    border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Card Hover Effects */
 .discount-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    border-color: transparent;
 }
 
+.card-inner {
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Card Tag */
+.card-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    letter-spacing: 0.025em;
+}
+
+/* Card Content */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 2.5rem 0 0.5rem;
+}
+
+.card-subtitle {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.card-description {
+    font-size: 0.813rem;
+    opacity: 0.8;
+}
+
+.discount-amount {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 2rem 0 0.75rem;
+}
+
+/* Insurance Card Style */
+.insurance-card {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+}
+
+.insurance-card .card-tag {
+    background: #2E7D32;
+    color: white;
+}
+
+.insurance-card .card-title {
+    color: #1B5E20;
+}
+
+.insurance-card .card-subtitle,
+.insurance-card .card-description {
+    color: #2E7D32;
+}
+
+/* ESIM Card Style */
+.esim-card {
+    background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+}
+
+.esim-card .card-tag {
+    background: #1976D2;
+    color: white;
+}
+
+.esim-card .card-title {
+    color: #0D47A1;
+}
+
+.esim-card .card-subtitle,
+.esim-card .card-description {
+    color: #1976D2;
+}
+
+/* Shop Donki Card Style */
+.shop-donki-card {
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+}
+
+.shop-donki-card .card-tag {
+    background: #F57C00;
+    color: white;
+}
+
+.shop-donki-card .discount-amount {
+    color: #E65100;
+}
+
+.shop-donki-card .card-subtitle,
+.shop-donki-card .card-description {
+    color: #F57C00;
+}
+
+/* Shop Bic Card Style */
+.shop-bic-card {
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+}
+
+.shop-bic-card .card-tag {
+    background: #D32F2F;
+    color: white;
+}
+
+.shop-bic-card .discount-amount {
+    color: #B71C1C;
+}
+
+.shop-bic-card .card-subtitle,
+.shop-bic-card .card-description {
+    color: #D32F2F;
+}
+
+/* Trip.com Card Style */
+.trip-card {
+    background: linear-gradient(135deg, #E8EAF6 0%, #C5CAE9 100%);
+}
+
+.trip-card .card-tag {
+    background: #3949AB;
+    color: white;
+}
+
+.trip-card .card-title {
+    color: #1A237E;
+}
+
+.trip-card .card-subtitle {
+    color: #3949AB;
+}
+
+/* Hover Effects */
 .discount-card::after {
     content: '';
     position: absolute;
@@ -57,36 +190,17 @@
     left: 0;
     right: 0;
     bottom: 0;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0)
+    );
     opacity: 0;
     transition: opacity 0.3s ease;
-    background: rgba(255,255,255,0.1);
-    pointer-events: none;
 }
 
 .discount-card:hover::after {
     opacity: 1;
-}
-
-/* Card Inner Content */
-.card-inner {
-    padding: 1.5rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Logo Image Styles */
-.card-inner img {
-    transition: transform 0.3s ease;
-}
-
-.discount-card:hover img {
-    transform: scale(1.05);
-}
-
-/* Text Animation */
-.discount-card:hover h4 {
-    transform: translateY(-2px);
 }
 
 /* Animation */
@@ -105,9 +219,54 @@
     animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Title Animation */
-h4 {
-    transition: transform 0.3s ease;
+/* Touch Device Optimization */
+@media (hover: none) {
+    .discount-card:active {
+        transform: scale(0.98);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        transition: all 0.1s ease;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .content-container {
+        padding: 0.75rem;
+    }
+
+    .card-inner {
+        padding: 1.25rem;
+    }
+
+    .card-title {
+        font-size: 1.125rem;
+        margin-top: 2rem;
+    }
+
+    .card-subtitle {
+        font-size: 0.813rem;
+    }
+
+    .card-description {
+        font-size: 0.75rem;
+    }
+
+    .discount-amount {
+        font-size: 1.5rem;
+        margin: 1.5rem 0 0.5rem;
+    }
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    transform: translateY(-1rem);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu.show {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 /* Navigation Links */
@@ -132,24 +291,6 @@ h4 {
     width: 100%;
 }
 
-/* Percentage Display */
-.percentage {
-    font-feature-settings: "tnum";
-    font-variant-numeric: tabular-nums;
-}
-
-/* Mobile Menu */
-.mobile-menu {
-    transform: translateY(-1rem);
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.mobile-menu.show {
-    transform: translateY(0);
-    opacity: 1;
-}
-
 /* Social Links */
 .social-links {
     display: flex;
@@ -165,52 +306,4 @@ h4 {
     justify-content: center;
     border-radius: 9999px;
     transition: all 0.2s;
-}
-
-/* Touch Device Optimization */
-@media (hover: none) {
-    .discount-card:active {
-        transform: scale(0.98);
-        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        transition: all 0.1s ease;
-    }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .content-container {
-        padding: 0.75rem;
-    }
-
-    .card-inner {
-        padding: 1.25rem;
-    }
-
-    h4 {
-        font-size: 1rem;
-    }
-
-    p {
-        font-size: 0.813rem;
-    }
-
-    .social-link {
-        width: 2rem;
-        height: 2rem;
-    }
-}
-
-/* Custom Scroll Behavior */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Remove Card Border on Hover */
-.discount-card:hover {
-    border-color: transparent;
-}
-
-/* Card Shadow Transition */
-.discount-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
 }
