@@ -1,258 +1,241 @@
 /* Filter Section */
 .filter-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.375rem;
-    margin: 1rem 0;
- }
- 
- .filter-btn {
-    padding: 0.375rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.813rem;
-    font-weight: 500;
-    background-color: #f3f4f6;
-    color: #374151;
-    transition: all 0.2s;
-    border: none;
-    cursor: pointer;
- }
- 
- .filter-btn:hover {
-    background-color: #e5e7eb;
- }
- 
- .filter-btn.active {
-    background-color: #000;
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
- }
- 
- /* Coupon Grid */
- .coupon-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    margin: 1rem 0;
- }
- 
- @media (min-width: 768px) {
-    .coupon-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
- }
- 
- @media (min-width: 1024px) {
-    .coupon-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
- }
- 
- /* Coupon Card */
- .duty-coupon {
-    background: white;
-    border-radius: 0.75rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    overflow: hidden;
-    transition: all 0.3s;
-    min-height: 160px;
-    animation: fadeIn 0.3s ease-out;
- }
- 
- /* 브랜드별 테두리 색상 */
- .city-coupon {
-    border: 2px solid #2563eb;
- }
- 
- .kyungbok-coupon {
-    border: 2px solid #dc2626;
- }
- 
- .duty-coupon:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
- }
- 
- .coupon-inner {
-    padding: 0.75rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
- }
- 
- /* Header Section */
- .coupon-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 0.5rem;
- }
- 
- .brand-name {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-right: 0.5rem;
- }
- 
- .city-coupon .brand-name { color: #2563eb; }
- .kyungbok-coupon .brand-name { color: #dc2626; }
- 
- .discount-info {
-    display: flex;
-    align-items: baseline;
-    gap: 0.25rem;
-    flex-shrink: 0;
-    text-align: right;
- }
- 
- .discount-amount {
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 1;
- }
- 
- .discount-unit {
-    font-size: 0.875rem;
-    color: #6b7280;
- }
- 
- /* Coupon Info */
- .coupon-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
- }
- 
- .location-info, .condition-info {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.375rem 0.5rem;
-    border-radius: 0.5rem;
-    font-size: 0.75rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
- }
- 
- .location-info i, .condition-info i {
-    flex-shrink: 0;
- }
- 
- .location-info span, .condition-info span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
- }
- 
- .city-coupon .location-info {
-    background-color: #eff6ff;
-    color: #2563eb;
- }
- 
- .kyungbok-coupon .location-info {
-    background-color: #fef2f2;
-    color: #dc2626;
- }
- 
- .condition-info {
-    background-color: #f3f4f6;
-    color: #4b5563;
- }
- 
- /* Barcode Section */
- .barcode-wrapper {
-    margin-top: auto;
-    padding-top: 0.5rem;
-    border-top: 1px solid #e5e7eb;
- }
- 
- .barcode-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 35px;
-    margin-bottom: 0.125rem;
- }
- 
- .barcode-container svg {
-    max-width: 100%;
-    height: 100%;
- }
- 
- .barcode-number {
-    text-align: center;
-    color: #6b7280;
-    font-size: 0.75rem;
- }
- 
- /* Animation Effects */
- @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
- }
- 
- /* Responsive Styles */
- @media (max-width: 768px) {
-    .filter-container {
-        gap: 0.25rem;
-    }
- 
-    .filter-btn {
-        padding: 0.25rem 0.625rem;
-        font-size: 0.75rem;
-    }
- 
-    .duty-coupon {
-        min-height: 150px;
-    }
- 
-    .coupon-inner {
-        padding: 0.625rem;
-        gap: 0.375rem;
-    }
- 
-    .discount-amount {
-        font-size: 1.125rem;
-    }
- 
-    .location-info, .condition-info {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.5rem;
-    }
- 
-    .barcode-container {
-        height: 32px;
-    }
- }
- 
- @media (max-width: 640px) {
-    .coupon-grid {
-        gap: 0.5rem;
-    }
- }
- 
- /* Touch Device Optimizations */
- @media (hover: none) {
-    .duty-coupon:hover {
-        transform: none;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
- 
-    .filter-btn:hover {
-        background-color: #f3f4f6;
-    }
- 
-    .filter-btn.active {
-        background-color: #000;
-    }
- }
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.375rem;
+   margin: 1rem 0;
+}
+
+.filter-btn {
+   padding: 0.375rem 0.75rem;
+   border-radius: 9999px;
+   font-size: 0.813rem;
+   font-weight: 500;
+   background-color: #f3f4f6;
+   color: #374151;
+   transition: all 0.2s;
+   border: none;
+   cursor: pointer;
+}
+
+.filter-btn:hover {
+   background-color: #e5e7eb;
+}
+
+.filter-btn.active {
+   background-color: #000;
+   color: #fff;
+   font-weight: 600;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Coupon Grid */
+.coupon-grid {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 0.75rem;
+   margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+   .coupon-grid {
+       grid-template-columns: repeat(2, 1fr);
+   }
+}
+
+@media (min-width: 1024px) {
+   .coupon-grid {
+       grid-template-columns: repeat(3, 1fr);
+   }
+}
+
+/* Coupon Card */
+.duty-coupon {
+   background: white;
+   border-radius: 0.75rem;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+   overflow: hidden;
+   transition: all 0.3s ease;
+   min-height: 140px;  /* 높이 줄임 */
+   animation: fadeIn 0.3s ease-out;
+}
+
+/* 브랜드별 테두리 색상 */
+.city-coupon {
+   border: 2px solid #2563eb;
+}
+
+.kyungbok-coupon {
+   border: 2px solid #dc2626;
+}
+
+.duty-coupon:hover {
+   transform: translateY(-4px);
+   box-shadow: 0 8px 16px rgba(0,0,0,0.1);  /* 그림자 더 진하게 */
+}
+
+.coupon-inner {
+   padding: 0.75rem;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+}
+
+/* Header Section */
+.coupon-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   margin-bottom: 0.5rem;
+}
+
+.brand-name {
+   font-size: 1rem;
+   font-weight: bold;
+   margin-right: 0.5rem;
+}
+
+.city-coupon .brand-name { color: #2563eb; }
+.kyungbok-coupon .brand-name { color: #dc2626; }
+
+.discount-info {
+   display: flex;
+   align-items: baseline;
+   gap: 0.25rem;
+   flex-shrink: 0;
+   text-align: right;
+}
+
+.discount-amount {
+   font-size: 1.5rem;
+   font-weight: bold;
+   line-height: 1;
+}
+
+.discount-unit {
+   font-size: 0.875rem;
+   color: #6b7280;
+}
+
+/* Coupon Info */
+.coupon-info {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 0.5rem;
+   margin-bottom: 0.5rem;
+}
+
+.location-info, .condition-info {
+   display: flex;
+   align-items: center;
+   gap: 0.375rem;
+   padding: 0.375rem 0.5rem;
+   border-radius: 0.5rem;
+   font-size: 0.75rem;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.location-info i, .condition-info i {
+   flex-shrink: 0;
+}
+
+.location-info span, .condition-info span {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.city-coupon .location-info {
+   background-color: #eff6ff;
+   color: #2563eb;
+}
+
+.kyungbok-coupon .location-info {
+   background-color: #fef2f2;
+   color: #dc2626;
+}
+
+.condition-info {
+   background-color: #f3f4f6;
+   color: #4b5563;
+}
+
+/* Barcode Section */
+.barcode-wrapper {
+   margin-top: auto;
+   padding-top: 0.5rem;
+   border-top: 1px solid #e5e7eb;
+}
+
+.barcode-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 35px;
+   margin-bottom: 0.125rem;
+}
+
+.barcode-container svg {
+   max-width: 100%;
+   height: 100%;
+}
+
+.barcode-number {
+   text-align: center;
+   color: #6b7280;
+   font-size: 0.75rem;
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+   from {
+       opacity: 0;
+       transform: translateY(10px);
+   }
+   to {
+       opacity: 1;
+       transform: translateY(0);
+   }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+   .duty-coupon {
+       min-height: 130px;  /* 모바일에서도 높이 줄임 */
+   }
+
+   .coupon-inner {
+       padding: 0.625rem;
+       gap: 0.375rem;
+   }
+
+   .discount-amount {
+       font-size: 1.125rem;
+   }
+
+   .location-info, .condition-info {
+       font-size: 0.75rem;
+       padding: 0.25rem 0.5rem;
+   }
+
+   .barcode-container {
+       height: 32px;
+   }
+}
+
+@media (max-width: 640px) {
+   .coupon-grid {
+       gap: 0.5rem;
+   }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+   .duty-coupon:hover {
+       transform: none;
+       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+   }
+}
