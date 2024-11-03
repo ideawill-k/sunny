@@ -1,10 +1,10 @@
 // 바코드 설정
 const barcodeConfig = {
     format: "CODE128",
-    width: 1.5,
-    height: 40,
+    width: 2,          // 바코드 선 굵기 증가
+    height: 45,        // 바코드 높이 증가
     displayValue: false,
-    margin: 5,
+    margin: 3,         // 여백 조금 줄임
     background: "#ffffff",
     lineColor: "#000000"
 };
