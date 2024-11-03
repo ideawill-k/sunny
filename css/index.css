@@ -6,12 +6,13 @@
    width: 100%;
 }
 
+/* Section Spacing */
 .section-container {
    max-width: 1024px;
-   margin: 0 auto;
+   margin: 0 auto 3rem;  /* 변경: 섹션 간격 통일 */
+margin: 0 auto 3rem;  /* 변경: 섹션 간격 통일 */
    padding: 0 1rem;
    width: 100%;
-   margin-bottom: 3rem;
 }
 
 /* Section Title */
@@ -26,10 +27,10 @@
 .banner-section {
    width: 100%;
    position: relative;
-   overflow: visible;
    padding: 0 1rem;
    margin-top: 2rem;
-   margin-bottom: 3rem;
+   margin-bottom: 3rem;  /* 하단 섹션과 간격 */
+   overflow: hidden;     /* 변경: visible에서 hidden으로 */
 }
 
 .banner-wrapper {
@@ -193,7 +194,7 @@
 
 /* Footer Styles */
 footer {
-   margin-top: 3rem !important;
+   margin-top: 2rem !important;
    padding-bottom: 2rem;
 }
 
