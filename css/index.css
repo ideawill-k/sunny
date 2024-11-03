@@ -14,11 +14,16 @@
    margin-bottom: 3rem;
 }
 
+.section-container:last-of-type {
+   margin-bottom: 3rem;
+}
+
 /* Section Title */
 .section-title {
    font-family: 'GmarketSans', sans-serif;
    font-weight: 700;
    font-size: 1.5rem;
+   margin-top: 4rem;
    margin-bottom: 1.5rem;
    color: #1f2937;
 }
@@ -35,7 +40,8 @@
 .banner-wrapper {
    position: relative;
    width: 100%;
-   max-width: 1008px;
+   max-width: 1024px;
+   padding: 0 1rem;
    margin: 0 auto;
    border-radius: 0.75rem;
    overflow: hidden;
@@ -53,12 +59,14 @@
    display: flex;
    transform: translateX(0%);
    transition: transform 0.5s ease-in-out;
+   margin: 0 -1rem;
 }
 
 .banner-slide {
    width: 20%;
    flex-shrink: 0;
    position: relative;
+   padding: 0 1rem;
 }
 
 .banner-slide img {
@@ -199,7 +207,7 @@
 
 /* Footer Styles */
 footer {
-   margin-top: 2rem !important;
+   margin-top: 0 !important;
    padding: 2rem 0;
    border-top: 1px solid #e5e7eb;
 }
@@ -222,16 +230,21 @@ footer {
 }
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
-   .section-container, 
-   .banner-section {
-       padding: 0 0.75rem;
-   }
-}
-
 @media (max-width: 768px) {
-   .banner-section,
    .section-container {
+       margin-bottom: 2rem;
+   }
+
+   .section-container:last-of-type {
+       margin-bottom: 2rem;
+   }
+
+   .section-title {
+       font-size: 1.25rem;
+       margin-top: 3rem;
+   }
+
+   .banner-section {
        margin-bottom: 2rem;
    }
 
@@ -259,10 +272,6 @@ footer {
 
    .banner-nav-btn.next {
        right: 1rem;
-   }
-
-   .section-title {
-       font-size: 1.25rem;
    }
 }
 
@@ -293,6 +302,10 @@ footer {
 
 /* Touch Device Optimizations */
 @media (hover: none) {
+   .banner-nav-btn {
+       display: none;
+   }
+
    .banner-wrapper:hover {
        transform: none;
        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
