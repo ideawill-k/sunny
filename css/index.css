@@ -21,107 +21,99 @@
     color: #1f2937;
  }
  
- /* Banner Section */
- .banner-section {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    padding: 0 1rem;
- }
- 
- .banner-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
- }
- 
- .banner-wrapper:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
- }
- 
- #banner-container {
-    width: 700%;  /* 7개의 슬라이드 (5개 + 앞뒤 복제) */
-    display: flex;
-    transform: translateX(-14.285714%);  /* 초기 위치 (100/7)% */
-    transition: transform 0.5s ease-in-out;
- }
- 
- .banner-slide {
-    width: 14.285714%;  /* 100/7 */
-    flex-shrink: 0;
-    position: relative;
-    aspect-ratio: 16/7;
- }
- 
- .banner-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 1rem;
- }
- 
- /* Banner Navigation */
- .banner-nav-btn {
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    padding: 0.75rem;
-    transition: all 0.3s ease;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    cursor: pointer;
-    backface-visibility: hidden;
- }
- 
- .banner-nav-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
- }
- 
- .banner-nav-btn.prev {
-    left: 1rem;
- }
- 
- .banner-nav-btn.next {
-    right: 1rem;
- }
- 
- /* Dots Navigation */
- .dots-container {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.5rem;
-    z-index: 10;
- }
- 
- .dot {
-    width: 0.75rem;
-    height: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
- }
- 
- .dot:hover {
-    background-color: rgba(255, 255, 255, 0.9);
- }
- 
- .dot.active {
-    background-color: white;
-    transform: scale(1.2);
- }
+/* Banner Section */
+.banner-section {
+   width: 100%;
+   position: relative;
+   overflow: hidden;
+   padding: 0;  /* 패딩 제거 */
+}
+
+.banner-wrapper {
+   position: relative;
+   width: 100%;
+   max-width: 1024px;
+   margin: 0 auto;
+   overflow: hidden;
+   border-radius: 0;  /* 라운드 제거 */
+}
+
+#banner-container {
+   width: 700%;  /* 7개의 슬라이드 (5개 + 앞뒤 복제) */
+   display: flex;
+   transform: translateX(-14.285714%);  /* 초기 위치 (100/7)% */
+   transition: transform 0.5s ease-in-out;
+}
+
+.banner-slide {
+   width: 14.285714%;  /* 100/7 */
+   flex-shrink: 0;
+   position: relative;
+}
+
+.banner-slide img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center;
+   border-radius: 0;  /* 라운드 제거 */
+}
+
+/* Navigation Buttons */
+.banner-nav-btn {
+   background: rgba(255, 255, 255, 0.7);
+   border-radius: 50%;
+   padding: 0.75rem;
+   transition: all 0.3s ease;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   z-index: 10;
+   cursor: pointer;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.banner-nav-btn:hover {
+   background: rgba(255, 255, 255, 0.9);
+}
+
+.banner-nav-btn.prev {
+   left: 2rem;
+}
+
+.banner-nav-btn.next {
+   right: 2rem;
+}
+
+/* Dots Navigation */
+.dots-container {
+   position: absolute;
+   bottom: 1rem;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+   gap: 0.5rem;
+   z-index: 10;
+}
+
+.dot {
+   width: 0.5rem;
+   height: 0.5rem;
+   background-color: rgba(255, 255, 255, 0.7);
+   border-radius: 50%;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   border: none;
+}
+
+.dot:hover {
+   background-color: white;
+}
+
+.dot.active {
+   background-color: white;
+   transform: scale(1.2);
+}
  
  /* Grid Layout for Cards */
  .grid-cols-2 {
