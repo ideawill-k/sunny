@@ -14,12 +14,6 @@
     font-family: 'Pretendard', sans-serif;
 }
 
-/* Title Section */
-.section-title {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
 /* Grid Layout */
 .grid {
     display: grid;
@@ -34,8 +28,8 @@
     }
 }
 
-/* Card Base Styles */
-.card {
+/* Discount Card Styles */
+.discount-card {
     position: relative;
     background: white;
     border-radius: 1rem;
@@ -46,16 +40,17 @@
     cursor: pointer;
     will-change: transform, box-shadow;
     -webkit-tap-highlight-color: transparent;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 /* Card Hover Effects */
-.card:hover,
-.card:active {
+.discount-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-color: transparent;
 }
 
-.card::after {
+.discount-card::after {
     content: '';
     position: absolute;
     top: 0;
@@ -68,52 +63,30 @@
     pointer-events: none;
 }
 
-.card:hover::after,
-.card:active::after {
+.discount-card:hover::after {
     opacity: 1;
 }
 
-/* Card Content */
-.card-content {
-    padding: 1.25rem;
+/* Card Inner Content */
+.card-inner {
+    padding: 1.5rem;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* Icon Styles */
-.card-icon {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    transition: transform 0.2s ease;
+/* Logo Image Styles */
+.card-inner img {
+    transition: transform 0.3s ease;
 }
 
-.card:hover .card-icon {
-    transform: scale(1.1);
+.discount-card:hover img {
+    transform: scale(1.05);
 }
 
-/* Text Styles */
-.card-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #1f2937;
-}
-
-.card-description {
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin-bottom: 1rem;
-}
-
-/* Button Styles */
-.card-button {
-    margin-top: auto;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
+/* Text Animation */
+.discount-card:hover h4 {
+    transform: translateY(-2px);
 }
 
 /* Animation */
@@ -130,6 +103,11 @@
 
 .fade-in {
     animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Title Animation */
+h4 {
+    transition: transform 0.3s ease;
 }
 
 /* Navigation Links */
@@ -152,6 +130,12 @@
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+/* Percentage Display */
+.percentage {
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
 }
 
 /* Mobile Menu */
@@ -185,7 +169,7 @@
 
 /* Touch Device Optimization */
 @media (hover: none) {
-    .card:active {
+    .discount-card:active {
         transform: scale(0.98);
         box-shadow: 0 4px 16px rgba(0,0,0,0.1);
         transition: all 0.1s ease;
@@ -198,15 +182,15 @@
         padding: 0.75rem;
     }
 
-    .card-content {
-        padding: 1rem;
+    .card-inner {
+        padding: 1.25rem;
     }
 
-    .card-title {
+    h4 {
         font-size: 1rem;
     }
 
-    .card-description {
+    p {
         font-size: 0.813rem;
     }
 
@@ -214,4 +198,19 @@
         width: 2rem;
         height: 2rem;
     }
+}
+
+/* Custom Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove Card Border on Hover */
+.discount-card:hover {
+    border-color: transparent;
+}
+
+/* Card Shadow Transition */
+.discount-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
 }
