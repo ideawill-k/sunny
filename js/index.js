@@ -1,73 +1,58 @@
-// 배너 슬라이더 관련 변수
-let isTransitioning = false;
-let currentSlide = 1;
+// 배너 관련 변수
+let currentSlide = 0;
 const totalSlides = 5;
 const container = document.getElementById('banner-container');
 const dots = document.querySelectorAll('.dot');
 let slideInterval;
 
-// 도트 업데이트 함수
+// 도트 업데이트
 function updateDots() {
-    const actualIndex = (currentSlide - 1 + totalSlides) % totalSlides;
     dots.forEach((dot, idx) => {
-        dot.classList.toggle('active', idx === actualIndex);
+        dot.classList.toggle('active', idx === currentSlide);
     });
 }
 
-// 슬라이드 이동 함수
-function moveSlide(direction) {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    
-    currentSlide += direction;
-    const offset = -(currentSlide * (100/7));
-    
-    container.style.transition = 'transform 0.5s ease-in-out';
+// 슬라이드 이동
+function moveSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    const offset = -currentSlide * 20; // 20%씩 이동
     container.style.transform = `translateX(${offset}%)`;
-    
-    // 트랜지션 완료 후 처리
-    setTimeout(() => {
-        container.style.transition = 'none';
-        
-        // 무한 슬라이드를 위한 위치 재조정
-        if (currentSlide <= 0) {
-            currentSlide = totalSlides;
-            const resetOffset = -(currentSlide * (100/7));
-            container.style.transform = `translateX(${resetOffset}%)`;
-        } else if (currentSlide > totalSlides) {
-            currentSlide = 1;
-            const resetOffset = -(currentSlide * (100/7));
-            container.style.transform = `translateX(${resetOffset}%)`;
-        }
-        
-        requestAnimationFrame(() => {
-            container.style.transition = 'transform 0.5s ease-in-out';
-        });
-        
-        updateDots();
-        isTransitioning = false;
-    }, 500);
+    updateDots();
 }
 
 // 특정 슬라이드로 이동
 function goToSlide(index) {
-    if (isTransitioning) return;
-    
-    const direction = index + 1 - currentSlide;
-    moveSlide(direction);
+    currentSlide = index;
+    const offset = -currentSlide * 20;
+    container.style.transform = `translateX(${offset}%)`;
+    updateDots();
+    resetAutoSlide();
 }
 
 // 자동 슬라이드 시작
 function startAutoSlide() {
-    stopAutoSlide();
-    slideInterval = setInterval(() => moveSlide(1), 5000);
+    slideInterval = setInterval(moveSlide, 5000);
 }
 
-// 자동 슬라이드 정지
-function stopAutoSlide() {
-    if (slideInterval) {
+// 자동 슬라이드 리셋
+function resetAutoSlide() {
+    clearInterval(slideInterval);
+    startAutoSlide();
+}
+
+// 배너 초기화
+function initializeBanner() {
+    if (!container) return;
+    
+    updateDots();
+    startAutoSlide();
+    
+    // 마우스 오버시 일시정지
+    container.parentElement.addEventListener('mouseenter', () => {
         clearInterval(slideInterval);
-    }
+    });
+    
+    container.parentElement.addEventListener('mouseleave', startAutoSlide);
 }
 
 // 터치 이벤트 처리
@@ -77,7 +62,7 @@ function setupTouchEvents() {
 
     function handleTouchStart(e) {
         touchStartX = e.touches[0].clientX;
-        stopAutoSlide();
+        clearInterval(slideInterval);
     }
 
     function handleTouchMove(e) {
@@ -86,11 +71,9 @@ function setupTouchEvents() {
 
     function handleTouchEnd() {
         const difference = touchStartX - touchEndX;
-        if (Math.abs(difference) > 50) { // 최소 스와이프 거리
+        if (Math.abs(difference) > 50) {
             if (difference > 0) {
-                moveSlide(1);
-            } else {
-                moveSlide(-1);
+                moveSlide();
             }
         }
         startAutoSlide();
@@ -143,56 +126,45 @@ function setupScrollAnimations() {
 
 // 이미지 지연 로딩
 function setupLazyLoading() {
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
+    if ('IntersectionObserver' in window) {
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                }
+            });
         });
-    });
 
-    lazyImages.forEach(img => imageObserver.observe(img));
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
 }
 
-// 배너 초기화
-function initializeBanner() {
-    if (!container) return;
+// 카드 애니메이션
+function setupCardAnimations() {
+    const cards = document.querySelectorAll('.section-container .group');
     
-    // 첫 번째와 마지막 슬라이드 복제
-    const slides = container.children;
-    const firstSlide = slides[0].cloneNode(true);
-    const lastSlide = slides[slides.length - 1].cloneNode(true);
-    
-    container.appendChild(firstSlide);
-    container.insertBefore(lastSlide, slides[0]);
-    
-    // 초기 위치 설정
-    currentSlide = 1;
-    const initialOffset = -(currentSlide * (100/7));
-    container.style.transform = `translateX(${initialOffset}%)`;
-    
-    updateDots();
-    startAutoSlide();
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-4px)';
+            card.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+        });
+    });
 }
 
 // 페이지 초기화
 document.addEventListener('DOMContentLoaded', function() {
     // 배너 초기화
     initializeBanner();
-    
-    // 배너 마우스 이벤트
-    const bannerWrapper = document.querySelector('.banner-wrapper');
-    if (bannerWrapper) {
-        bannerWrapper.addEventListener('mouseenter', stopAutoSlide);
-        bannerWrapper.addEventListener('mouseleave', startAutoSlide);
-    }
-
-    // 터치 이벤트 초기화
     setupTouchEvents();
     
     // 모바일 메뉴 이벤트
@@ -209,4 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 이미지 지연 로딩 초기화
     setupLazyLoading();
+    
+    // 카드 애니메이션 초기화
+    setupCardAnimations();
 });

@@ -26,27 +26,34 @@
    width: 100%;
    position: relative;
    overflow: hidden;
-   padding: 0;  /* 패딩 제거 */
+   padding: 0 1rem;  /* 여백 통일 */
+   margin-bottom: 3rem;
 }
 
 .banner-wrapper {
    position: relative;
    width: 100%;
-   max-width: 1024px;
+   max-width: 1024px;  /* 컨테이너 사이즈 통일 */
    margin: 0 auto;
    overflow: hidden;
-   border-radius: 0;  /* 라운드 제거 */
+   border-radius: 1rem;  /* 라운드 처리 */
+   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+   transition: all 0.3s ease;
+}
+
+.banner-wrapper:hover {
+   transform: translateY(-4px);
+   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
 #banner-container {
-   width: 700%;  /* 7개의 슬라이드 (5개 + 앞뒤 복제) */
+   width: 500%;  /* 5개의 슬라이드 */
    display: flex;
-   transform: translateX(-14.285714%);  /* 초기 위치 (100/7)% */
    transition: transform 0.5s ease-in-out;
 }
 
 .banner-slide {
-   width: 14.285714%;  /* 100/7 */
+   width: 20%;  /* 100/5 */
    flex-shrink: 0;
    position: relative;
 }
@@ -56,7 +63,7 @@
    height: 100%;
    object-fit: cover;
    object-position: center;
-   border-radius: 0;  /* 라운드 제거 */
+   border-radius: 1rem;  /* 라운드 처리 */
 }
 
 /* Navigation Buttons */
@@ -78,11 +85,11 @@
 }
 
 .banner-nav-btn.prev {
-   left: 2rem;
+   left: 1rem;
 }
 
 .banner-nav-btn.next {
-   right: 2rem;
+   right: 1rem;
 }
 
 /* Dots Navigation */
@@ -104,6 +111,7 @@
    cursor: pointer;
    transition: all 0.3s ease;
    border: none;
+   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .dot:hover {
