@@ -6,19 +6,19 @@
    width: 100%;
 }
 
-/* Section Spacing */
 .section-container {
    max-width: 1024px;
-   margin: 0 auto 3rem;  /* 변경: 섹션 간격 통일 */
-margin: 0 auto 3rem;  /* 변경: 섹션 간격 통일 */
+   margin: 0 auto;
    padding: 0 1rem;
    width: 100%;
+   margin-bottom: 3rem;
 }
 
 /* Section Title */
 .section-title {
    font-family: 'GmarketSans', sans-serif;
    font-weight: 700;
+   font-size: 1.5rem;
    margin-bottom: 1.5rem;
    color: #1f2937;
 }
@@ -29,29 +29,23 @@ margin: 0 auto 3rem;  /* 변경: 섹션 간격 통일 */
    position: relative;
    padding: 0 1rem;
    margin-top: 2rem;
-   margin-bottom: 3rem;  /* 하단 섹션과 간격 */
-   overflow: hidden;     /* 변경: visible에서 hidden으로 */
+   margin-bottom: 3rem;
 }
 
 .banner-wrapper {
    position: relative;
-   width: calc(100% - 0.5rem);
+   width: 100%;
    max-width: 1008px;
    margin: 0 auto;
-   border-radius: 1rem;
+   border-radius: 0.75rem;
    overflow: hidden;
    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
    transition: all 0.3s ease;
-   padding-top: 5px;
-   padding-bottom: 5px;
-   margin-top: 5px;
 }
 
 .banner-wrapper:hover {
-   transform: translateY(-5px);
-   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-   margin-top: 0;
-   margin-bottom: 5px;
+   transform: translateY(-4px);
+   box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.12);
 }
 
 #banner-container {
@@ -72,33 +66,44 @@ margin: 0 auto 3rem;  /* 변경: 섹션 간격 통일 */
    height: 100%;
    object-fit: cover;
    object-position: center;
-   border-radius: 1rem;
+   border-radius: 0.75rem;
 }
 
 /* Banner Navigation */
 .banner-nav-btn {
-   background: rgba(255, 255, 255, 0.7);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: rgba(255, 255, 255, 0.9);
    border-radius: 50%;
-   padding: 0.75rem;
-   transition: all 0.3s ease;
+   width: 3rem;
+   height: 3rem;
    position: absolute;
    top: 50%;
    transform: translateY(-50%);
    z-index: 10;
    cursor: pointer;
-   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   transition: all 0.2s ease;
 }
 
 .banner-nav-btn:hover {
-   background: rgba(255, 255, 255, 0.9);
+   background: #ffffff;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .banner-nav-btn.prev {
-   left: 1rem;
+   left: 1.5rem;
 }
 
 .banner-nav-btn.next {
-   right: 1rem;
+   right: 1.5rem;
+}
+
+.banner-nav-btn svg {
+   width: 1.5rem;
+   height: 1.5rem;
+   color: #1f2937;
 }
 
 /* Dots Navigation */
@@ -115,12 +120,11 @@ margin: 0 auto 3rem;  /* 변경: 섹션 간격 통일 */
 .dot {
    width: 0.5rem;
    height: 0.5rem;
-   background-color: rgba(255, 255, 255, 0.7);
+   background-color: rgba(255, 255, 255, 0.8);
    border-radius: 50%;
    cursor: pointer;
-   transition: all 0.3s ease;
+   transition: all 0.2s ease;
    border: none;
-   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .dot:hover {
@@ -132,7 +136,7 @@ margin: 0 auto 3rem;  /* 변경: 섹션 간격 통일 */
    transform: scale(1.2);
 }
 
-/* Grid Layout for Cards */
+/* Grid Layout */
 .grid {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
@@ -152,6 +156,7 @@ margin: 0 auto 3rem;  /* 변경: 섹션 간격 통일 */
    height: auto;
    min-height: 180px;
    transition: all 0.3s ease;
+   cursor: pointer;
 }
 
 /* Font Classes */
@@ -183,7 +188,7 @@ margin: 0 auto 3rem;  /* 변경: 섹션 간격 통일 */
 /* Card Hover Effects */
 .group:hover {
    transform: translateY(-4px);
-   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+   box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.12);
 }
 
 /* Gradient Effects */
@@ -195,7 +200,8 @@ margin: 0 auto 3rem;  /* 변경: 섹션 간격 통일 */
 /* Footer Styles */
 footer {
    margin-top: 2rem !important;
-   padding-bottom: 2rem;
+   padding: 2rem 0;
+   border-top: 1px solid #e5e7eb;
 }
 
 /* Social Links */
@@ -238,28 +244,25 @@ footer {
    }
 
    .banner-nav-btn {
-       padding: 0.5rem;
+       width: 2.5rem;
+       height: 2.5rem;
+   }
+
+   .banner-nav-btn svg {
+       width: 1.25rem;
+       height: 1.25rem;
    }
 
    .banner-nav-btn.prev {
-       left: 0.5rem;
+       left: 1rem;
    }
 
    .banner-nav-btn.next {
-       right: 0.5rem;
-   }
-
-   .dot {
-       width: 0.5rem;
-       height: 0.5rem;
+       right: 1rem;
    }
 
    .section-title {
        font-size: 1.25rem;
-   }
-
-   footer {
-       margin-top: 2rem !important;
    }
 }
 
@@ -276,39 +279,27 @@ footer {
    .group {
        min-height: 140px;
    }
+
+   .banner-nav-btn {
+       width: 2rem;
+       height: 2rem;
+   }
+
+   .banner-nav-btn svg {
+       width: 1rem;
+       height: 1rem;
+   }
 }
 
 /* Touch Device Optimizations */
 @media (hover: none) {
-   .banner-nav-btn {
-       display: none;
-   }
-
-   .banner-slide:hover {
+   .banner-wrapper:hover {
        transform: none;
-       box-shadow: none;
+       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
    }
 
-   .group:hover {
-       transform: none;
-       box-shadow: none;
+   .group:active {
+       transform: scale(0.98);
+       transition: all 0.1s ease;
    }
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-   width: 10px;
-}
-
-::-webkit-scrollbar-track {
-   background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-   background: #888;
-   border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-   background: #555;
 }
