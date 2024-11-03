@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행할인 - 써니쿠폰</title>
+    
+    <!-- External CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/discount.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <header class="border-b">
+            <!-- ... header 내용 ... -->
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div class="content-container py-6">
+                <!-- Title Section -->
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold font-heading bg-gradient-to-r from-rose-500 to-purple-600 text-transparent bg-clip-text inline-block">여행할인</h2>
+                    <p class="text-gray-600 text-sm mt-2 font-body">최대 98% 특별 할인 혜택</p>
+                </div>
+
+                <!-- Insurance Section -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-shield-alt text-emerald-500 mr-2"></i>
+                        여행자보험
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- 국내여행자보험 Card -->
+                        <div class="bg-white rounded-2xl overflow-hidden border-2 border-emerald-400 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <img src="../images/logos/tour_moz.png" alt="tour_moz" class="h-6 mb-3">
+                                        <h4 class="text-lg font-bold text-emerald-600 mb-1">국내여행자보험</h4>
+                                        <p class="text-sm text-gray-600">가족여행을 위한</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <span class="text-sm text-gray-500">맞춤형 보험서비스</span>
+                                    <button class="px-4 py-2 bg-emerald-500 text-white rounded-full text-sm hover:bg-emerald-600 transition-colors">
+                                        자세히 보기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 해외여행자보험 Card -->
+                        <div class="bg-white rounded-2xl overflow-hidden border-2 border-emerald-400 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <img src="../images/logos/tour_moz.png" alt="tour_moz" class="h-6 mb-3">
+                                        <h4 class="text-lg font-bold text-emerald-600 mb-1">해외여행자보험</h4>
+                                        <p class="text-sm text-gray-600">한 눈에 꼼꼼비교</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <span class="text-sm text-gray-500">맞춤형 보험서비스</span>
+                                    <button class="px-4 py-2 bg-emerald-500 text-white rounded-full text-sm hover:bg-emerald-600 transition-colors">
+                                        자세히 보기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIM Section -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-mobile-alt text-blue-500 mr-2"></i>
+                        해외 통신
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- ESIM Card -->
+                        <div class="bg-white rounded-2xl overflow-hidden border-2 border-blue-400 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <img src="../images/logos/trip365.png" alt="Trip365" class="h-6 mb-3">
+                                        <h4 class="text-lg font-bold text-blue-600 mb-1">해외 E-SIM</h4>
+                                        <p class="text-sm text-gray-600">최대 98% 할인</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <span class="text-sm text-gray-500">즉시발급 가능</span>
+                                    <button class="px-4 py-2 bg-blue-500 text-white rounded-full text-sm hover:bg-blue-600 transition-colors">
+                                        할인받기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- USIM Card -->
+                        <div class="bg-white rounded-2xl overflow-hidden border-2 border-blue-400 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <img src="../images/logos/trip365.png" alt="Trip365" class="h-6 mb-3">
+                                        <h4 class="text-lg font-bold text-blue-600 mb-1">해외 USIM</h4>
+                                        <p class="text-sm text-gray-600">최대 89% 할인</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <span class="text-sm text-gray-500">당일수령 가능</span>
+                                    <button class="px-4 py-2 bg-blue-500 text-white rounded-full text-sm hover:bg-blue-600 transition-colors">
+                                        할인받기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopping Section -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-shopping-bag text-rose-500 mr-2"></i>
+                        쇼핑 할인
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- 돈키호테 Card -->
+                        <div class="bg-white rounded-2xl overflow-hidden border-2 border-yellow-400 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex-1">
+                                        <img src="../images/logos/donki.png" alt="돈키호테" class="h-8 mb-3">
+                                        <div class="flex items-baseline gap-2 mb-1">
+                                            <span class="text-3xl font-bold text-yellow-500">15</span>
+                                            <span class="text-lg font-bold text-yellow-500">%</span>
+                                            <span class="text-gray-600">UP TO</span>
+                                        </div>
+                                        <p class="text-sm text-gray-500">면세 최대 10% + 추가 5% 할인</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <span class="text-xs text-gray-400">일본 돈키호테 전지점 사용가능</span>
+                                    <button class="px-4 py-2 bg-yellow-500 text-white rounded-full text-sm hover:bg-yellow-600 transition-colors">
+                                        쿠폰받기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 빅카메라 Card -->
+                        <div class="bg-white rounded-2xl overflow-hidden border-2 border-red-400 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex-1">
+                                        <img src="../images/logos/bic.png" alt="빅카메라" class="h-8 mb-3">
+                                        <div class="flex items-baseline gap-2 mb-1">
+                                            <span class="text-3xl font-bold text-red-500">17</span>
+                                            <span class="text-lg font-bold text-red-500">%</span>
+                                            <span class="text-gray-600">UP TO</span>
+                                        </div>
+                                        <p class="text-sm text-gray-500">면세 최대 10% + 추가 7% 할인</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <span class="text-xs text-gray-400">일본 빅카메라 전지점 사용가능</span>
+                                    <button class="px-4 py-2 bg-red-500 text-white rounded-full text-sm hover:bg-red-600 transition-colors">
+                                        쿠폰받기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trip.com Section -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-ticket-alt text-blue-500 mr-2"></i>
+                        Trip.com 특별할인
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- 기차표 할인 -->
+                        <div class="bg-white rounded-2xl overflow-hidden border-2 border-rose-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <img src="../images/logos/trip_sunny.png" alt="Trip.com" class="h-6">
+                                </div>
+                                <h4 class="text-lg font-bold text-rose-500 mb-2">기차표 할인</h4>
+                                <p class="text-sm text-gray-600">예약수수료 면제</p>
+                            </div>
+                        </div>
+
+                        <!-- 호텔 할인 -->
+                        <div class="bg-white rounded-2xl overflow-hidden border-2 border-purple-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <img src="../images/logos/trip_sunny.png" alt="Trip.com" class="h-6">
+                                </div>
+                                <h4 class="text-lg font-bold text-purple-500 mb-2">호텔 할인</h4>
+                                <p class="text-sm text-gray-600">국내외 호텔 초특가</p>
+                            </div>
+                        </div>
+
+                        <!-- 항공권 할인 -->
+                        <div class="bg-white rounded-2xl overflow-hidden border-2 border-blue-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <img src="../images/logos/trip_sunny.png" alt="Trip.com" class="h-6">
+                                </div>
+                                <h4 class="text-lg font-bold text-blue-500 mb-2">항공권 할인</h4>
+                                <p class="text-sm text-gray-600">항공권 최저가 검색</p>
+                            </div>
+                        </div>
+
+                        <!-- 투어+티켓 할인 -->
+                        <div class="bg-white rounded-2xl overflow-hidden border-2 border-amber-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <img src="../images/logos/trip_sunny.png" alt="Trip.com" class="h-6">
+                                </div>
+                                <h4 class="text-lg font-bold text-amber-500 mb-2">투어+티켓 할인</h4>
+                                <p class="text-sm text-gray-600">놓칠 수 없는 액티비티</p>
+                            </div>
+                        </div>
+
+                        <!-- 항공+호텔 할인 -->
+                        <div class="bg-white rounded-2xl overflow-hidden border-2 border-green-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <img src="../images/logos/trip_sunny.png" alt="Trip.com" class="h-6">
+                                </div>
+                                <h4 class="text-lg font-bold text-green-500 mb-2">항공+호텔 할인</h4>
+                                <p class="text-sm text-gray-600">함께해서 더 좋은</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-16 pb-8 text-sm text-gray-600 border-t pt-8">
+            <div class="content-container">
+                <!-- 소셜 링크 -->
+                <div class="social-links">
+                    <a href="#" class="social-link bg-green-500 hover:bg-green-600">
+                        <i class="fab fa-line text-white"></i>
+                    </a>
+                    <a href="#" class="social-link bg-yellow-500 hover:bg-yellow-600">
+                        <i class="fab fa-kakao text-white"></i>
+                    </a>
+                    <a href="#" class="social-link bg-pink-500 hover:bg-pink-600">
+                        <i class="fab fa-instagram text-white"></i>
+                    </a>
+                    <a href="#" class="social-link bg-blue-500 hover:bg-blue-600">
+                        <i class="fab fa-facebook text-white"></i>
+                    </a>
+                </div>
+                
+                <!-- 회사 정보 -->
+                <div class="space-y-1">
+                    <p class="font-bold text-base mb-2">대명인터네셔널</p>
+                    <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
+                    <p class="leading-relaxed">제휴문의 : sunnycoupon@naver.com</p>
+                    <p class="leading-relaxed">통신판매신고 : 제2018-부산남구-2047호</p>
+                    <p class="leading-relaxed">부산광역시 남구 신선로 365, 317호</p>
+                    <p class="mt-2">© Copyright 2019 SunnyCoupon. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/discount.js"></script>
+</body>
+</html>
