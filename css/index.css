@@ -1,13 +1,13 @@
 /* Common Container */
 .content-container {
-   max-width: 1024px;
+   max-width: 992px;
    margin: 0 auto;
    padding: 0 1rem;
    width: 100%;
 }
 
 .section-container {
-   max-width: 1024px;
+   max-width: 992px;
    margin: 0 auto;
    padding: 0 1rem;
    width: 100%;
@@ -40,18 +40,11 @@
 .banner-wrapper {
    position: relative;
    width: 100%;
-   max-width: 1024px;
-   padding: 0 1rem;
+   max-width: 992px;
    margin: 0 auto;
-   border-radius: 0.75rem;
+   border-radius: 2rem;
    overflow: hidden;
-   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
    transition: all 0.3s ease;
-}
-
-.banner-wrapper:hover {
-   transform: translateY(-4px);
-   box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.12);
 }
 
 #banner-container {
@@ -59,22 +52,19 @@
    display: flex;
    transform: translateX(0%);
    transition: transform 0.5s ease-in-out;
-   margin: 0 -1rem;
 }
 
 .banner-slide {
    width: 20%;
    flex-shrink: 0;
    position: relative;
-   padding: 0 1rem;
 }
 
 .banner-slide img {
    width: 100%;
    height: 100%;
    object-fit: cover;
-   object-position: center;
-   border-radius: 0.75rem;
+   border-radius: 2rem;
 }
 
 /* Banner Navigation */
@@ -84,40 +74,40 @@
    justify-content: center;
    background: rgba(255, 255, 255, 0.9);
    border-radius: 50%;
-   width: 3rem;
-   height: 3rem;
+   width: 3.5rem;
+   height: 3.5rem;
    position: absolute;
    top: 50%;
    transform: translateY(-50%);
    z-index: 10;
    cursor: pointer;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-   transition: all 0.2s ease;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .banner-nav-btn:hover {
    background: #ffffff;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 .banner-nav-btn.prev {
-   left: 1.5rem;
+   left: 2rem;
 }
 
 .banner-nav-btn.next {
-   right: 1.5rem;
+   right: 2rem;
 }
 
 .banner-nav-btn svg {
-   width: 1.5rem;
-   height: 1.5rem;
+   width: 2rem;
+   height: 2rem;
+   stroke-width: 2px;
    color: #1f2937;
 }
 
 /* Dots Navigation */
 .dots-container {
    position: absolute;
-   bottom: 1rem;
+   bottom: 1.5rem;
    left: 50%;
    transform: translateX(-50%);
    display: flex;
@@ -126,8 +116,8 @@
 }
 
 .dot {
-   width: 0.5rem;
-   height: 0.5rem;
+   width: 0.625rem;
+   height: 0.625rem;
    background-color: rgba(255, 255, 255, 0.8);
    border-radius: 50%;
    cursor: pointer;
@@ -262,8 +252,8 @@ footer {
    }
 
    .banner-nav-btn svg {
-       width: 1.25rem;
-       height: 1.25rem;
+       width: 1.5rem;
+       height: 1.5rem;
    }
 
    .banner-nav-btn.prev {
@@ -273,12 +263,20 @@ footer {
    .banner-nav-btn.next {
        right: 1rem;
    }
+
+   .banner-wrapper {
+       border-radius: 1.5rem;
+   }
+
+   .banner-slide img {
+       border-radius: 1.5rem;
+   }
 }
 
 @media (max-width: 640px) {
    .section-container,
    .banner-section {
-       padding: 0 0.5rem;
+       padding: 0 0.75rem;
    }
    
    .grid {
@@ -298,17 +296,20 @@ footer {
        width: 1rem;
        height: 1rem;
    }
+
+   .banner-wrapper {
+       border-radius: 1rem;
+   }
+
+   .banner-slide img {
+       border-radius: 1rem;
+   }
 }
 
 /* Touch Device Optimizations */
 @media (hover: none) {
    .banner-nav-btn {
        display: none;
-   }
-
-   .banner-wrapper:hover {
-       transform: none;
-       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
    }
 
    .group:active {
