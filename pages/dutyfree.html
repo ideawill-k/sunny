@@ -57,12 +57,76 @@
         <main>
             <div class="content-container py-6">
                 <!-- 상단 필터 -->
-                <div class="filter-container">
-                    <button class="filter-btn active">BEST 5</button>
-                    <button class="filter-btn">인천공항제1터미널</button>
-                    <button class="filter-btn">인천공항제2터미널</button>
-                    <button class="filter-btn">입국장면세점</button>
-                </div>
+<div class="grid grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+    <!-- BEST 5 -->
+    <div class="group bg-gradient-to-br from-rose-500 to-orange-400 p-3 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex flex-col h-full text-center">
+            <div class="text-xl text-white/90 mb-1">
+                <span class="text-2xl font-bold">5</span>
+            </div>
+            <h4 class="text-base font-bold text-white font-heading">BEST</h4>
+        </div>
+    </div>
+ 
+    <!-- 인천공항 1터미널 -->
+    <div class="group bg-gradient-to-br from-blue-500 to-cyan-400 p-3 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex flex-col h-full text-center">
+            <div class="text-xl text-white/90 mb-1">
+                <i class="fas fa-plane-departure"></i>
+            </div>
+            <h4 class="text-base font-bold text-white font-heading">인천T1</h4>
+        </div>
+    </div>
+ 
+    <!-- 인천공항 2터미널 -->
+    <div class="group bg-gradient-to-br from-indigo-500 to-blue-400 p-3 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex flex-col h-full text-center">
+            <div class="text-xl text-white/90 mb-1">
+                <i class="fas fa-plane-arrival"></i>
+            </div>
+            <h4 class="text-base font-bold text-white font-heading">인천T2</h4>
+        </div>
+    </div>
+ 
+    <!-- 김포 & 김해공항 -->
+    <div class="group bg-gradient-to-br from-purple-500 to-pink-400 p-3 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex flex-col h-full text-center">
+            <div class="flex justify-center items-center space-x-2 text-white/90 mb-1">
+                <i class="fas fa-plane text-xl"></i>
+                <i class="fas fa-plus text-sm"></i>
+                <i class="fas fa-plane text-xl"></i>
+            </div>
+            <h4 class="text-base font-bold text-white font-heading">김포/김해</h4>
+        </div>
+    </div>
+ 
+    <!-- 시내면세점 -->
+    <div class="group bg-gradient-to-br from-emerald-500 to-teal-400 p-3 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex flex-col h-full text-center">
+            <div class="text-xl text-white/90 mb-1">
+                <i class="fas fa-store"></i>
+            </div>
+            <h4 class="text-base font-bold text-white font-heading">시내면세점</h4>
+        </div>
+    </div>
+ 
+    <!-- 담배 & 주류 -->
+    <div class="group bg-gradient-to-br from-amber-500 to-orange-400 p-3 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex flex-col h-full text-center">
+            <div class="flex justify-center items-center space-x-2 text-white/90 mb-1">
+                <i class="fas fa-smoking text-xl"></i>
+                <i class="fas fa-wine-bottle text-xl"></i>
+            </div>
+            <h4 class="text-base font-bold text-white font-heading">담배/주류</h4>
+        </div>
+    </div>
+ </div>
+ 
+ <!-- BEST 5 Title -->
+ <div class="text-center mb-8">
+    <h2 class="text-4xl font-bold font-heading bg-gradient-to-r from-rose-500 to-orange-400 text-transparent bg-clip-text inline-block">BEST 5</h2>
+    <p class="text-gray-600 text-sm mt-2 font-body">가장 인기있는 할인쿠폰</p>
+ </div>
 
                 <!-- 쿠폰 그리드 -->
                 <div class="coupon-grid">
