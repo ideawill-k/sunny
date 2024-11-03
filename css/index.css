@@ -26,7 +26,7 @@
 .banner-section {
    width: 100%;
    position: relative;
-   overflow: hidden;
+   overflow: visible;
    padding: 0 1rem;
    margin-top: 2rem;
    margin-bottom: 3rem;
@@ -34,29 +34,34 @@
 
 .banner-wrapper {
    position: relative;
-   width: 100%;
-   max-width: 1024px;
+   width: calc(100% - 0.5rem);
+   max-width: 1008px;
    margin: 0 auto;
    border-radius: 1rem;
    overflow: hidden;
    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
    transition: all 0.3s ease;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   margin-top: 5px;
 }
 
 .banner-wrapper:hover {
    transform: translateY(-5px);
    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+   margin-top: 0;
+   margin-bottom: 5px;
 }
 
 #banner-container {
-   width: 500%;  /* 5개의 슬라이드 */
+   width: 500%;
    display: flex;
    transform: translateX(0%);
    transition: transform 0.5s ease-in-out;
 }
 
 .banner-slide {
-   width: 20%;  /* 100/5 */
+   width: 20%;
    flex-shrink: 0;
    position: relative;
 }
