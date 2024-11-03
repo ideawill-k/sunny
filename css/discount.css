@@ -1,10 +1,11 @@
-/* Global Styles */
+/* Content Container */
 .content-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
+/* Font Settings */
 .font-heading {
     font-family: 'GmarketSans', sans-serif;
 }
@@ -13,96 +14,109 @@
     font-family: 'Pretendard', sans-serif;
 }
 
-/* Section Styles */
+/* Title Section */
 .section-title {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -0.5rem;
-    left: 0;
-    width: 2rem;
-    height: 0.25rem;
-    background: currentColor;
-    border-radius: 0.25rem;
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 모바일 기본 2칸 */
+    gap: 1rem;
 }
 
-/* Card Styles */
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);  /* 데스크탑 4칸 */
+        gap: 1.5rem;
+    }
+}
+
+/* Card Base Styles */
 .card {
     position: relative;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    cursor: pointer;
+    will-change: transform, box-shadow;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.card::before {
+/* Card Hover Effects */
+.card:hover,
+.card:active {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.card::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom right,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.05)
-    );
+    right: 0;
+    bottom: 0;
     opacity: 0;
     transition: opacity 0.3s ease;
+    background: rgba(255,255,255,0.1);
+    pointer-events: none;
 }
 
-.card:hover::before {
+.card:hover::after,
+.card:active::after {
     opacity: 1;
 }
 
-/* Logo Images */
-.brand-logo {
-    height: 1.5rem;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+/* Card Content */
+.card-content {
+    padding: 1.25rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.card:hover .brand-logo {
-    transform: scale(1.05);
+/* Icon Styles */
+.card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+/* Text Styles */
+.card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+}
+
+.card-description {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
 }
 
 /* Button Styles */
-.discount-btn {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
+.card-button {
+    margin-top: auto;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
-.discount-btn::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: -100%;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0)
-    );
-    transition: left 0.5s ease;
-}
-
-.discount-btn:hover::after {
-    left: 100%;
-}
-
-/* Percentage Display */
-.percentage {
-    font-feature-settings: "tnum";
-    font-variant-numeric: tabular-nums;
-}
-
-/* Animation Effects */
+/* Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -116,81 +130,6 @@
 
 .fade-in {
     animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Category Icons */
-.category-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-}
-
-/* Card Border Glow Effect */
-.card {
-    position: relative;
-}
-
-.card::after {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    right: -1px;
-    bottom: -1px;
-    border-radius: inherit;
-    background: linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0)
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.card:hover::after {
-    opacity: 1;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .content-container {
-        padding: 0 1rem;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    .card {
-        margin-bottom: 1rem;
-    }
-
-    .percentage {
-        font-size: 1.5rem;
-    }
-}
-
-/* Social Links */
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.social-link {
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    transition: all 0.2s;
 }
 
 /* Navigation Links */
@@ -215,13 +154,64 @@
     width: 100%;
 }
 
-/* Touch Device Optimizations */
+/* Mobile Menu */
+.mobile-menu {
+    transform: translateY(-1rem);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.social-link {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    transition: all 0.2s;
+}
+
+/* Touch Device Optimization */
 @media (hover: none) {
-    .card:hover {
-        transform: none;
+    .card:active {
+        transform: scale(0.98);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        transition: all 0.1s ease;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .content-container {
+        padding: 0.75rem;
     }
 
-    .discount-btn:hover::after {
-        display: none;
+    .card-content {
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-description {
+        font-size: 0.813rem;
+    }
+
+    .social-link {
+        width: 2rem;
+        height: 2rem;
     }
 }

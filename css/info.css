@@ -1,11 +1,11 @@
-/* 메인 스타일 */
+/* Content Container */
 .content-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
-/* Title Styles */
+/* Font Settings */
 .font-heading {
     font-family: 'GmarketSans', sans-serif;
 }
@@ -14,75 +14,122 @@
     font-family: 'Pretendard', sans-serif;
 }
 
-/* Card Grid */
-.card-grid {
+/* Title Section */
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Grid Layout */
+.grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);  /* 모바일 기본 2칸 */
     gap: 1rem;
 }
 
-@media (min-width: 768px) {
-    .card-grid {
-        grid-template-columns: repeat(2, 1fr);
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);  /* 데스크탑 4칸 */
         gap: 1.5rem;
     }
 }
 
-@media (min-width: 1024px) {
-    .card-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Card Styles */
-.info-card {
+/* Card Base Styles */
+.card {
+    position: relative;
     background: white;
     border-radius: 1rem;
-    border: 2px solid #f3f4f6;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     height: 100%;
-    position: relative;
+    cursor: pointer;
+    will-change: transform, box-shadow;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.info-card:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border-color: transparent;
+/* Card Hover Effects */
+.card:hover,
+.card:active {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-.info-card::after {
+.card::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 1rem;
-    box-shadow: 0 0 0 2px transparent;
-    transition: box-shadow 0.3s ease;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(255,255,255,0.1);
+    pointer-events: none;
 }
 
-.info-card:hover::after {
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+.card:hover::after,
+.card:active::after {
+    opacity: 1;
 }
 
-/* Icon Animation */
-.info-card i {
+/* Card Content */
+.card-content {
+    padding: 1.25rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Icon Styles */
+.card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     transition: transform 0.2s ease;
 }
 
-.info-card:hover i {
+.card:hover .card-icon {
     transform: scale(1.1);
 }
 
-/* Arrow Animation */
-.arrow-icon {
-    transition: transform 0.2s ease;
+/* Text Styles */
+.card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
 }
 
-.info-card:hover .arrow-icon {
-    transform: translateX(0.25rem);
+.card-description {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+/* Button Styles */
+.card-button {
+    margin-top: auto;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
 /* Navigation Links */
@@ -119,29 +166,52 @@
     opacity: 1;
 }
 
-/* Responsive Styles */
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.social-link {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    transition: all 0.2s;
+}
+
+/* Touch Device Optimization */
+@media (hover: none) {
+    .card:active {
+        transform: scale(0.98);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        transition: all 0.1s ease;
+    }
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .content-container {
-        padding: 0 1rem;
+        padding: 0.75rem;
     }
 
-    .info-card {
-        padding: 1.25rem;
+    .card-content {
+        padding: 1rem;
     }
-}
 
-/* Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(1rem);
+    .card-title {
+        font-size: 1rem;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-.fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+    .card-description {
+        font-size: 0.813rem;
+    }
+
+    .social-link {
+        width: 2rem;
+        height: 2rem;
+    }
 }
