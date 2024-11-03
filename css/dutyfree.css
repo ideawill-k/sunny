@@ -83,7 +83,7 @@
 .best-tag {
     position: absolute;
     top: 0.75rem;
-    right: 0.75rem;
+    left: 0.75rem;
     padding: 0.25rem 0.5rem;
     border-radius: 9999px;
     font-size: 0.75rem;
@@ -99,13 +99,15 @@
 .coupon-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 0.75rem;
+    padding-right: 0.5rem;
 }
 
 .brand-name {
     font-size: 1rem;
     font-weight: bold;
+    margin-right: 0.5rem;
 }
 
 .city-coupon .brand-name { color: #2563eb; }
@@ -115,6 +117,8 @@
     display: flex;
     align-items: baseline;
     gap: 0.25rem;
+    flex-shrink: 0;
+    text-align: right;
 }
 
 .discount-amount {
@@ -130,19 +134,33 @@
 
 /* Coupon Info */
 .coupon-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    min-height: 2.5rem;
 }
 
 .location-info, .condition-info {
     display: flex;
     align-items: center;
     gap: 0.375rem;
-    padding: 0.375rem 0.75rem;
+    padding: 0.375rem 0.5rem;
     border-radius: 0.5rem;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.location-info i, .condition-info i {
+    flex-shrink: 0;
+}
+
+.location-info span, .condition-info span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .city-coupon .location-info {
