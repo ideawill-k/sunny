@@ -1,54 +1,57 @@
 /* Common Container */
 .content-container {
-    max-width: 1024px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    width: 100%;
- }
- 
- .section-container {
-    max-width: 1024px;
-    margin: 0 auto 3rem;
-    padding: 0 1rem;
-    width: 100%;
- }
- 
- /* Section Title */
- .section-title {
-    font-family: 'GmarketSans', sans-serif;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: #1f2937;
- }
- 
+   max-width: 1024px;
+   margin: 0 auto;
+   padding: 0 1rem;
+   width: 100%;
+}
+
+.section-container {
+   max-width: 1024px;
+   margin: 0 auto;
+   padding: 0 1rem;
+   width: 100%;
+   margin-bottom: 3rem;
+}
+
+/* Section Title */
+.section-title {
+   font-family: 'GmarketSans', sans-serif;
+   font-weight: 700;
+   margin-bottom: 1.5rem;
+   color: #1f2937;
+}
+
 /* Banner Section */
 .banner-section {
    width: 100%;
    position: relative;
    overflow: hidden;
-   padding: 0 1rem;  /* 여백 통일 */
+   padding: 0 1rem;
+   margin-top: 2rem;
    margin-bottom: 3rem;
 }
 
 .banner-wrapper {
    position: relative;
    width: 100%;
-   max-width: 1024px;  /* 컨테이너 사이즈 통일 */
+   max-width: 1024px;
    margin: 0 auto;
+   border-radius: 1rem;
    overflow: hidden;
-   border-radius: 1rem;  /* 라운드 처리 */
    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
    transition: all 0.3s ease;
 }
 
 .banner-wrapper:hover {
-   transform: translateY(-4px);
-   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+   transform: translateY(-5px);
+   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 #banner-container {
    width: 500%;  /* 5개의 슬라이드 */
    display: flex;
+   transform: translateX(0%);
    transition: transform 0.5s ease-in-out;
 }
 
@@ -63,10 +66,10 @@
    height: 100%;
    object-fit: cover;
    object-position: center;
-   border-radius: 1rem;  /* 라운드 처리 */
+   border-radius: 1rem;
 }
 
-/* Navigation Buttons */
+/* Banner Navigation */
 .banner-nav-btn {
    background: rgba(255, 255, 255, 0.7);
    border-radius: 50%;
@@ -122,150 +125,184 @@
    background-color: white;
    transform: scale(1.2);
 }
- 
- /* Grid Layout for Cards */
- .grid-cols-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
- }
- 
- @media (min-width: 1024px) {
-    .lg\:grid-cols-3 {
-        grid-template-columns: repeat(3, 1fr);
-    }
- }
- 
- /* Card Styles */
- .group {
-    height: auto;
-    min-height: 180px;
-    transition: all 0.3s ease;
- }
- 
- /* Font Classes */
- .font-heading {
-    font-family: 'GmarketSans', sans-serif;
-    font-weight: 700;
- }
- 
- .font-body {
-    font-family: 'Pretendard', sans-serif;
- }
- 
- /* Animation Classes */
- .fade-in {
-    animation: fadeIn 0.3s ease-out forwards;
- }
- 
- @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
- }
- 
- /* Card Hover Effects */
- .group:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
- }
- 
- /* Gradient Effects */
- .bg-gradient-to-br {
-    background-size: 200% 200%;
-    transition: all 0.3s ease;
- }
- 
- /* Responsive Styles */
- @media (max-width: 1024px) {
-    .section-container, 
-    .banner-section {
-        padding: 0 0.75rem;
-    }
- }
- 
- @media (max-width: 768px) {
-    .group {
-        min-height: 160px;
-    }
-    
-    .grid-cols-2 {
-        gap: 0.75rem;
-    }
- 
-    .banner-nav-btn {
-        padding: 0.5rem;
-    }
- 
-    .banner-nav-btn.prev {
-        left: 0.5rem;
-    }
- 
-    .banner-nav-btn.next {
-        right: 0.5rem;
-    }
- 
-    .dot {
-        width: 0.5rem;
-        height: 0.5rem;
-    }
- 
-    .section-title {
-        font-size: 1.25rem;
-    }
- }
- 
- @media (max-width: 640px) {
-    .section-container,
-    .banner-section {
-        padding: 0 0.5rem;
-    }
-    
-    .grid-cols-2 {
-        gap: 0.5rem;
-    }
- 
-    .group {
-        min-height: 140px;
-    }
- }
- 
- /* Touch Device Optimizations */
- @media (hover: none) {
-    .banner-nav-btn {
-        display: none;
-    }
- 
-    .banner-slide:hover {
-        transform: none;
-        box-shadow: none;
-    }
- 
-    .group:hover {
-        transform: none;
-        box-shadow: none;
-    }
- }
- 
- /* Custom Scrollbar */
- ::-webkit-scrollbar {
-    width: 10px;
- }
- 
- ::-webkit-scrollbar-track {
-    background: #f1f1f1;
- }
- 
- ::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px;
- }
- 
- ::-webkit-scrollbar-thumb:hover {
-    background: #555;
- }
+
+/* Grid Layout for Cards */
+.grid {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 1rem;
+   margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+   .grid {
+       grid-template-columns: repeat(3, 1fr);
+       gap: 1.5rem;
+   }
+}
+
+/* Card Styles */
+.group {
+   height: auto;
+   min-height: 180px;
+   transition: all 0.3s ease;
+}
+
+/* Font Classes */
+.font-heading {
+   font-family: 'GmarketSans', sans-serif;
+   font-weight: 700;
+}
+
+.font-body {
+   font-family: 'Pretendard', sans-serif;
+}
+
+/* Animation Classes */
+.fade-in {
+   animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+   from {
+       opacity: 0;
+       transform: translateY(10px);
+   }
+   to {
+       opacity: 1;
+       transform: translateY(0);
+   }
+}
+
+/* Card Hover Effects */
+.group:hover {
+   transform: translateY(-4px);
+   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Gradient Effects */
+.bg-gradient-to-br {
+   background-size: 200% 200%;
+   transition: all 0.3s ease;
+}
+
+/* Footer Styles */
+footer {
+   margin-top: 3rem !important;
+   padding-bottom: 2rem;
+}
+
+/* Social Links */
+.social-links {
+   display: flex;
+   gap: 1rem;
+   margin-bottom: 2rem;
+}
+
+.social-link {
+   width: 2.5rem;
+   height: 2.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 9999px;
+   transition: all 0.2s;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+   .section-container, 
+   .banner-section {
+       padding: 0 0.75rem;
+   }
+}
+
+@media (max-width: 768px) {
+   .banner-section,
+   .section-container {
+       margin-bottom: 2rem;
+   }
+
+   .group {
+       min-height: 160px;
+   }
+   
+   .grid {
+       gap: 0.75rem;
+   }
+
+   .banner-nav-btn {
+       padding: 0.5rem;
+   }
+
+   .banner-nav-btn.prev {
+       left: 0.5rem;
+   }
+
+   .banner-nav-btn.next {
+       right: 0.5rem;
+   }
+
+   .dot {
+       width: 0.5rem;
+       height: 0.5rem;
+   }
+
+   .section-title {
+       font-size: 1.25rem;
+   }
+
+   footer {
+       margin-top: 2rem !important;
+   }
+}
+
+@media (max-width: 640px) {
+   .section-container,
+   .banner-section {
+       padding: 0 0.5rem;
+   }
+   
+   .grid {
+       gap: 0.5rem;
+   }
+
+   .group {
+       min-height: 140px;
+   }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+   .banner-nav-btn {
+       display: none;
+   }
+
+   .banner-slide:hover {
+       transform: none;
+       box-shadow: none;
+   }
+
+   .group:hover {
+       transform: none;
+       box-shadow: none;
+   }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+   width: 10px;
+}
+
+::-webkit-scrollbar-track {
+   background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+   background: #888;
+   border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: #555;
+}
