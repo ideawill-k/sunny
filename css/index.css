@@ -1,13 +1,13 @@
 /* Common Container */
 .content-container {
-   max-width: 960px;
+   max-width: 1024px;
    margin: 0 auto;
    padding: 0 1rem;
    width: 100%;
 }
 
 .section-container {
-   max-width: 960px;
+   max-width: 1024px;
    margin: 0 auto;
    padding: 0 1rem;
    width: 100%;
@@ -40,7 +40,7 @@
 .banner-wrapper {
    position: relative;
    width: 100%;
-   max-width: 924px;
+   max-width: 1008px;
    margin: 0 auto;
    border-radius: 1.5rem;
    overflow: hidden;
