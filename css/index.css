@@ -40,7 +40,7 @@
 .banner-wrapper {
    position: relative;
    width: 100%;
-   max-width: 920px;
+   max-width: 924px;
    margin: 0 auto;
    border-radius: 1.5rem;
    overflow: hidden;
@@ -80,8 +80,8 @@
    justify-content: center;
    background: #ffffff;
    border-radius: 50%;
-   width: 2.75rem;
-   height: 2.75rem;
+   width: 2rem;
+   height: 2rem;
    position: absolute;
    top: 50%;
    transform: translateY(-50%);
