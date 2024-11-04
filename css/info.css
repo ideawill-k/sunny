@@ -28,7 +28,28 @@
     }
 }
 
-/* Card Styles */
+/* Card Border Colors */
+.airport-card {
+    border: 2px solid rgb(16 185 129); /* emerald-500 */
+}
+
+.dutyfree-card {
+    border: 2px solid rgb(244 63 94); /* rose-500 */
+}
+
+.destination-card {
+    border: 2px solid rgb(245 158 11); /* amber-500 */
+}
+
+.supplies-card {
+    border: 2px solid rgb(99 102 241); /* indigo-500 */
+}
+
+.faq-card {
+    border: 2px solid rgb(168 85 247); /* purple-500 */
+}
+
+/* 기존의 .info-card 스타일 수정 */
 .info-card {
     position: relative;
     background: white;
@@ -40,14 +61,33 @@
     cursor: pointer;
     will-change: transform, box-shadow;
     -webkit-tap-highlight-color: transparent;
-    border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Card Hover Effects */
+/* 호버 효과 수정 */
 .info-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    border-color: transparent;
+}
+
+/* 각 카드의 호버 시 테두리 색상 진하게 */
+.airport-card:hover {
+    border-color: rgb(4 120 87); /* emerald-600 */
+}
+
+.dutyfree-card:hover {
+    border-color: rgb(225 29 72); /* rose-600 */
+}
+
+.destination-card:hover {
+    border-color: rgb(217 119 6); /* amber-600 */
+}
+
+.supplies-card:hover {
+    border-color: rgb(79 70 229); /* indigo-600 */
+}
+
+.faq-card:hover {
+    border-color: rgb(147 51 234); /* purple-600 */
 }
 
 .info-card::after {
