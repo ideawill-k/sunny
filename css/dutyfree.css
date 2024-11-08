@@ -125,7 +125,7 @@
 }
 
 .brand-name {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-right: 0.5rem;
 }
@@ -142,13 +142,13 @@
 }
 
 .discount-amount {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     line-height: 1;
 }
 
 .discount-unit {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: #6b7280;
 }
 
