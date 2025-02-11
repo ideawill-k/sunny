@@ -1,187 +1,211 @@
-// 배너 관련 변수
+// Banner related variables
 let currentSlide = 0;
-const totalSlides = 5;
-const container = document.getElementById('banner-container');
-const dots = document.querySelectorAll('.dot');
-let slideInterval;
+const totalSlides = 8; // 8개의 배너 이미지
+const bannerContainer = document.getElementById('banner-container');
+const bannerWrapper = document.querySelector('.banner-wrapper');
+let autoSlideInterval;
 
-// 도트 업데이트
+// Initialize banner dots
+function initializeDots() {
+    const dotsContainer = document.querySelector('.banner-dots');
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dot.setAttribute('aria-label', `배너 ${i + 1}번으로 이동`);
+        dotsContainer.appendChild(dot);
+    }
+}
+
+// Update dots
 function updateDots() {
-    dots.forEach((dot, idx) => {
-        dot.classList.toggle('active', idx === currentSlide);
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
     });
 }
 
-// 슬라이드 이동
-function moveSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    const offset = -currentSlide * 20; // 20%씩 이동
-    container.style.transform = `translateX(${offset}%)`;
-    updateDots();
-}
-
-// 특정 슬라이드로 이동
+// Go to specific slide
 function goToSlide(index) {
     currentSlide = index;
-    const offset = -currentSlide * 20;
-    container.style.transform = `translateX(${offset}%)`;
+    updateSlidePosition();
     updateDots();
     resetAutoSlide();
 }
 
-// 자동 슬라이드 시작
-function startAutoSlide() {
-    slideInterval = setInterval(moveSlide, 5000);
+// Update slide position
+function updateSlidePosition() {
+    const offset = -(currentSlide * (100 / totalSlides));
+    bannerContainer.style.transform = `translateX(${offset}%)`;
 }
 
-// 자동 슬라이드 리셋
-function resetAutoSlide() {
-    clearInterval(slideInterval);
-    startAutoSlide();
-}
-
-// 배너 초기화
-function initializeBanner() {
-    if (!container) return;
-    
+// Next slide
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlidePosition();
     updateDots();
-    startAutoSlide();
-    
-    // 마우스 오버시 일시정지
-    container.parentElement.addEventListener('mouseenter', () => {
-        clearInterval(slideInterval);
-    });
-    
-    container.parentElement.addEventListener('mouseleave', startAutoSlide);
 }
 
-// 터치 이벤트 처리
-function setupTouchEvents() {
+// Previous slide
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlidePosition();
+    updateDots();
+}
+
+// Start auto slide
+function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000); // 5초마다 슬라이드 변경
+}
+
+// Reset auto slide
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
+
+// Initialize banner
+function initializeBanner() {
+    if (!bannerContainer) return;
+
+    // Initialize dots
+    initializeDots();
+
+    // Add click event listeners to navigation buttons
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+    }
+
+    // Add touch events for mobile
     let touchStartX = 0;
     let touchEndX = 0;
+    let isDragging = false;
 
-    function handleTouchStart(e) {
+    bannerWrapper.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
-        clearInterval(slideInterval);
-    }
+        isDragging = true;
+        clearInterval(autoSlideInterval);
+    }, { passive: true });
 
-    function handleTouchMove(e) {
+    bannerWrapper.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        
         touchEndX = e.touches[0].clientX;
-    }
-
-    function handleTouchEnd() {
         const difference = touchStartX - touchEndX;
+        const offset = -(currentSlide * (100 / totalSlides)) - (difference / bannerWrapper.offsetWidth * 100);
+        
+        // Add resistance at the edges
+        if ((currentSlide === 0 && difference < 0) || 
+            (currentSlide === totalSlides - 1 && difference > 0)) {
+            bannerContainer.style.transform = `translateX(${offset / 3}%)`; // Reduced movement
+        } else {
+            bannerContainer.style.transform = `translateX(${offset}%)`;
+        }
+    }, { passive: true });
+
+    bannerWrapper.addEventListener('touchend', () => {
+        isDragging = false;
+        const difference = touchStartX - touchEndX;
+        
+        if (Math.abs(difference) > 50) { // 50px 이상 스와이프했을 때만 슬라이드 전환
+            if (difference > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        } else {
+            // Return to current slide if swipe wasn't long enough
+            updateSlidePosition();
+        }
+        
+        startAutoSlide();
+    });
+
+    // Add mouse events for desktop drag
+    bannerWrapper.addEventListener('mousedown', (e) => {
+        touchStartX = e.clientX;
+        isDragging = true;
+        clearInterval(autoSlideInterval);
+    });
+
+    bannerWrapper.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        
+        touchEndX = e.clientX;
+        const difference = touchStartX - touchEndX;
+        const offset = -(currentSlide * (100 / totalSlides)) - (difference / bannerWrapper.offsetWidth * 100);
+        bannerContainer.style.transform = `translateX(${offset}%)`;
+    });
+
+    bannerWrapper.addEventListener('mouseup', () => {
+        isDragging = false;
+        const difference = touchStartX - touchEndX;
+        
         if (Math.abs(difference) > 50) {
             if (difference > 0) {
-                moveSlide();
+                nextSlide();
+            } else {
+                prevSlide();
             }
+        } else {
+            updateSlidePosition();
         }
+        
         startAutoSlide();
-    }
-
-    if (container) {
-        container.addEventListener('touchstart', handleTouchStart, { passive: true });
-        container.addEventListener('touchmove', handleTouchMove, { passive: true });
-        container.addEventListener('touchend', handleTouchEnd);
-    }
-}
-
-// 모바일 메뉴 토글
-function toggleMobileMenu() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenu) {
-        mobileMenu.classList.toggle('hidden');
-    }
-}
-
-// 외부 클릭시 모바일 메뉴 닫기
-function handleClickOutside(e) {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    
-    if (mobileMenu && !mobileMenu.contains(e.target) && 
-        mobileMenuButton && !mobileMenuButton.contains(e.target)) {
-        mobileMenu.classList.add('hidden');
-    }
-}
-
-// 스크롤 애니메이션
-function setupScrollAnimations() {
-    const sections = document.querySelectorAll('.section-container');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '50px'
     });
 
-    sections.forEach(section => observer.observe(section));
+    bannerWrapper.addEventListener('mouseleave', () => {
+        if (isDragging) {
+            isDragging = false;
+            updateSlidePosition();
+            startAutoSlide();
+        }
+    });
+
+    // Prevent default drag behavior
+    bannerWrapper.addEventListener('dragstart', (e) => {
+        e.preventDefault();
+    });
+
+    // Start auto slide
+    startAutoSlide();
+
+    // Pause auto slide on hover
+    bannerWrapper.addEventListener('mouseenter', () => {
+        clearInterval(autoSlideInterval);
+    });
+
+    bannerWrapper.addEventListener('mouseleave', startAutoSlide);
 }
 
-// 이미지 지연 로딩
-function setupLazyLoading() {
-    if ('IntersectionObserver' in window) {
-        const lazyImages = document.querySelectorAll('img[data-src]');
-        
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-
-        lazyImages.forEach(img => imageObserver.observe(img));
+// Adjust banner size for responsive design
+function adjustBannerSize() {
+    const banner = document.querySelector('.banner-wrapper');
+    if (banner) {
+        const width = window.innerWidth;
+        banner.style.height = width <= 768 ? '240px' : '480px';
     }
 }
 
-// 카드 애니메이션
-function setupCardAnimations() {
-    const cards = document.querySelectorAll('.section-container .group');
-    
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-4px)';
-            card.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-            card.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-        });
-    });
-}
-
-// 페이지 초기화
-document.addEventListener('DOMContentLoaded', function() {
-    // 배너 초기화
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
     initializeBanner();
-    setupTouchEvents();
-    
-    // 모바일 메뉴 이벤트
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    if (mobileMenuButton) {
-        mobileMenuButton.addEventListener('click', toggleMobileMenu);
-    }
-    
-    // 외부 클릭 이벤트
-    document.addEventListener('click', handleClickOutside);
-    
-    // 스크롤 애니메이션 초기화
-    setupScrollAnimations();
-    
-    // 이미지 지연 로딩 초기화
-    setupLazyLoading();
-    
-    // 카드 애니메이션 초기화
-    setupCardAnimations();
+    adjustBannerSize();
+
+    // Add resize event listener for responsive banner
+    window.addEventListener('resize', adjustBannerSize);
 });

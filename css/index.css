@@ -1,380 +1,309 @@
-/* Common Container */
+/* Base Styles */
+:root {
+   --primary-color: #FF385C;
+   --secondary-color: #00A699;
+   --text-color: #333333;
+   --border-color: #EBEBEB;
+}
+
+body {
+   font-family: 'Pretendard', sans-serif;
+   color: var(--text-color);
+   line-height: 1.5;
+}
+
+.page-container {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+
+/* Content Container */
 .content-container {
-   max-width: 1024px;
+   max-width: 1200px;
    margin: 0 auto;
-   padding: 0 1rem;
+   padding: 0 20px;
    width: 100%;
 }
 
-.section-container {
-   max-width: 1024px;
-   margin: 0 auto;
-   padding: 0 1rem;
-   width: 100%;
-   margin-bottom: 3rem;
-}
-
-.section-container:last-of-type {
-   margin-bottom: 3rem;
-}
-
-/* Section Title */
-.section-title {
+/* Navigation */
+.nav-link {
    font-family: 'GmarketSans', sans-serif;
-   font-weight: 700;
-   font-size: 1.5rem;
-   margin-top: 4rem;
-   margin-bottom: 1.5rem;
-   color: #1f2937;
+   font-size: 1.125rem;
+   color: var(--text-color);
+   padding: 0.5rem 1rem;
+   transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+   color: var(--primary-color);
 }
 
 /* Banner Section */
 .banner-section {
    width: 100%;
-   position: relative;
-   padding: 0 1rem;
-   margin-top: 2rem;
-   margin-bottom: 3rem;
+   margin: 0;
+   padding: 0;
 }
 
 .banner-wrapper {
    position: relative;
    width: 100%;
-   max-width: 996px;
-   margin: 0 auto;
-   border-radius: 1rem;
+   height: 480px;
    overflow: hidden;
-   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-   transition: all 0.3s ease;
-}
-
-.banner-wrapper:hover {
-   transform: translateY(-4px);
-   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 #banner-container {
-   width: 500%;
    display: flex;
-   transform: translateX(0%);
-   transition: transform 0.5s ease-in-out;
+   width: 800%; /* 8개의 슬라이드를 위한 너비 */
+   height: 100%;
+   transition: transform 0.5s ease;
 }
 
 .banner-slide {
-   width: 20%;
+   width: 12.5%; /* 100% / 8 */
+   height: 100%;
    flex-shrink: 0;
-   position: relative;
 }
 
 .banner-slide img {
    width: 100%;
    height: 100%;
    object-fit: cover;
-   border-radius: 1rem;
 }
 
 /* Banner Navigation */
-.banner-nav-btn {
+.banner-navigation {
+   position: absolute;
+   top: 50%;
+   left: 0;
+   right: 0;
+   transform: translateY(-50%);
+   display: flex;
+   justify-content: space-between;
+   padding: 0 20px;
+   pointer-events: none;
+}
+
+.prev-btn, .next-btn {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   background: rgba(255, 255, 255, 0.9);
    display: flex;
    align-items: center;
    justify-content: center;
-   background: #ffffff;
-   border-radius: 50%;
-   width: 2rem;
-   height: 2rem;
-   position: absolute;
-   top: 50%;
-   transform: translateY(-50%);
-   z-index: 10;
    cursor: pointer;
-   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-   opacity: 0.5;
+   pointer-events: auto;
    transition: all 0.2s ease;
+   border: none;
+   outline: none;
 }
 
-.banner-nav-btn:hover {
-   opacity: 1;
-   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+.prev-btn:hover, .next-btn:hover {
+   background: white;
+   transform: scale(1.1);
 }
 
-.banner-nav-btn svg {
-   width: 1.5rem;
-   height: 1.5rem;
-   stroke-width: 1.5px;
-   color: #666666;
+.prev-btn svg, .next-btn svg {
+   width: 24px;
+   height: 24px;
+   color: #333;
 }
 
-.banner-nav-btn.prev {
-   left: 1rem;
-}
-
-.banner-nav-btn.next {
-   right: 1rem;
-}
-
-/* Dots Navigation */
-.dots-container {
+/* Banner Dots */
+.banner-dots {
    position: absolute;
-   bottom: 1.5rem;
+   bottom: 20px;
    left: 50%;
    transform: translateX(-50%);
    display: flex;
-   gap: 0.5rem;
+   gap: 8px;
    z-index: 10;
 }
 
 .dot {
-   width: 0.625rem;
-   height: 0.625rem;
-   background-color: rgba(255, 255, 255, 0.8);
+   width: 8px;
+   height: 8px;
    border-radius: 50%;
+   background: rgba(255, 255, 255, 0.5);
    cursor: pointer;
    transition: all 0.2s ease;
    border: none;
-}
-
-.dot:hover {
-   background-color: white;
+   padding: 0;
 }
 
 .dot.active {
-   background-color: white;
+   background: white;
    transform: scale(1.2);
 }
 
-/* Grid Layout */
-.grid {
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   gap: 1rem;
-   margin-bottom: 1rem;
+/* Section Styles */
+.section-container {
+   max-width: 1200px;
+   margin: 60px auto;
+   padding: 0 20px;
 }
 
-@media (min-width: 1024px) {
-   .grid {
-       grid-template-columns: repeat(3, 1fr);
-       gap: 1.5rem;
-   }
-}
-
-/* Card Styles */
-.group {
-   height: auto;
-   min-height: 180px;
-   transition: all 0.3s ease;
-   cursor: pointer;
-}
-
-/* Font Classes */
-.font-heading {
+.section-title {
    font-family: 'GmarketSans', sans-serif;
+   font-size: 1.875rem;
    font-weight: 700;
+   margin-bottom: 30px;
+   color: var(--text-color);
 }
 
-.font-body {
-   font-family: 'Pretendard', sans-serif;
+/* Coupon Grid */
+.coupon-grid {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 24px;
+   margin-bottom: 40px;
 }
 
-/* Animation Classes */
-.fade-in {
-   animation: fadeIn 0.3s ease-out forwards;
+.coupon-card {
+   border-radius: 12px;
+   overflow: hidden;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   display: block;
 }
 
-@keyframes fadeIn {
-   from {
-       opacity: 0;
-       transform: translateY(10px);
-   }
-   to {
-       opacity: 1;
-       transform: translateY(0);
-   }
-}
-
-/* Card Hover Effects */
-.group:hover {
+.coupon-card:hover {
    transform: translateY(-4px);
-   box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.12);
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Gradient Effects */
-.bg-gradient-to-br {
-   background-size: 200% 200%;
-   transition: all 0.3s ease;
+.coupon-card img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
 }
 
-/* Footer Styles */
-footer {
-   margin-top: 0 !important;
-   padding: 2rem 0;
-   border-top: 1px solid #e5e7eb;
+/* Info Grid */
+.info-grid {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 24px;
 }
 
-/* Social Links */
-.social-links {
+.info-card {
+   border-radius: 12px;
+   overflow: hidden;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   display: block;
+}
+
+.info-card:hover {
+   transform: translateY(-4px);
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.info-card img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+/* Footer */
+.site-footer {
+   background-color: #f8f8f8;
+   padding: 60px 0 20px;
+   margin-top: auto;
+}
+
+.footer-content {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 20px;
+   display: grid;
+   grid-template-columns: 1.5fr 2fr 1fr;
+   gap: 40px;
+}
+
+.footer-logo {
+   height: 32px;
+   width: auto;
+   margin-bottom: 24px;
+}
+
+.footer-nav {
+   border-top: 1px solid var(--border-color);
+   padding-top: 20px;
+}
+
+.footer-image-links {
    display: flex;
-   gap: 1rem;
-   margin-bottom: 2rem;
-}
-
-.social-link {
-   width: 2.5rem;
-   height: 2.5rem;
-   display: flex;
-   align-items: center;
    justify-content: center;
-   border-radius: 9999px;
-   transition: all 0.2s;
+   flex-wrap: wrap;
+   gap: 20px;
+}
+
+.footer-image-links img {
+   height: 60px;
+   width: auto;
+   transition: opacity 0.2s ease;
+}
+
+.footer-image-links img:hover {
+   opacity: 0.8;
+}
+
+.social-icon {
+   transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+   transform: translateY(-2px);
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
-   .section-container {
-       margin-bottom: 2rem;
-   }
-
-   .section-container:last-of-type {
-       margin-bottom: 2rem;
-   }
-
-   .section-title {
-       font-size: 1.25rem;
-       margin-top: 3rem;
-   }
-
-   .banner-section {
-       margin-bottom: 2rem;
-   }
-
-   .banner-wrapper {
-       border-radius: 1.25rem;
-   }
-
-   .banner-slide img {
-       border-radius: 1.25rem;
-   }
-
-   .group {
-       min-height: 160px;
+@media (max-width: 1024px) {
+   .footer-content {
+       grid-template-columns: 1fr 1fr;
    }
    
-   .grid {
-       gap: 0.75rem;
+   .social-links {
+       grid-column: span 2;
    }
+}
 
-   .banner-nav-btn {
-       width: 2.25rem;
-       height: 2.25rem;
+@media (max-width: 768px) {
+   .banner-wrapper {
+       height: 240px;
    }
-
-   .banner-nav-btn svg {
-       width: 1.25rem;
-       height: 1.25rem;
+   
+   .coupon-grid,
+   .info-grid {
+       grid-template-columns: repeat(2, 1fr);
+       gap: 16px;
    }
-
-   .banner-nav-btn.prev {
-       left: 0.75rem;
+   
+   .section-title {
+       font-size: 1.5rem;
+       margin-bottom: 20px;
    }
-
-   .banner-nav-btn.next {
-       right: 0.75rem;
+   
+   .footer-image-links {
+       gap: 10px;
    }
-
-   .dot {
-       width: 0.5rem;
-       height: 0.5rem;
+   
+   .footer-image-links img {
+       height: 50px;
    }
 }
 
 @media (max-width: 640px) {
-   .section-container,
-   .banner-section {
-       padding: 0 0.75rem;
+   .footer-content {
+       grid-template-columns: 1fr;
+       gap: 32px;
    }
    
-   .grid {
-       gap: 0.5rem;
+   .social-links {
+       grid-column: auto;
    }
-
-   .group {
-       min-height: 140px;
+   
+   .footer-image-links {
+       flex-direction: column;
+       align-items: center;
    }
-
-   .banner-wrapper {
-       border-radius: 1rem;
-   }
-
-   .banner-slide img {
-       border-radius: 1rem;
-   }
-
-   .banner-nav-btn {
-       width: 2rem;
-       height: 2rem;
-   }
-
-   .banner-nav-btn svg {
-       width: 1rem;
-       height: 1rem;
-   }
-}
-
-/* Touch Device Optimizations */
-@media (hover: none) {
-   .banner-nav-btn {
-       display: none;
-   }
-
-   .banner-wrapper:hover {
-       transform: none;
-       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-   }
-
-   .group:active {
-       transform: scale(0.98);
-       transition: all 0.1s ease;
-   }
-}
-
-/* Travel Info Section Card Border Colors */
-.travel-discount-card {
-   border-color: rgb(59 130 246); /* blue-500 */
-}
-.travel-discount-card:hover {
-   border-color: rgb(37 99 235); /* blue-600 */
-}
-
-.airport-info-card {
-   border-color: rgb(16 185 129); /* emerald-500 */
-}
-.airport-info-card:hover {
-   border-color: rgb(5 150 105); /* emerald-600 */
-}
-
-.dutyfree-news-card {
-   border-color: rgb(244 63 94); /* rose-500 */
-}
-.dutyfree-news-card:hover {
-   border-color: rgb(225 29 72); /* rose-600 */
-}
-
-.destination-card {
-   border-color: rgb(245 158 11); /* amber-500 */
-}
-.destination-card:hover {
-   border-color: rgb(217 119 6); /* amber-600 */
-}
-
-.supplies-card {
-   border-color: rgb(99 102 241); /* indigo-500 */
-}
-.supplies-card:hover {
-   border-color: rgb(79 70 229); /* indigo-600 */
-}
-
-.faq-card {
-   border-color: rgb(168 85 247); /* purple-500 */
-}
-.faq-card:hover {
-   border-color: rgb(147 51 234); /* purple-600 */
 }
