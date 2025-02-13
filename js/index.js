@@ -4,6 +4,7 @@ const totalSlides = 8;
 const bannerContainer = document.getElementById('banner-container');
 const bannerWrapper = document.querySelector('.banner-wrapper');
 let autoSlideInterval;
+let isTransitioning = false;
 
 // Initialize banner dots
 function initializeDots() {
@@ -28,10 +29,17 @@ function updateDots() {
 
 // Go to specific slide
 function goToSlide(index) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    
     currentSlide = index;
     updateSlidePosition();
     updateDots();
     resetAutoSlide();
+    
+    setTimeout(() => {
+        isTransitioning = false;
+    }, 800);
 }
 
 // Update slide position
@@ -42,20 +50,19 @@ function updateSlidePosition() {
 
 // Next slide
 function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateSlidePosition();
-    updateDots();
+    if (isTransitioning) return;
+    goToSlide((currentSlide + 1) % totalSlides);
 }
 
 // Previous slide
 function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateSlidePosition();
-    updateDots();
+    if (isTransitioning) return;
+    goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
 }
 
 // Start auto slide
 function startAutoSlide() {
+    clearInterval(autoSlideInterval);
     autoSlideInterval = setInterval(nextSlide, 5000);
 }
 
@@ -65,89 +72,78 @@ function resetAutoSlide() {
     startAutoSlide();
 }
 
-// Adjust banner size
-function adjustBannerSize() {
-    const banner = document.querySelector('.banner-wrapper');
-    const slides = document.querySelectorAll('.banner-slide');
+// Top Button Functions
+function handleTopButton() {
+    const topButton = document.getElementById('topButton');
     
-    if (banner) {
-        const width = window.innerWidth;
-        if (width <= 768) {
-            banner.style.height = '270px';
-            slides.forEach(slide => {
-                const img = slide.querySelector('img');
-                if (img) {
-                    img.style.width = '100%';
-                    img.style.height = '100%';
-                    img.style.objectFit = 'cover';
-                }
-            });
+    // 스크롤 이벤트 처리
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 200) {
+            topButton.classList.add('visible');
         } else {
-            banner.style.height = '540px';
-            slides.forEach(slide => {
-                const img = slide.querySelector('img');
-                if (img) {
-                    img.style.width = '100%';
-                    img.style.height = '100%';
-                    img.style.objectFit = 'cover';
-                }
-            });
+            topButton.classList.remove('visible');
         }
-    }
+    });
+
+    // 클릭 이벤트 처리
+    topButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
 
 // Initialize banner
 function initializeBanner() {
     if (!bannerContainer) return;
 
-    // Initialize dots
     initializeDots();
 
-    // Add click event listeners to navigation buttons
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
 
     if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetAutoSlide();
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!isTransitioning) {
+                prevSlide();
+                resetAutoSlide();
+            }
         });
     }
 
     if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetAutoSlide();
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!isTransitioning) {
+                nextSlide();
+                resetAutoSlide();
+            }
         });
     }
 
-    // Add touch events for mobile
+    // Touch events
     let touchStartX = 0;
     let touchEndX = 0;
     let isDragging = false;
 
     bannerWrapper.addEventListener('touchstart', (e) => {
+        if (isTransitioning) return;
         touchStartX = e.touches[0].clientX;
         isDragging = true;
         clearInterval(autoSlideInterval);
     }, { passive: true });
 
     bannerWrapper.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        
+        if (!isDragging || isTransitioning) return;
         touchEndX = e.touches[0].clientX;
-        const difference = touchStartX - touchEndX;
-        const offset = -(currentSlide * (100 / totalSlides)) - (difference / bannerWrapper.offsetWidth * 100);
         
-        if ((currentSlide === 0 && difference < 0) || 
-            (currentSlide === totalSlides - 1 && difference > 0)) {
-            bannerContainer.style.transform = `translateX(${offset / 3}%)`;
-        } else {
-            bannerContainer.style.transform = `translateX(${offset}%)`;
-        }
+        clearInterval(autoSlideInterval);
     }, { passive: true });
 
     bannerWrapper.addEventListener('touchend', () => {
+        if (!isDragging || isTransitioning) return;
         isDragging = false;
         const difference = touchStartX - touchEndX;
         
@@ -164,23 +160,23 @@ function initializeBanner() {
         startAutoSlide();
     });
 
-    // Add mouse events for desktop drag
+    // Mouse events for desktop
     bannerWrapper.addEventListener('mousedown', (e) => {
+        if (isTransitioning) return;
+        e.preventDefault();
         touchStartX = e.clientX;
         isDragging = true;
         clearInterval(autoSlideInterval);
     });
 
     bannerWrapper.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        
+        if (!isDragging || isTransitioning) return;
+        e.preventDefault();
         touchEndX = e.clientX;
-        const difference = touchStartX - touchEndX;
-        const offset = -(currentSlide * (100 / totalSlides)) - (difference / bannerWrapper.offsetWidth * 100);
-        bannerContainer.style.transform = `translateX(${offset}%)`;
     });
 
     bannerWrapper.addEventListener('mouseup', () => {
+        if (!isDragging || isTransitioning) return;
         isDragging = false;
         const difference = touchStartX - touchEndX;
         
@@ -201,8 +197,8 @@ function initializeBanner() {
         if (isDragging) {
             isDragging = false;
             updateSlidePosition();
-            startAutoSlide();
         }
+        startAutoSlide();
     });
 
     // Prevent default drag behavior
@@ -210,22 +206,19 @@ function initializeBanner() {
         e.preventDefault();
     });
 
-    // Start auto slide
-    startAutoSlide();
-
     // Pause auto slide on hover
     bannerWrapper.addEventListener('mouseenter', () => {
         clearInterval(autoSlideInterval);
     });
 
     bannerWrapper.addEventListener('mouseleave', startAutoSlide);
+
+    // Initial auto slide start
+    startAutoSlide();
 }
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     initializeBanner();
-    adjustBannerSize();
-
-    // Add resize event listener for responsive banner
-    window.addEventListener('resize', adjustBannerSize);
+    handleTopButton();
 });

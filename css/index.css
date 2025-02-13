@@ -32,11 +32,17 @@ body {
 }
 
 /* Navigation */
+.nav {
+   display: flex;
+   gap: 32px;
+}
+
 .nav-link {
    font-family: 'GmarketSans', sans-serif;
    font-size: 1.125rem;
+   font-weight: 600;
    color: var(--text-color);
-   padding: 0.5rem 1rem;
+   padding: 0.5rem;
    transition: all 0.3s ease;
    position: relative;
    white-space: nowrap;
@@ -69,6 +75,9 @@ body {
    margin: 0;
    padding: 0;
    overflow: hidden;
+   display: flex;
+   justify-content: center;
+   margin-bottom: 40px;
 }
 
 header {
@@ -79,6 +88,7 @@ header {
 .banner-wrapper {
    position: relative;
    width: 100%;
+   max-width: 1140px;
    height: 540px;
    overflow: hidden;
 }
@@ -87,7 +97,7 @@ header {
    display: flex;
    width: 800%;
    height: 100%;
-   transition: transform 0.5s ease;
+   transition: transform 0.8s ease;
 }
 
 .banner-slide {
@@ -102,7 +112,7 @@ header {
 .banner-slide img {
    width: 100%;
    height: 100%;
-   object-fit: cover;
+   object-fit: contain;
 }
 
 /* Banner Navigation */
@@ -120,8 +130,8 @@ header {
 }
 
 .prev-btn, .next-btn {
-   width: 40px;
-   height: 40px;
+   width: 36px;
+   height: 36px;
    border-radius: 50%;
    background: rgba(255, 255, 255, 0.9);
    display: flex;
@@ -140,28 +150,28 @@ header {
 }
 
 .prev-btn svg, .next-btn svg {
-   width: 24px;
-   height: 24px;
+   width: 20px;
+   height: 20px;
    color: #333;
 }
 
 /* Banner Dots */
 .banner-dots {
    position: absolute;
-   bottom: 20px;
+   bottom: 16px;
    left: 50%;
    transform: translateX(-50%);
    display: flex;
-   gap: 12px;
+   gap: 8px;
    z-index: 10;
    background: rgba(0, 0, 0, 0.3);
-   padding: 8px 16px;
+   padding: 6px 12px;
    border-radius: 20px;
 }
 
 .dot {
-   width: 8px;
-   height: 8px;
+   width: 6px;
+   height: 6px;
    border-radius: 50%;
    background: rgba(255, 255, 255, 0.5);
    cursor: pointer;
@@ -171,26 +181,26 @@ header {
 }
 
 .dot.active {
-   background: white;
+   background: #FF385C;
    transform: scale(1.2);
 }
 
 /* Section Styles */
 .section-container {
    max-width: 1200px;
-   margin: 40px auto;
+   margin: 0 auto;
    padding: 0 20px;
 }
 
-.section-container + .section-container {
-   margin-top: 30px;
+.section-container:first-of-type {
+   margin-bottom: 30px;  /* 40px에서 30px로 수정 */
 }
 
 .section-title {
    font-family: 'GmarketSans', sans-serif;
    font-size: 1.875rem;
    font-weight: 700;
-   margin-bottom: 30px;
+   margin-bottom: 24px;
    color: var(--text-color);
 }
 
@@ -199,7 +209,7 @@ header {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    gap: 24px;
-   margin-bottom: 40px;
+   margin-bottom: 20px;
 }
 
 .coupon-card {
@@ -245,11 +255,43 @@ header {
    object-fit: cover;
 }
 
+/* Top Button */
+.top-button {
+   position: fixed;
+   bottom: 30px;
+   right: 30px;
+   width: 44px;
+   height: 44px;
+   border-radius: 50%;
+   background-color: var(--primary-color);
+   color: white;
+   border: none;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.3s ease;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+   z-index: 1000;
+}
+
+.top-button.visible {
+   opacity: 1;
+   visibility: visible;
+}
+
+.top-button:hover {
+   transform: translateY(-3px);
+   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
 /* Footer */
 .site-footer {
    background-color: #f8f8f8;
    padding: 60px 0 20px;
-   margin-top: 60px;
+   margin-top: 40px;
 }
 
 .footer-content {
@@ -267,6 +309,33 @@ header {
    margin-bottom: 24px;
 }
 
+.footer-links h4 {
+   font-size: 1.125rem;
+   font-weight: 700;
+   margin-bottom: 16px;
+   color: var(--text-color);
+}
+
+.footer-links h4 a {
+   color: var(--text-color);
+   text-decoration: none;
+   transition: color 0.2s ease;
+}
+
+.footer-links h4 a:hover {
+   color: var(--primary-color);
+}
+
+.info-text {
+   color: #666;
+   font-size: 0.875rem;
+   line-height: 1.6;
+}
+
+.info-text p {
+   margin-bottom: 8px;
+}
+
 .social-icon {
    transition: transform 0.2s ease;
 }
@@ -275,7 +344,46 @@ header {
    transform: translateY(-2px);
 }
 
+.footer-bottom {
+   text-align: center;
+   margin-top: 40px;
+}
+
+.footer-bottom p {
+   color: #666;
+   font-size: 0.875rem;
+}
+
 /* Responsive Styles */
+@media (min-width: 769px) and (max-width: 1140px) {
+   .banner-wrapper {
+       height: auto;
+       padding-bottom: 47.36%;
+   }
+   
+   #banner-container {
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+   }
+   
+   .banner-slide {
+       position: relative;
+       width: 12.5%;
+   }
+   
+   .banner-slide img {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       object-fit: contain;
+   }
+}
+
 @media (max-width: 1024px) {
    .footer-content {
        grid-template-columns: 1fr 1fr;
@@ -287,24 +395,65 @@ header {
        height: 40px;
    }
 
+   /* 모바일 네비게이션 */
+   .nav {
+       display: flex;
+       overflow-x: auto;
+       -webkit-overflow-scrolling: touch;
+       scrollbar-width: none;
+       gap: 24px;
+       padding: 0 16px;
+   }
+   
+   .nav::-webkit-scrollbar {
+       display: none;
+   }
+   
+   .nav-link {
+       font-size: 1rem;
+       padding: 0.5rem 0;
+       flex-shrink: 0;
+   }
+
+   /* 모바일 배너 */
    .banner-wrapper {
-       height: 270px;
+       height: auto;
+       padding-bottom: 47.36%;
+   }
+   
+   #banner-container {
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+   }
+   
+   .banner-slide {
+       position: relative;
+       width: 12.5%;
    }
    
    .banner-slide img {
+       position: absolute;
+       top: 0;
+       left: 0;
        width: 100%;
        height: 100%;
-       object-fit: cover;
+       object-fit: contain;
    }
    
+   .banner-section {
+       margin-bottom: 32px;
+   }
+
    .banner-navigation {
-       width: 85%;
+       width: 90%;
    }
    
    .prev-btn, .next-btn {
-       width: 32px;
-       height: 32px;
-       background: rgba(255, 255, 255, 0.8);
+       width: 36px;
+       height: 36px;
    }
    
    .prev-btn svg, .next-btn svg {
@@ -313,22 +462,32 @@ header {
    }
    
    .banner-dots {
-       bottom: 15px;
-       gap: 8px;
+       bottom: 16px;
        padding: 6px 12px;
+       gap: 8px;
    }
    
    .dot {
        width: 6px;
        height: 6px;
    }
-   
-   .section-container {
-       margin: 30px auto;
+
+   /* 모바일 Top Button */
+   .top-button {
+       bottom: 20px;
+       right: 20px;
+       width: 40px;
+       height: 40px;
    }
-   
-   .section-container + .section-container {
-       margin-top: 20px;
+
+   /* 모바일 섹션 */
+   .section-container:first-of-type {
+       margin-bottom: 24px;  /* 32px에서 24px로 수정 */
+   }
+
+   .section-title {
+       font-size: 1.5rem;
+       margin-bottom: 16px;
    }
    
    .coupon-grid,
@@ -337,35 +496,24 @@ header {
        gap: 16px;
    }
    
-   .section-title {
-       font-size: 1.5rem;
-       margin-bottom: 20px;
-   }
-   
    .footer-content {
        grid-template-columns: 1fr;
        gap: 40px;
    }
-   
-   .nav {
-       display: flex;
-       overflow-x: auto;
-       -webkit-overflow-scrolling: touch;
-       scrollbar-width: none;
-   }
-   
-   .nav::-webkit-scrollbar {
-       display: none;
-   }
-   
-   .nav-link {
-       flex-shrink: 0;
-       margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+   .banner-wrapper {
+       padding-bottom: 56.25%;
    }
 }
 
 @media (max-width: 640px) {
    .footer-content {
        gap: 32px;
+   }
+   
+   .site-footer {
+       padding: 40px 0 20px;
    }
 }
