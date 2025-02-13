@@ -20,7 +20,7 @@ body {
 
 /* Content Container */
 .content-container {
-   max-width: 1200px;
+   max-width: 1140px;
    margin: 0 auto;
    padding: 0 20px;
    width: 100%;
@@ -49,7 +49,7 @@ body {
 .banner-wrapper {
    position: relative;
    width: 100%;
-   height: 480px;
+   height: 540px;
    overflow: hidden;
 }
 
@@ -269,7 +269,7 @@ body {
 
 @media (max-width: 768px) {
    .banner-wrapper {
-       height: 240px;
+       height: 270px;
    }
    
    .coupon-grid,

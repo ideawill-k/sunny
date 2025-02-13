@@ -197,7 +197,7 @@ function adjustBannerSize() {
     const banner = document.querySelector('.banner-wrapper');
     if (banner) {
         const width = window.innerWidth;
-        banner.style.height = width <= 768 ? '240px' : '480px';
+        banner.style.height = width <= 768 ? '270px' : '540px';
     }
 }
 
