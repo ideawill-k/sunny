@@ -31,12 +31,6 @@ body {
    width: auto;
 }
 
-@media (min-width: 768px) {
-   .content-container img {
-       height: 40px;
-   }
-}
-
 /* Navigation */
 .nav-link {
    font-family: 'GmarketSans', sans-serif;
@@ -74,12 +68,12 @@ body {
    width: 100%;
    margin: 0;
    padding: 0;
+   overflow: hidden;
 }
 
-@media (max-width: 768px) {
-   .banner-section {
-       margin-top: -1px;  /* 네비게이션과의 간격 제거 */
-   }
+header {
+   margin-bottom: 0;
+   border-bottom: 1px solid var(--border-color);
 }
 
 .banner-wrapper {
@@ -142,18 +136,6 @@ body {
    outline: none;
 }
 
-@media (max-width: 768px) {
-   .prev-btn, .next-btn {
-       width: 32px;
-       height: 32px;
-   }
-   
-   .prev-btn svg, .next-btn svg {
-       width: 20px;
-       height: 20px;
-   }
-}
-
 .prev-btn:hover, .next-btn:hover {
    background: white;
    transform: scale(1.1);
@@ -176,18 +158,6 @@ body {
    z-index: 10;
 }
 
-@media (max-width: 768px) {
-   .banner-dots {
-       bottom: 8px;
-       gap: 6px;
-   }
-   
-   .dot {
-       width: 6px;
-       height: 6px;
-   }
-}
-
 .dot {
    width: 8px;
    height: 8px;
@@ -207,12 +177,12 @@ body {
 /* Section Styles */
 .section-container {
    max-width: 1200px;
-   margin: 30px auto;
+   margin: 60px auto;
    padding: 0 20px;
 }
 
 .section-container + .section-container {
-   margin-top: 20px;
+   margin-top: 40px;
 }
 
 .section-title {
@@ -278,7 +248,7 @@ body {
 .site-footer {
    background-color: #f8f8f8;
    padding: 60px 0 20px;
-   margin-top: auto;
+   margin-top: 60px;
 }
 
 .footer-content {
@@ -286,7 +256,7 @@ body {
    margin: 0 auto;
    padding: 0 20px;
    display: grid;
-   grid-template-columns: 1.5fr 1fr 1fr;
+   grid-template-columns: 1.5fr 1fr;
    gap: 60px;
 }
 
@@ -294,32 +264,6 @@ body {
    height: 32px;
    width: auto;
    margin-bottom: 24px;
-}
-
-.link-column {
-   margin-bottom: 20px;
-}
-
-.footer-nav {
-   border-top: 1px solid var(--border-color);
-   padding-top: 20px;
-}
-
-.footer-image-links {
-   display: flex;
-   justify-content: center;
-   flex-wrap: wrap;
-   gap: 20px;
-}
-
-.footer-image-links img {
-   height: 60px;
-   width: auto;
-   transition: opacity 0.2s ease;
-}
-
-.footer-image-links img:hover {
-   opacity: 0.8;
 }
 
 .social-icon {
@@ -335,19 +279,25 @@ body {
    .footer-content {
        grid-template-columns: 1fr 1fr;
    }
-   
-   .social-links {
-       grid-column: span 2;
-   }
 }
 
 @media (max-width: 768px) {
+   .content-container img {
+       height: 40px;
+   }
+
    .banner-wrapper {
        height: 270px;
    }
    
    .banner-slide img {
        height: 270px;
+       width: 100%;
+       object-fit: cover;
+   }
+   
+   .section-container {
+       margin: 40px auto;
    }
    
    .coupon-grid,
@@ -366,6 +316,26 @@ body {
        gap: 40px;
    }
    
+   .prev-btn, .next-btn {
+       width: 32px;
+       height: 32px;
+   }
+   
+   .prev-btn svg, .next-btn svg {
+       width: 20px;
+       height: 20px;
+   }
+   
+   .banner-dots {
+       bottom: 8px;
+       gap: 6px;
+   }
+   
+   .dot {
+       width: 6px;
+       height: 6px;
+   }
+   
    .nav {
        display: flex;
        overflow-x: auto;
@@ -379,21 +349,12 @@ body {
    
    .nav-link {
        flex-shrink: 0;
+       margin-bottom: 0;
    }
 }
 
 @media (max-width: 640px) {
    .footer-content {
-       grid-template-columns: 1fr;
        gap: 32px;
-   }
-   
-   .social-links {
-       grid-column: auto;
-   }
-   
-   .footer-image-links {
-       flex-direction: column;
-       align-items: center;
    }
 }

@@ -38,6 +38,7 @@ function goToSlide(index) {
 function updateSlidePosition() {
     const offset = -(currentSlide * (100 / totalSlides));
     bannerContainer.style.transform = `translateX(${offset}%)`;
+    bannerContainer.style.width = `${totalSlides * 100}%`;
 }
 
 // Next slide
@@ -68,23 +69,29 @@ function resetAutoSlide() {
 // Adjust banner size
 function adjustBannerSize() {
     const banner = document.querySelector('.banner-wrapper');
+    const slides = document.querySelectorAll('.banner-slide');
+    
     if (banner) {
         const width = window.innerWidth;
         if (width <= 768) {
             banner.style.height = '270px';
-            // 모바일에서 이미지 크기 조정
-            const images = banner.querySelectorAll('img');
-            images.forEach(img => {
-                img.style.width = '100%';
-                img.style.height = '270px';
+            slides.forEach(slide => {
+                const img = slide.querySelector('img');
+                if (img) {
+                    img.style.width = '100%';
+                    img.style.height = '270px';
+                    img.style.objectFit = 'cover';
+                }
             });
         } else {
             banner.style.height = '540px';
-            // PC에서 이미지 크기 복원
-            const images = banner.querySelectorAll('img');
-            images.forEach(img => {
-                img.style.width = '1140px';
-                img.style.height = '540px';
+            slides.forEach(slide => {
+                const img = slide.querySelector('img');
+                if (img) {
+                    img.style.width = '1140px';
+                    img.style.height = '540px';
+                    img.style.objectFit = 'contain';
+                }
             });
         }
     }
@@ -133,10 +140,9 @@ function initializeBanner() {
         const difference = touchStartX - touchEndX;
         const offset = -(currentSlide * (100 / totalSlides)) - (difference / bannerWrapper.offsetWidth * 100);
         
-        // Add resistance at the edges
         if ((currentSlide === 0 && difference < 0) || 
             (currentSlide === totalSlides - 1 && difference > 0)) {
-            bannerContainer.style.transform = `translateX(${offset / 3}%)`; // Reduced movement
+            bannerContainer.style.transform = `translateX(${offset / 3}%)`;
         } else {
             bannerContainer.style.transform = `translateX(${offset}%)`;
         }
