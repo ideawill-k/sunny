@@ -27,11 +27,22 @@ body {
 }
 
 .content-container img {
-   height: 32px;
+   height: 40px;
    width: auto;
 }
 
 /* Navigation */
+header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   background: white;
+   z-index: 1000;
+   margin-bottom: 0;
+   border-bottom: 1px solid var(--border-color);
+}
+
 .nav {
    display: flex;
    gap: 32px;
@@ -72,17 +83,11 @@ body {
 /* Banner Section */
 .banner-section {
    width: 100%;
-   margin: 0;
+   margin: 64px 0 40px 0;
    padding: 0;
    overflow: hidden;
    display: flex;
    justify-content: center;
-   margin-bottom: 40px;
-}
-
-header {
-   margin-bottom: 0;
-   border-bottom: 1px solid var(--border-color);
 }
 
 .banner-wrapper {
@@ -193,12 +198,12 @@ header {
 }
 
 .section-container:first-of-type {
-   margin-bottom: 30px;  /* 40px에서 30px로 수정 */
+   margin-bottom: 24px;
 }
 
 .section-title {
    font-family: 'GmarketSans', sans-serif;
-   font-size: 1.875rem;
+   font-size: 1.125rem;
    font-weight: 700;
    margin-bottom: 24px;
    color: var(--text-color);
@@ -290,67 +295,95 @@ header {
 /* Footer */
 .site-footer {
    background-color: #f8f8f8;
-   padding: 60px 0 20px;
+   padding: 40px 0 20px;
    margin-top: 40px;
 }
 
 .footer-content {
-   max-width: 1200px;
+   max-width: 1140px;
    margin: 0 auto;
    padding: 0 20px;
-   display: grid;
-   grid-template-columns: 1.5fr 1fr;
-   gap: 60px;
+   display: flex;
+   justify-content: space-between;
+   gap: 30px;
 }
 
-.footer-logo {
-   height: 32px;
-   width: auto;
-   margin-bottom: 24px;
+.footer-left, .footer-right {
+   flex: 1;
+}
+
+.footer-links {
+   margin-bottom: 16px;
 }
 
 .footer-links h4 {
    font-size: 1.125rem;
-   font-weight: 700;
-   margin-bottom: 16px;
-   color: var(--text-color);
+   font-weight: 600;
 }
 
-.footer-links h4 a {
+.nav-style-link {
    color: var(--text-color);
    text-decoration: none;
-   transition: color 0.2s ease;
+   position: relative;
+   transition: all 0.3s ease;
+   padding: 0.5rem;
+   display: inline-block;
 }
 
-.footer-links h4 a:hover {
+.nav-style-link:hover {
    color: var(--primary-color);
+   transform: translateY(-2px);
 }
 
-.info-text {
+.nav-style-link::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   width: 0;
+   height: 2px;
+   background-color: var(--primary-color);
+   transition: all 0.3s ease;
+   transform: translateX(-50%);
+}
+
+.nav-style-link:hover::after {
+   width: 80%;
+}
+
+.company-info p {
    color: #666;
    font-size: 0.875rem;
    line-height: 1.6;
+   margin-bottom: 3px;
 }
 
-.info-text p {
-   margin-bottom: 8px;
+.social-links {
+   display: flex;
+   gap: 12px;
+   align-items: center;
 }
 
-.social-icon {
+.social-icon img {
+   width: 32px;
+   height: 32px;
    transition: transform 0.2s ease;
 }
 
-.social-icon:hover {
+.social-icon:hover img {
    transform: translateY(-2px);
 }
 
 .footer-bottom {
+   max-width: 1140px;
+   margin: 30px auto 0;
+   padding: 16px 20px 0;
+   border-top: 1px solid #eee;
    text-align: center;
-   margin-top: 40px;
 }
 
 .footer-bottom p {
-   color: #666;
+   color: #888;
    font-size: 0.875rem;
 }
 
@@ -384,15 +417,13 @@ header {
    }
 }
 
-@media (max-width: 1024px) {
-   .footer-content {
-       grid-template-columns: 1fr 1fr;
-   }
-}
-
 @media (max-width: 768px) {
    .content-container img {
-       height: 40px;
+       height: 32px;
+   }
+
+   .banner-section {
+       margin-top: 56px;
    }
 
    /* 모바일 네비게이션 */
@@ -482,11 +513,11 @@ header {
 
    /* 모바일 섹션 */
    .section-container:first-of-type {
-       margin-bottom: 24px;  /* 32px에서 24px로 수정 */
+       margin-bottom: 20px;
    }
 
    .section-title {
-       font-size: 1.5rem;
+       font-size: 1rem;
        margin-bottom: 16px;
    }
    
@@ -495,10 +526,25 @@ header {
        grid-template-columns: repeat(2, 1fr);
        gap: 16px;
    }
-   
+
+   /* 모바일 푸터 */
+   .site-footer {
+       padding: 30px 0 16px;
+       margin-top: 30px;
+   }
+
    .footer-content {
-       grid-template-columns: 1fr;
-       gap: 40px;
+       flex-direction: column;
+       gap: 24px;
+   }
+
+   .social-links {
+       gap: 10px;
+   }
+
+   .social-icon img {
+       width: 28px;
+       height: 28px;
    }
 }
 
@@ -511,9 +557,5 @@ header {
 @media (max-width: 640px) {
    .footer-content {
        gap: 32px;
-   }
-   
-   .site-footer {
-       padding: 40px 0 20px;
    }
 }
