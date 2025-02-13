@@ -1,6 +1,6 @@
 // Banner related variables
 let currentSlide = 0;
-const totalSlides = 8; // 8개의 배너 이미지
+const totalSlides = 8;
 const bannerContainer = document.getElementById('banner-container');
 const bannerWrapper = document.querySelector('.banner-wrapper');
 let autoSlideInterval;
@@ -56,13 +56,38 @@ function prevSlide() {
 
 // Start auto slide
 function startAutoSlide() {
-    autoSlideInterval = setInterval(nextSlide, 5000); // 5초마다 슬라이드 변경
+    autoSlideInterval = setInterval(nextSlide, 5000);
 }
 
 // Reset auto slide
 function resetAutoSlide() {
     clearInterval(autoSlideInterval);
     startAutoSlide();
+}
+
+// Adjust banner size
+function adjustBannerSize() {
+    const banner = document.querySelector('.banner-wrapper');
+    if (banner) {
+        const width = window.innerWidth;
+        if (width <= 768) {
+            banner.style.height = '270px';
+            // 모바일에서 이미지 크기 조정
+            const images = banner.querySelectorAll('img');
+            images.forEach(img => {
+                img.style.width = '100%';
+                img.style.height = '270px';
+            });
+        } else {
+            banner.style.height = '540px';
+            // PC에서 이미지 크기 복원
+            const images = banner.querySelectorAll('img');
+            images.forEach(img => {
+                img.style.width = '1140px';
+                img.style.height = '540px';
+            });
+        }
+    }
 }
 
 // Initialize banner
@@ -121,14 +146,13 @@ function initializeBanner() {
         isDragging = false;
         const difference = touchStartX - touchEndX;
         
-        if (Math.abs(difference) > 50) { // 50px 이상 스와이프했을 때만 슬라이드 전환
+        if (Math.abs(difference) > 50) {
             if (difference > 0) {
                 nextSlide();
             } else {
                 prevSlide();
             }
         } else {
-            // Return to current slide if swipe wasn't long enough
             updateSlidePosition();
         }
         
@@ -190,15 +214,6 @@ function initializeBanner() {
     });
 
     bannerWrapper.addEventListener('mouseleave', startAutoSlide);
-}
-
-// Adjust banner size for responsive design
-function adjustBannerSize() {
-    const banner = document.querySelector('.banner-wrapper');
-    if (banner) {
-        const width = window.innerWidth;
-        banner.style.height = width <= 768 ? '270px' : '540px';
-    }
 }
 
 // Initialize on page load
