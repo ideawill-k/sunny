@@ -38,7 +38,6 @@ function goToSlide(index) {
 function updateSlidePosition() {
     const offset = -(currentSlide * (100 / totalSlides));
     bannerContainer.style.transform = `translateX(${offset}%)`;
-    bannerContainer.style.width = `${totalSlides * 100}%`;
 }
 
 // Next slide
@@ -79,7 +78,7 @@ function adjustBannerSize() {
                 const img = slide.querySelector('img');
                 if (img) {
                     img.style.width = '100%';
-                    img.style.height = '270px';
+                    img.style.height = '100%';
                     img.style.objectFit = 'cover';
                 }
             });
@@ -88,9 +87,9 @@ function adjustBannerSize() {
             slides.forEach(slide => {
                 const img = slide.querySelector('img');
                 if (img) {
-                    img.style.width = '1140px';
-                    img.style.height = '540px';
-                    img.style.objectFit = 'contain';
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.objectFit = 'cover';
                 }
             });
         }
