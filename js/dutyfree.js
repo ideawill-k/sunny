@@ -1,6 +1,15 @@
 // dutyfree.js
 import { COUPONS, BRAND_COLORS } from './data/coupons.js';
 
+// 이미지 미리 로드
+function preloadImages(couponData) {
+    const images = couponData.map(coupon => coupon.brandLogo);
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+}
+
 // 현재 정렬 상태
 let currentSort = 'recommend';
 
@@ -63,13 +72,7 @@ function updateFilterButtons() {
         if (!container) return;
 
         container.querySelectorAll('.filter-btn').forEach(btn => {
-            const isActive = filterState[group].has(btn.dataset.filter);
-            btn.classList.toggle('active', isActive);
-            if (isActive) {
-                btn.style.backgroundColor = BRAND_COLORS[btn.dataset.filter] || '#FF6B8B';
-            } else {
-                btn.style.backgroundColor = '';
-            }
+            btn.classList.toggle('active', filterState[group].has(btn.dataset.filter));
         });
     });
 }
@@ -99,15 +102,19 @@ function sortCoupons(coupons) {
 
 // 모달 관련 함수
 function showCouponModal(coupon) {
+    // 이미지나 외부 URL이 없는 경우 모달을 띄우지 않음
+    if (!coupon.imageUrl && !coupon.externalUrl) {
+        return;
+    }
+
     if (coupon.externalUrl) {
         window.open(coupon.externalUrl, '_blank');
         return;
     }
 
-    if (!coupon.imageUrl) return;
-
     const modal = document.getElementById('couponModal');
     const modalImg = document.getElementById('modalImage');
+    const closeBtn = modal.querySelector('.close');
     const downloadBtn = document.getElementById('downloadBtn');
     const shareBtn = document.getElementById('shareBtn');
 
@@ -143,6 +150,9 @@ document.querySelector('.close')?.addEventListener('click', () => {
 
 // 필터 초기화
 function initializeFilters() {
+    // 이미지 미리 로드
+    preloadImages(COUPONS);
+
     // 카테고리 버튼 이벤트
     document.querySelectorAll('.category-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -237,55 +247,53 @@ function loadCoupons() {
 function createCouponElement(coupon) {
     const couponDiv = document.createElement('div');
     couponDiv.className = 'coupon-card';
-    const themeColor = BRAND_COLORS[coupon.brand];
     
-    couponDiv.style.setProperty('--brand-color', themeColor);
-    couponDiv.style.borderColor = themeColor;
+    couponDiv.style.setProperty('--brand-color', BRAND_COLORS[coupon.brand]);
     
-    const barcodeContent = coupon.barcode ? `
-        <div class="barcode-container">
-            <svg class="barcode"
-                jsbarcode-format="code128"
-                jsbarcode-value="${coupon.barcode}"
-                jsbarcode-width="2"
-                jsbarcode-height="60"
-                jsbarcode-fontSize="12"
-                jsbarcode-textmargin="0">
-            </svg>
-        </div>
-    ` : `
-        <div class="click-instead" style="color: ${themeColor}">
-            Click
-        </div>
-    `;
-
     couponDiv.innerHTML = `
-        <div class="coupon-header" style="border-color: ${themeColor}">
-            <img src="${coupon.brandLogo}" alt="${coupon.brand}" class="brand-logo">
-            <div class="discount-wrapper" style="color: ${themeColor}">
-                <span class="discount-amount">${coupon.discount}</span>
-                <span class="discount-type">${coupon.discountType}</span>
+        <div class="coupon-header">
+            <div class="brand-container">
+                <img src="${coupon.brandLogo}" alt="${coupon.brand}" class="brand-logo">
+            </div>
+            <div class="discount-container">
+                <div class="discount-wrapper">
+                    <span class="discount-amount">${coupon.discount}</span>
+                    <span class="discount-type">${coupon.discountType}</span>
+                </div>
             </div>
         </div>
-        <div class="coupon-content" style="border-color: ${themeColor}">
-            ${barcodeContent}
+        <div class="coupon-content">
+            ${coupon.barcode ? `
+                <div class="barcode-container">
+                    <svg class="barcode"
+                        jsbarcode-format="code128"
+                        jsbarcode-value="${coupon.barcode}"
+                        jsbarcode-width="2"
+                        jsbarcode-height="45"
+                        jsbarcode-fontSize="12"
+                        jsbarcode-textmargin="0">
+                    </svg>
+                </div>
+            ` : `
+                <div class="click-instead">Click↗</div>
+            `}
         </div>
         <div class="coupon-footer">
             <div class="location-info">
-                <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="${themeColor}">
+                <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                           d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                           d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span style="color: ${themeColor}">${coupon.location}</span>
+                <span>${coupon.location}</span>
             </div>
             <div class="product-info">
-                <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="${themeColor}">
+                <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                           d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <span style="color: ${themeColor}">${coupon.product}</span>
+                <span>${coupon.product}</span>
             </div>
         </div>
     `;
@@ -303,5 +311,4 @@ function generateBarcodes() {
 // 페이지 초기화
 document.addEventListener('DOMContentLoaded', () => {
     initializeFilters();
-    updateSortButtons();
 });
