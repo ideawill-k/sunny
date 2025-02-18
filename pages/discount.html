@@ -3,219 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>여행할인 - 써니쿠폰</title>
+    <meta name="description" content="써니쿠폰에서 면세점 할인, 해외여행 할인, 여행 편의 서비스를 한 번에 만나보세요. 최대 70% 할인 혜택과 다양한 여행 서비스를 제공합니다.">
+    <meta name="keywords" content="면세점할인, 여행할인, 여행편의, 면세점쿠폰, 해외여행, 여행자보험, 해외유심">
+    <title>여행 할인 | 써니쿠폰</title>
     
     <!-- External CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Internal CSS -->
-    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/discount.css">
 </head>
 <body>
     <div class="page-container">
         <!-- Header -->
-        <header class="border-b">
+        <header>
             <div class="content-container">
                 <div class="flex items-center justify-between h-16">
-                    <!-- Logo -->
-                    <a href="../index.html" class="flex-shrink-0 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
-                        <img src="../images/common/sunny_coupon_logo.png" alt="SUNNY COUPON" class="h-12 w-auto">
+                    <a href="/" class="flex-shrink-0">
+                        <img src="../images/sunny_coupon_logo.png" alt="SUNNY COUPON" class="h-8">
                     </a>
                     
-                    <nav class="flex-1 flex items-center justify-end">
-                        <div class="hidden md:flex space-x-8">
-                            <a href="../pages/about.html" class="nav-link text-gray-900 text-lg font-medium px-3 py-2
-                                transition-all duration-200 
-                                hover:text-red-600 
-                                hover:-translate-y-0.5 
-                                hover:drop-shadow-md">
-                                About
-                            </a>
-                            <a href="../pages/dutyfree.html" class="nav-link text-gray-900 text-lg font-medium px-3 py-2
-                                transition-all duration-200 
-                                hover:text-red-600 
-                                hover:-translate-y-0.5 
-                                hover:drop-shadow-md">
-                                면세점할인
-                            </a>
-                            <a href="../pages/discount.html" class="nav-link text-gray-900 text-lg font-medium px-3 py-2
-                                transition-all duration-200 
-                                hover:text-red-600 
-                                hover:-translate-y-0.5 
-                                hover:drop-shadow-md">
-                                여행할인
-                            </a>
-                            <a href="../pages/info.html" class="nav-link text-gray-900 text-lg font-medium px-3 py-2
-                                transition-all duration-200 
-                                hover:text-red-600 
-                                hover:-translate-y-0.5 
-                                hover:drop-shadow-md">
-                                여행정보
-                            </a>
-                        </div>
-                        <!-- 모바일 메뉴 버튼 -->
-                        <button id="mobile-menu-button" class="md:hidden">
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
+                    <nav class="nav flex space-x-8">
+                        <a href="../pages/dutyfree.html" class="nav-link">면세점할인</a>
+                        <a href="../pages/discount.html" class="nav-link">여행할인</a>
+                        <a href="../pages/info.html" class="nav-link">여행정보</a>
                     </nav>
                 </div>
             </div>
         </header>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="pt-2 pb-4 space-y-1">
-                <a href="../pages/about.html" class="block px-4 py-2 text-base font-medium text-gray-900">About</a>
-                <a href="../pages/dutyfree.html" class="block px-4 py-2 text-base font-medium text-gray-900">면세점할인</a>
-                <a href="../pages/discount.html" class="block px-4 py-2 text-base font-medium text-gray-900">여행할인</a>
-                <a href="../pages/info.html" class="block px-4 py-2 text-base font-medium text-gray-900">여행정보</a>
-            </div>
-        </div>
-
-                <!-- Main Content -->
-                <main>
-                    <div class="content-container py-6">
-                        <!-- Title Section -->
-                        <div class="text-center mb-8">
-                            <h2 class="text-4xl font-bold font-heading bg-gradient-to-r from-rose-500 to-purple-600 text-transparent bg-clip-text inline-block">여행할인</h2>
-                            <p class="text-gray-600 text-sm mt-2 font-body">최대 98% 특별 할인 혜택</p>
-                        </div>
-        
-                        <!-- Discount Cards Grid -->
-                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                            <!-- Tour Moz 영역 -->
-                            <div class="discount-card insurance-card">
-                                <div class="card-inner">
-                                    <div class="card-tag">TOUR MOZ</div>
-                                    <div class="card-title">국내여행자보험</div>
-                                    <div class="card-subtitle">가족여행을 위한</div>
-                                    <div class="card-description">맞춤형 보험서비스</div>
-                                </div>
-                            </div>
-        
-                            <div class="discount-card insurance-card">
-                                <div class="card-inner">
-                                    <div class="card-tag">TOUR MOZ</div>
-                                    <div class="card-title">해외여행자보험</div>
-                                    <div class="card-subtitle">한 눈에 꼼꼼비교</div>
-                                    <div class="card-description">맞춤형 보험서비스</div>
-                                </div>
-                            </div>
-        
-                            <!-- Trip365 영역 -->
-                            <div class="discount-card esim-card">
-                                <div class="card-inner">
-                                    <div class="card-tag">TRIP 365</div>
-                                    <div class="card-title">해외 E-SIM</div>
-                                    <div class="card-subtitle">최대 98% 할인</div>
-                                    <div class="card-description">즉시발급 가능</div>
-                                </div>
-                            </div>
-        
-                            <div class="discount-card esim-card">
-                                <div class="card-inner">
-                                    <div class="card-tag">TRIP 365</div>
-                                    <div class="card-title">해외 USIM</div>
-                                    <div class="card-subtitle">최대 89% 할인</div>
-                                    <div class="card-description">당일수령 가능</div>
-                                </div>
-                            </div>
-        
-                            <!-- 쇼핑 영역 -->
-                            <div class="discount-card shop-donki-card">
-                                <div class="card-inner">
-                                    <div class="card-tag">돈키호테</div>
-                                    <div class="discount-amount">15% OFF</div>
-                                    <div class="card-subtitle">면세 최대 10% + 추가 5%</div>
-                                    <div class="card-description">일본 돈키호테 전지점</div>
-                                </div>
-                            </div>
-        
-                            <div class="discount-card shop-bic-card">
-                                <div class="card-inner">
-                                    <div class="card-tag">빅카메라</div>
-                                    <div class="discount-amount">17% OFF</div>
-                                    <div class="card-subtitle">면세 최대 10% + 추가 7%</div>
-                                    <div class="card-description">일본 빅카메라 전지점</div>
-                                </div>
-                            </div>
-        
-                            <!-- Trip.com 영역 -->
-                            <div class="discount-card trip-card">
-                                <div class="card-inner">
-                                    <div class="card-tag">TRIP.COM</div>
-                                    <div class="card-title">기차표 할인</div>
-                                    <div class="card-subtitle">예약수수료 면제</div>
-                                </div>
-                            </div>
-        
-                            <div class="discount-card trip-card">
-                                <div class="card-inner">
-                                    <div class="card-tag">TRIP.COM</div>
-                                    <div class="card-title">호텔 할인</div>
-                                    <div class="card-subtitle">국내외 호텔 초특가</div>
-                                </div>
-                            </div>
-        
-                            <div class="discount-card trip-card">
-                                <div class="card-inner">
-                                    <div class="card-tag">TRIP.COM</div>
-                                    <div class="card-title">항공권 할인</div>
-                                    <div class="card-subtitle">항공권 최저가 검색</div>
-                                </div>
-                            </div>
-        
-                            <div class="discount-card trip-card">
-                                <div class="card-inner">
-                                    <div class="card-tag">TRIP.COM</div>
-                                    <div class="card-title">투어+티켓 할인</div>
-                                    <div class="card-subtitle">놓칠 수 없는 액티비티</div>
-                                </div>
-                            </div>
+        <main class="mt-16 p-4">
+            <!-- Filter Section -->
+            <section class="filter-section max-w-6xl mx-auto">
+                <div class="filter-wrapper">
+                    <!-- 여행 Filter -->
+                    <div class="filter-group">
+                        <button class="category-btn" data-filter="travel">여행</button>
+                        <div class="filter-buttons" id="travelFilters">
+                            <button class="filter-btn" data-filter="숙소">숙소</button>
+                            <button class="filter-btn" data-filter="항공권">항공권</button>
+                            <button class="filter-btn" data-filter="투어/티켓">투어/티켓</button>
+                            <button class="filter-btn" data-filter="미식">미식</button>
+                            <button class="filter-btn" data-filter="패키지">패키지</button>
                         </div>
                     </div>
-                </main>
 
-        <!-- Footer -->
-        <footer class="mt-16 pb-8 text-sm text-gray-600 border-t pt-8">
-            <div class="content-container">
-                <!-- 소셜 링크 -->
-                <div class="social-links">
-                    <a href="#" class="social-link bg-green-500 hover:bg-green-600">
-                        <i class="fab fa-line text-white"></i>
-                    </a>
-                    <a href="#" class="social-link bg-yellow-500 hover:bg-yellow-600">
-                        <i class="fab fa-kakao text-white"></i>
-                    </a>
-                    <a href="#" class="social-link bg-pink-500 hover:bg-pink-600">
-                        <i class="fab fa-instagram text-white"></i>
-                    </a>
-                    <a href="#" class="social-link bg-blue-500 hover:bg-blue-600">
-                        <i class="fab fa-facebook text-white"></i>
-                    </a>
+                    <!-- 지역 Filter -->
+                    <div class="filter-group">
+                        <button class="category-btn" data-filter="region">지역</button>
+                        <div class="filter-buttons" id="regionFilters">
+                            <button class="filter-btn" data-filter="일본">일본</button>
+                            <button class="filter-btn" data-filter="미국">미국</button>
+                            <button class="filter-btn" data-filter="베트남">베트남</button>
+                            <button class="filter-btn" data-filter="태국">태국</button>
+                            <button class="filter-btn" data-filter="유럽">유럽</button>
+                            <button class="filter-btn" data-filter="필리핀">필리핀</button>
+                            <button class="filter-btn" data-filter="대만">대만</button>
+                        </div>
+                    </div>
+
+                    <!-- 서비스 Filter -->
+                    <div class="filter-group">
+                        <button class="category-btn" data-filter="service">서비스</button>
+                        <div class="filter-buttons" id="serviceFilters">
+                            <button class="filter-btn" data-filter="쇼핑">쇼핑</button>
+                            <button class="filter-btn" data-filter="교통">교통</button>
+                            <button class="filter-btn" data-filter="통신">통신</button>
+                            <button class="filter-btn" data-filter="보험">보험</button>
+                            <button class="filter-btn" data-filter="기타">기타</button>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- 회사 정보 -->
-                <div class="space-y-1">
-                    <p class="font-bold text-base mb-2">대명인터네셔널</p>
-                    <p class="leading-relaxed">대표이사 : 신채현 | 사업자등록번호 : 172-40-00048</p>
-                    <p class="leading-relaxed">제휴문의 : sunnycoupon@naver.com</p>
-                    <p class="leading-relaxed">통신판매신고 : 제2018-부산남구-2047호</p>
-                    <p class="leading-relaxed">부산광역시 남구 신선로 365, 317호</p>
-                    <p class="mt-2">© Copyright 2019 SunnyCoupon. All Rights Reserved.</p>
+                <!-- Selected Filters Display -->
+                <div class="selected-filters"></div>
+            </section>
+
+            <!-- Sort Section -->
+            <section class="sort-section max-w-6xl mx-auto">
+                <div class="sort-buttons">
+                    <button class="sort-btn active" data-sort="recommend">추천순</button>
+                    <button class="sort-btn" data-sort="recent">할인순</button>
+                    <button class="sort-btn" data-sort="popular">인기순</button>
+                </div>
+            </section>
+
+            <!-- Discounts Grid -->
+            <section class="discounts-section max-w-6xl mx-auto">
+                <div class="discounts-grid" id="discountsContainer">
+                    <!-- 할인 상품이 동적으로 추가됩니다 -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-links">
+                        <h4><a href="../pages/about.html" class="nav-style-link">About</a></h4>
+                    </div>
+                    <div class="company-info">
+                        <p>대명인터네셔널</p>
+                        <p>사업자등록번호: 172-40-00048</p>
+                        <p>통신판매신고: 제2018-부산남구-2047호</p>
+                        <p>부산광역시 남구 신선로 365, 317호</p>
+                        <p>제휴문의: sunnycoupon@naver.com</p>
+                    </div>
+                </div>
+        
+                <div class="footer-right">
+                    <div class="footer-links">
+                        <h4>Follow Us</h4>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/sunnycoupon/" target="_blank" class="social-icon">
+                            <img src="../images/social/footer_insta.png" alt="Instagram">
+                        </a>
+                        <a href="http://pf.kakao.com/_YNRxij" target="_blank" class="social-icon">
+                            <img src="../images/social/footer_kakao.png" alt="KakaoTalk">
+                        </a>
+                        <a href="https://blog.naver.com/sunnycouponblog" target="_blank" class="social-icon">
+                            <img src="../images/social/footer_Nblog.png" alt="Blog">
+                        </a>
+                        <a href="https://cafe.naver.com/miningkorea.cafe?" target="_blank" class="social-icon">
+                            <img src="../images/social/footer_navercafe.png" alt="Naver Cafe">
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.sunnycoupon.www" target="_blank" class="social-icon">
+                            <img src="../images/social/footert_googleplay_small.png" alt="Google Play">
+                        </a>
+                    </div>
                 </div>
             </div>
+        
+            <div class="footer-bottom">
+                <p>&copy; 2019 SunnyCoupon. All rights reserved.</p>
+            </div>
         </footer>
+
+        <!-- Top Button -->
+        <button id="topButton" class="top-button" aria-label="맨 위로 이동">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </button>
     </div>
 
     <!-- Scripts -->
-    <script src="../js/common.js"></script>
-    <script src="../js/discount.js"></script>
+    <script src="../js/index.js"></script>
+    <script type="module" src="../js/discount.js"></script>
 </body>
 </html>

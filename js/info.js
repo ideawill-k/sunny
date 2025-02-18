@@ -1,87 +1,110 @@
-// 모바일 메뉴 토글
-function initializeMobileMenu() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('show');
-        });
+// info.js
+
+// 카드 정보 및 링크 설정
+const INFO_CARDS = {
+    'airport': {
+        url: '../pages/info/airport.html',
+        title: '공항안내'
+    },
+    'dutyfree': {
+        url: '../pages/info/dutyfree.html',
+        title: '면세점소식'
+    },
+    'destination': {
+        url: '../pages/info/destination.html',
+        title: '여행지추천'
+    },
+    'supplies': {
+        url: '../pages/info/supplies.html',
+        title: '여행용품추천'
     }
+};
+
+// 마우스 이펙트 추가
+function addMouseEffect(card) {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // 카드 내부에서의 마우스 위치를 백분율로 계산
+        const xPercent = (x / rect.width) * 100;
+        const yPercent = (y / rect.height) * 100;
+
+        // 그라데이션 효과 적용
+        card.style.background = `
+            radial-gradient(
+                circle at ${xPercent}% ${yPercent}%, 
+                rgba(255,255,255,0.1) 0%, 
+                transparent 50%
+            ),
+            ${getCardBaseColor(card)}
+        `;
+    });
+
+    // 마우스가 떠났을 때 원래 스타일로 복구
+    card.addEventListener('mouseleave', () => {
+        card.style.background = getCardBaseColor(card);
+    });
 }
 
-// 카드 애니메이션 초기화
-function initializeCardAnimations() {
-    const cards = document.querySelectorAll('.group');
+// 카드 종류에 따른 기본 배경색 반환
+function getCardBaseColor(card) {
+    if (card.classList.contains('airport-card')) {
+        return 'linear-gradient(135deg, #fff, #ecfdf5)';
+    } else if (card.classList.contains('dutyfree-card')) {
+        return 'linear-gradient(135deg, #fff, #fff1f2)';
+    } else if (card.classList.contains('destination-card')) {
+        return 'linear-gradient(135deg, #fff, #fef3c7)';
+    } else if (card.classList.contains('supplies-card')) {
+        return 'linear-gradient(135deg, #fff, #eef2ff)';
+    }
+    return 'white';
+}
+
+// 카드 클릭 이벤트 초기화
+function initializeCardEvents() {
+    const cards = document.querySelectorAll('.info-card');
     
-    // Intersection Observer 설정
+    cards.forEach(card => {
+        // 마우스 이펙트 추가
+        addMouseEffect(card);
+
+        // 클릭 이벤트
+        card.addEventListener('click', () => {
+            const cardType = card.dataset.type;
+            if (cardType && INFO_CARDS[cardType]) {
+                // 클릭 효과 추가
+                card.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    card.style.transform = '';
+                    window.location.href = INFO_CARDS[cardType].url;
+                }, 150);
+            }
+        });
+    });
+}
+
+// 스크롤 감지 및 애니메이션 효과
+function initializeScrollEffects() {
+    const cards = document.querySelectorAll('.info-card');
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                observer.unobserve(entry.target); // 한 번 애니메이션이 실행되면 관찰 중단
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
         });
     }, {
         threshold: 0.1,
-        rootMargin: '50px'
+        rootMargin: '20px'
     });
 
-    // 각 카드 관찰 시작
-    cards.forEach(card => {
-        observer.observe(card);
-    });
+    cards.forEach(card => observer.observe(card));
 }
 
-// 스크롤 애니메이션 부드럽게 처리
-function initializeSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-}
-
-// 현재 활성화된 네비게이션 링크 표시
-function highlightCurrentPage() {
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath.split('/').pop()) {
-            link.classList.add('text-blue-600');
-            link.classList.add('font-semibold');
-        }
-    });
-}
-
-// 반응형 이미지 로딩 최적화
-function lazyLoadImages() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                observer.unobserve(img);
-            }
-        });
-    });
-
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// 성능 최적화를 위한 디바운스 함수
+// 디바운스 함수
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -94,35 +117,32 @@ function debounce(func, wait) {
     };
 }
 
-// 윈도우 리사이즈 이벤트 핸들러
-const handleResize = debounce(() => {
-    // 리사이즈 시 필요한 조정 작업
-    const isMobile = window.innerWidth < 768;
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (!isMobile && mobileMenu) {
-        mobileMenu.classList.add('hidden');
-    }
-}, 250);
+// Top 버튼 처리
+function handleTopButton() {
+    const topButton = document.getElementById('topButton');
+    if (!topButton) return;
+
+    const handleScroll = debounce(() => {
+        if (window.scrollY > 200) {
+            topButton.classList.add('visible');
+        } else {
+            topButton.classList.remove('visible');
+        }
+    }, 100);
+
+    window.addEventListener('scroll', handleScroll);
+
+    topButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
 // 페이지 로드 시 초기화
-document.addEventListener('DOMContentLoaded', function() {
-    initializeMobileMenu();
-    initializeCardAnimations();
-    initializeSmoothScroll();
-    highlightCurrentPage();
-    lazyLoadImages();
-    
-    // 윈도우 리사이즈 이벤트 리스너
-    window.addEventListener('resize', handleResize);
-    
-    // 터치 디바이스 감지
-    if ('ontouchstart' in window) {
-        document.body.classList.add('touch-device');
-    }
-});
-
-// 페이지 언로드 시 정리
-window.addEventListener('beforeunload', () => {
-    window.removeEventListener('resize', handleResize);
+document.addEventListener('DOMContentLoaded', () => {
+    initializeCardEvents();
+    initializeScrollEffects();
+    handleTopButton();
 });

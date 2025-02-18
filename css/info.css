@@ -1,173 +1,147 @@
-/* Content Container */
-.content-container {
-    max-width: 1024px;
+/* info.css */
+
+/* Main Content Styles */
+.info-main {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 64px - 280px); /* header와 footer 높이 제외 */
+}
+
+/* Title Section */
+.title-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.main-title {
+    font-family: 'GmarketSans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(120deg, #2563eb, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+/* Info Grid */
+.info-grid {
+    max-width: 1140px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
     padding: 0 1rem;
 }
 
-/* Font Settings */
-.font-heading {
-    font-family: 'GmarketSans', sans-serif;
-}
-
-.font-body {
-    font-family: 'Pretendard', sans-serif;
-}
-
-/* Grid Layout */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-}
-
-@media (min-width: 1024px) {
-    .grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
-    }
-}
-
-/* Card Border Colors */
-.airport-card {
-    border: 2px solid rgb(16 185 129); /* emerald-500 */
-}
-
-.dutyfree-card {
-    border: 2px solid rgb(244 63 94); /* rose-500 */
-}
-
-.destination-card {
-    border: 2px solid rgb(245 158 11); /* amber-500 */
-}
-
-.supplies-card {
-    border: 2px solid rgb(99 102 241); /* indigo-500 */
-}
-
-.faq-card {
-    border: 2px solid rgb(168 85 247); /* purple-500 */
-}
-
-/* 기존의 .info-card 스타일 수정 */
+/* Card Styles */
 .info-card {
     position: relative;
     background: white;
     border-radius: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 100%;
     cursor: pointer;
-    will-change: transform, box-shadow;
-    -webkit-tap-highlight-color: transparent;
+    height: 220px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 호버 효과 수정 */
-.info-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-
-/* 각 카드의 호버 시 테두리 색상 진하게 */
-.airport-card:hover {
-    border-color: rgb(4 120 87); /* emerald-600 */
-}
-
-.dutyfree-card:hover {
-    border-color: rgb(225 29 72); /* rose-600 */
-}
-
-.destination-card:hover {
-    border-color: rgb(217 119 6); /* amber-600 */
-}
-
-.supplies-card:hover {
-    border-color: rgb(79 70 229); /* indigo-600 */
-}
-
-.faq-card:hover {
-    border-color: rgb(147 51 234); /* purple-600 */
-}
-
-.info-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    background: rgba(255,255,255,0.1);
-    pointer-events: none;
-}
-
-.info-card:hover::after {
-    opacity: 1;
-}
-
-/* Card Content */
-.card-inner {
+.card-content {
     padding: 1.5rem;
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 /* Icon Styles */
-.card-icon {
-    font-size: 1.5rem;
+.icon-wrapper {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
     margin-bottom: 1rem;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
 }
 
-.info-card:hover .card-icon {
+.icon-wrapper i {
+    font-size: 1.5rem;
+}
+
+/* Card Theme Colors */
+.airport-card .icon-wrapper {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.dutyfree-card .icon-wrapper {
+    background: rgba(244, 63, 94, 0.1);
+    color: #F43F5E;
+}
+
+.destination-card .icon-wrapper {
+    background: rgba(245, 158, 11, 0.1);
+    color: #F59E0B;
+}
+
+.supplies-card .icon-wrapper {
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366F1;
+}
+
+/* Card Text Styles */
+.info-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #1a1a1a;
+}
+
+.info-card p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #6b7280;
+}
+
+/* Hover Effects */
+.info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.info-card:hover .icon-wrapper {
     transform: scale(1.1);
 }
 
-/* Text Styles */
-.card-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #1f2937;
+.airport-card:hover {
+    background: linear-gradient(135deg, #fff, #ecfdf5);
 }
 
-.card-description {
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin-bottom: 1rem;
+.dutyfree-card:hover {
+    background: linear-gradient(135deg, #fff, #fff1f2);
 }
 
-/* Navigation Links - 수정된 부분 */
-.nav-link {
-    position: relative;
-    transition: color 0.2s ease;
-    display: inline-block;
+.destination-card:hover {
+    background: linear-gradient(135deg, #fff, #fef3c7);
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;  /* 왼쪽 정렬로 수정 */
-    width: 0;
-    height: 2px;
-    background: #dc2626;  /* 붉은색 밑줄 */
-    transition: width 0.2s ease;
-    transform: none;  /* transform 제거 */
-}
-
-.nav-link:hover::after {
-    width: 100%;
+.supplies-card:hover {
+    background: linear-gradient(135deg, #fff, #eef2ff);
 }
 
 /* Animation */
-@keyframes fadeIn {
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -175,63 +149,42 @@
     }
 }
 
-.fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Touch Device Optimization */
-@media (hover: none) {
-    .info-card:active {
-        transform: scale(0.98);
-        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        transition: all 0.1s ease;
-    }
-}
-
-/* Mobile Menu */
-.mobile-menu {
-    transform: translateY(-1rem);
+.info-card {
+    animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
-    transition: all 0.3s ease;
 }
 
-.mobile-menu.show {
-    transform: translateY(0);
-    opacity: 1;
-}
+.info-card:nth-child(1) { animation-delay: 0.1s; }
+.info-card:nth-child(2) { animation-delay: 0.2s; }
+.info-card:nth-child(3) { animation-delay: 0.3s; }
+.info-card:nth-child(4) { animation-delay: 0.4s; }
 
-/* Social Links */
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.social-link {
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    transition: all 0.2s;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .content-container {
-        padding: 0.75rem;
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
+    
+    .info-card {
+        height: 200px;
+    }
+}
 
-    .card-inner {
+@media (max-width: 640px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-card {
+        height: 180px;
+    }
+    
+    .card-content {
         padding: 1.25rem;
-    }
-
-    .card-title {
-        font-size: 1rem;
-    }
-
-    .card-description {
-        font-size: 0.813rem;
     }
 }
